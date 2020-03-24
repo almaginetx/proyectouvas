@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CEANV</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/avatar.png">
+</head>
+<body>
+<!-- ////////////////////////////////// app-homeForm-->
+<section class="app-homeForm">
+<!--	{%if track.title%}
+	<h2>{{track.title}}</h2>
+	{%endif%} -->
+	{%if track.audio%}
+	<audio controls>
+    <source src="/media/{{track.audio}}" type="audio/mpeg">
+    Su navegador no soporta elementos de audio.
+	</audio>
+	{%endif%}
+	<h3>Hace {{track.create_at|timesince}}</h3>
+	<div>
+	<article>
+		<a href="{% url 'app.userprofile' track.user.userprofile.slug%}">{%if track.user.userprofile.avatar%}
+			<img src="/media/{{track.user.userprofile.avatar}}" alt="User: {{track.user.userprofile.nickname}}.">
+			{%else%}
+			<img src="/static/img/avatar.png" alt="User: {{userprofile.nickname}}.">
+			{%endif%}</a>
+		<h4>Creado por: {{track.user.userprofile.nickname}} el {{track.create_at}}</h4>
+	</article>
+	</div>
+</section>
+
+<style type="text/css">
+*{margin: 0;padding: 0;text-decoration: none;list-style: none;font-family: 'Roboto', sans-serif;-webkit-transition: All 0.2s ease;-moz-transition: All 0.2s ease;-o-transition: All 0.2s ease;-ms-transition: All 0.2s ease;transition: All 0.2s ease;box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+body{background:#000;}
+	.app-homeForm{width:100%;}
+	.app-homeForm audio{width:100%;}
+	.app-homeForm{background:rgba(0,0,0,0.5);padding:20px;}
+	.app-homeForm h2{font-size: 20px;text-align:center;color:#fff;padding:10px;}
+	.app-homeForm h3{font-size: 12px;text-align:center;color:#fff;padding:10px;}
+	.app-homeForm h4{font-size: 12px;text-align:center;color:#fff;padding:10px;}
+	.app-homeForm img{width:120px;height:120px;display:inline-block;vertical-align:top;margin:5px;border-radius:50%;}
+	.app-homeForm div{text-align:center;}
+	.app-homeForm li{padding:20px;background:red;}
+</style>
+<style type="text/css">@media screen and (max-width:1000px){
+
+}</style>
+</body>
+</html>

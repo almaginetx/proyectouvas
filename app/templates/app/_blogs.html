@@ -1,0 +1,32 @@
+
+<section class="blog-list">
+{%for blog in blog%}
+    {%if blog.category.id == acategory.id%}
+   <article>
+    <a href="{% url 'app.blog' blog.slug%}">
+    <img src="/media/{{blog.picture}}"></img>
+    </a>
+    <h2><a href="{% url 'app.blog' blog.slug%}">{{blog.title}}</a></h2>
+    <p>{{blog.description|striptags|slice:":144"}}...</p>
+    <li>
+    <a href="{% url 'app.blog' blog.slug%}">Leer más</a>
+    </li>
+    <strong>Tema: {{blog.category}} - {{blog.create_at}}</strong>
+    </br></br>
+    </article>
+{%endif%} 
+{%endfor%}
+<style type="text/css">
+.blog-list{background:rgba(255,255,255,0.7);padding:10px;width:100%;}
+.blog-list article{border-radius:7px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,0.1);margin:10px;width:300px;display:inline-block;vertical-align:top;}
+.blog-list article img{width:100%;}
+.blog-list article h2 a{padding:10px;display:block;color:black;}
+.blog-list article p{padding:10px;}
+.blog-list article:hover{border: 1px solid blue;}
+.blog-list article strong{padding:10px;font-size:10px;display:block;}
+.blog-list article li a{margin:10px;display:inline-block;padding:10px;background:blue;border-radius:10px;color:white;}
+</style>
+<style type="text/css">@media screen and (max-width:1000px){
+.blog-list article{width:90%;}
+}</style>
+</section>

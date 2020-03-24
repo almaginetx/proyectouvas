@@ -1,0 +1,95 @@
+{% include 'app/_header.html'%}
+{% include 'app/_nav.html'%}
+<!-- ////////////////////////////////// app-homeForm-->
+
+<section class="app-homeForm">
+	<h1>Perfil de miembro:</h1>
+	{% if message %}<h2>{{ message }}</h2>
+	{%endif%}
+	<h2>{{userprofile.nickname}}</h2>
+	<h3>Año de Registro: {{userprofile.create_at|date:"Y"}}.</h3>
+    <h3>Costo de suscripción: 50 pts.</h3>
+    <h3>Ganancias por nivel: 350 pts.</h3>
+    <h3>Niveles creados: 3.</h3>
+    <a class="boton-blue" href="javascript:alerta();">Suscribirse a este perfil</a>
+</section>
+
+<script type="text/javascript">
+function alerta(){
+    alert("Usted no cuenta con suficientes puntos.");
+    }
+</script>
+
+<style type="text/css">
+    .boton-blue{padding: 10px 20px;display: inline-block;text-align: center;background: orange;border-radius: 5px;margin: 10px;color: white;font-weight: bold;}
+	.app-homeForm{width:30%;}
+	.app-homeForm{background:#000;padding:20px 30px 20px 0;}
+	.app-homeForm h1{padding:10px;color:#d2d2d2;background:#000;font-size:16px;}
+	.app-homeForm h2{font-size: 20px;text-align:left;color:#fff;padding:10px;}
+	.app-homeForm h3{font-size: 12px;text-align:left;color:#fff;padding:10px;}
+	.app-homeForm a{display:block;padding:20px;padding-left:60px;background:#f6c434 url(/static/img/icon.png) no-repeat left 5px center;background-size:50px;color:#000;border-radius:5px;opacity:0.8;font-weight:bold;}
+	.app-homeForm a:hover{opacity:1;}
+	.app-homeForm img{width:120px;height:120px;display:inline-block;vertical-align:top;margin:5px;border-radius:50%;}
+	.app-homeForm div{text-align:center;}
+	.app-homeForm article{display:inline-block;vertical-align:top;text-align:center;}
+	.app-homeForm article h4{margin-bottom:5px;color:#fff;display:block;width:130px;height:28px;overflow:hidden;font-size:12px;text-align:center;}
+
+</style>
+<style type="text/css">@media screen and (max-width:1000px){
+	input{width: 100%;}
+}</style>
+
+<!-- ////////////////////////////////// app-homeList-->
+<section class="app-homeList">
+	<header>
+		<div class="centered">
+		<figure onclick="load()">
+			{%if userprofile.avatar%}
+			<img src="/media/{{userprofile.avatar}}" alt="User: {{userprofile.nickname}}.">
+			{%else%}
+			<img src="/static/img/avatar.png" alt="User: {{userprofile.nickname}}.">
+			{%endif%}
+		</figure>
+		</div>
+	</header>
+{% include 'app/_lvl.html'%}
+
+	{%for track in track%}
+	{%if track.user.userprofile.id == userprofile.id%}
+	<article>
+		<a >{%if track.user.userprofile.avatar%}
+			<img src="/media/{{track.user.userprofile.avatar}}" alt="User: {{track.user.userprofile.nickname}}.">
+			{%else%}
+			<img src="/static/img/avatar.png" alt="User: {{track.user.userprofile.nickname}}.">{%endif%}</a>
+		<p><strong>{{track.user.userprofile.nickname}}:</strong> "{{track.title}}" <span> {{track.create_at|timesince}} ago</span></p>
+		<a href="{% url 'app.track' track.slug%}"><button></button></a>
+	</article>
+	{%endif%}
+	{%endfor%}
+
+</section>
+
+<style type="text/css">
+	*{margin: 0;padding: 0;text-decoration: none;list-style: none;font-family: 'Roboto', sans-serif;-webkit-transition: All 0.2s ease;-moz-transition: All 0.2s ease;-o-transition: All 0.2s ease;-ms-transition: All 0.2s ease;transition: All 0.2s ease;box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+
+	section{background:rgba(0,0,0,0.2);display:inline-block;vertical-align:top;width:49%;}
+
+.app-homeList {width: 69%}
+
+	.app-homeList header{position:relative;background:url(/static/img/banner.jpg)no-repeat center center;background-size:cover;background-attachment:fixed;margin-bottom:130px;height:200px;text-align:center;}
+		.centered{height: 100%;display:block;width:220px;margin: 0 auto;}
+		.app-homeList figure{background:rgba(119,119,119,0.1);no-repeat center center;background-size:100%;height:220px;width:220px;border-radius:50%;position:absolute;bottom:-115px;padding-top:25px}
+		.app-homeList figure img{border-radius:50%;width:160px;height:160px;}
+
+	.app-homeList article{position:relative;background:rgba(0,0,0,0.6);padding:10px;margin:2px;}
+	.app-homeList span{font-size:10px;}
+		.app-homeList article img{position:absolute;left:-35px;display:inline-block;width:70px;height:70px;border-radius:50%;}
+		.app-homeList p{padding-left:30px;padding-right:70px;display:inline-block;color:#fff;height:70px;overflow:hidden;font-size:14px;}
+		.app-homeList button{display:inline-block;position:absolute;top:10px;right:10px;width:70px;height:70px;background:#4b4b4b url(/static/img/play.png) no-repeat center center;background-size:40px;border:none;border-radius:5px;opacity:0.8;}
+		.app-homeList button:hover{opacity:1;cursor:pointer;}
+</style>
+<style type="text/css">@media screen and (max-width:1000px){
+	section{background:#0f0f0f;display:block;width:100%!important;}
+}</style>
+
+{% include 'app/_footer.html'%}

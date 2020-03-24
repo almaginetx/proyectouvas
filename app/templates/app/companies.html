@@ -1,0 +1,27 @@
+{% include 'app/_header.html'%}
+{% include 'app/_nav.html'%}
+
+<div class="tasks">
+<h2>Únete a nuestro Holding empresarial</h2>
+<p>Conoce nuestra lista de empresas y comienza a invertir con nuestra asesoría como miembro del Curso Ejecutivo de Alto Nivel para Visionarios.</br></p>
+</br>
+{%for company in company%}
+<article>
+<h5>{{company.title}}</h5>
+</br>
+<p>{{company.description}}</p>
+</br>
+<a href="javascript:holding()" >Adquirir título</a>
+</article>
+{%endfor%}
+</div>
+<style type="text/css">
+.tasks{width:100%;padding:20px;background:white;}
+.tasks article{display:block;margin:5px;padding:10px;border:1px solid #333;border-radius:5px;}
+</style>
+<script type="text/javascript">
+function holding(){
+    alert("Ingrese a una cuenta y adquiera PTS. Consulte con nuestros asesores.");
+    }
+</script>
+{% include 'app/_footer.html'%}

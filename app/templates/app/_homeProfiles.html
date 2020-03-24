@@ -1,0 +1,44 @@
+<!-- ////////////////////////////////// app-homeForm-->
+
+<section class="app-homeForm">
+<!--	<h2>Crea tus propias presentaciones y compartelas con usuarios destacados.</h2>
+	<a href="{%url 'app.signup'%}">Crea una presentación</a> -->
+		<div>
+		<h3>Comparte con usuarios destacados en nuestra red</h3>
+		{%for userprofile in userprofile%}
+        {%if userprofile.verified == 1%}
+		<article>
+		<a href="{% url 'app.userprofile' userprofile.slug%}">{%if userprofile.avatar%}
+			<img src="/media/{{userprofile.avatar}}" alt="User: {{userprofile.nickname}}.">
+			{%else%}
+			<img src="/static/img/avatar.png" alt="User: {{userprofile.nickname}}.">
+			{%endif%}</a>
+		<h4>{{userprofile.nickname}}</h4>
+		</article>
+        {%endif%}
+		{%endfor%}
+		</div>
+</section>
+
+<style type="text/css">
+	.app-homeForm{width:100%;}
+	.app-homeForm{background:#161f2d;padding:20px 30px 20px 0;}
+	.app-homeForm h2{font-size:20px;text-align:left;color:#fff;padding:10px;}
+	.app-homeForm h3{margin:20px;background:#0eb3bb;font-size:18px;text-align:left;color:#fff;padding:10px;border-radius:5px;}
+	.app-homeForm a{opacity:0.8;margin:10px;display: block;padding:10px;color:#fff;background:#3a95e6;border-radius:10px;text-align:center;}
+	.app-homeForm a:hover{opacity:1;}
+	.app-homeForm form{margin-top:10px;padding:20px;text-align:center;background:#000;width:100%;}
+	.app-homeForm label{font-size:0px;display:none;}
+	.app-homeForm input{padding: 10px;background:#fff;border:none;border-radius:5px;margin:3px auto;display:block;width: 100%;}
+	.app-homeForm button{background:#333;border:none;border-radius:30px;padding:10px;color:#fff;text-align:center;margin:5px;}
+	.app-homeForm img{width:120px;height:120px;display:inline-block;vertical-align:top;margin:5px;border-radius:50%;}
+	.app-homeForm div{text-align:center;}
+	.app-homeForm article{display:inline-block;vertical-align:top;text-align:center;}
+	.app-homeList span{font-size:10px;}
+	.app-homeForm article h4{margin-bottom:5px;color:#fff;display:block;height:28px;overflow:hidden;font-size:12px;text-align:center;}
+	.app-homeForm li{padding:20px;background:red;}
+
+</style>
+<style type="text/css">@media screen and (max-width:1000px){
+	input{width: 100%;}
+}</style>

@@ -1,0 +1,219 @@
+<div class="lvl">
+<h4>Mis suscriptores: (Nivel 1)</h4>
+<!-- USER 0-->
+{% if userprofiles.0.id%}
+<a href="{% url 'app.userprofile' userprofiles.0.slug%}">
+<div class="lvlfig">
+{%if userprofiles.0.avatar%}
+<img src="/media/{{userprofiles.0.avatar}}">
+{%else%}
+<img src="/static/img/avatar.png">
+{%endif%}
+</div>
+</a>
+{%else%}
+<a href="#">
+<div class="lvlfig">
+
+</div>
+</a>
+{%endif%}
+
+<!-- USER 1-->
+{% if userprofiles.1.id%}
+<a href="{% url 'app.userprofile' userprofiles.1.slug%}">
+<div class="lvlfig">
+{%if userprofiles.1.avatar%}
+<img src="/media/{{userprofiles.1.avatar}}">
+{%else%}
+<img src="/static/img/avatar.png">
+{%endif%}
+</div>
+</a>
+{%else%}
+<a href="#">
+<div class="lvlfig">
+
+</div>
+</a>
+{%endif%}
+
+<!-- USER 2-->
+{% if userprofiles.2.id%}
+<a href="{% url 'app.userprofile' userprofiles.2.slug%}">
+<div class="lvlfig">
+{%if userprofiles.2.avatar%}
+<img src="/media/{{userprofiles.2.avatar}}">
+{%else%}
+<img src="/static/img/avatar.png">
+{%endif%}
+</div>
+</a>
+{%else%}
+<a href="#">
+<div class="lvlfig">
+
+</div>
+</a>
+{%endif%}
+
+<!-- USER 3-->
+{% if userprofiles.3.id%}
+<a href="{% url 'app.userprofile' userprofiles.3.slug%}">
+<div class="lvlfig">
+{%if userprofiles.3.avatar%}
+<img src="/media/{{userprofiles.3.avatar}}">
+{%else%}
+<img src="/static/img/avatar.png">
+{%endif%}
+</div>
+</a>
+{%else%}
+<a href="#">
+<div class="lvlfig">
+
+</div>
+</a>
+{%endif%}
+
+<!-- USER 4-->
+{% if userprofiles.4.id%}
+<a href="{% url 'app.userprofile' userprofiles.4.slug%}">
+<div class="lvlfig">
+{%if userprofiles.4.avatar%}
+<img src="/media/{{userprofiles.4.avatar}}">
+{%else%}
+<img src="/static/img/avatar.png">
+{%endif%}
+</div>
+</a>
+{%else%}
+<a href="#">
+<div class="lvlfig">
+
+</div>
+</a>
+{%endif%}
+
+<!-- USER 5-->
+{% if userprofiles.5.id%}
+<a href="{% url 'app.userprofile' userprofiles.5.slug%}">
+<div class="lvlfig">
+{%if userprofiles.5.avatar%}
+<img src="/media/{{userprofiles.5.avatar}}">
+{%else%}
+<img src="/static/img/avatar.png">
+{%endif%}
+</div>
+</a>
+{%else%}
+<a href="#">
+<div class="lvlfig">
+
+</div>
+</a>
+{%endif%}
+
+<!-- USER 6-->
+{% if userprofiles.6.id%}
+<a href="{% url 'app.userprofile' userprofiles.6.slug%}">
+<div class="lvlfig">
+{%if userprofiles.6.avatar%}
+<img src="/media/{{userprofiles.6.avatar}}">
+{%else%}
+<img src="/static/img/avatar.png">
+{%endif%}
+</div>
+</a>
+{%else%}
+<a href="#">
+<div class="lvlfig">
+
+</div>
+</a>
+{%endif%}
+
+<h4>Suscrito a:</h4>
+
+</div>
+
+<style type="text/css">
+.lvl{padding:20px;background:white;text-align:center;}
+.lvlfig{background:green url(/static/img/logo.png)no-repeat center center;background-size:70px;;border:3px solid green; width: 80px; height:80px; overflow:hidden;border-radius:50%;}
+.lvl div img{width:110%;height:auto;}
+.lvl a:hover{opacity:1;}
+.lvl h4{color:white;background:green;padding:10px;margin-bottom:10px;}
+.lvl a{opacity:0.8;display:inline-block; vertical-align: top;margin:1px;margin-bottom:3px;}
+</style>
+
+
+<!--
+<script type="text/javascript">
+var userslvl = 
+    {"lvl1":{
+        "avatar": "avatar1",
+        "nickname": 'nickname1',
+        "slug":'slug1',
+        },
+    "lvl2":{
+        "avatar": 'avatar2',
+        "nickname": 'nickname2',
+        "slug":'slug2',
+        },
+    "lvl3":{
+        "avatar": 'avatar3',
+        "nickname": 'nickname3',
+        "slug":'slug3',
+        },
+    "lvl4":{
+        "avatar": 'avatar4',
+        "nickname": 'nickname4',
+        "slug":'slug4',
+        },
+    "lvl5":{
+        "avatar": 'avatar5',
+        "nickname": 'nickname5',
+        "slug":'slug5',
+        },
+    "lvl6":{
+        "avatar": 'avatar6',
+        "nickname": 'nickname6',
+        "slug":'slug6',
+        },
+    "lvl7":{
+        "avatar": 'avatar7',
+        "nickname": 'nickname7',
+        "slug":'slug7',
+        },
+    };
+var lvl1Avatar = JSON.stringify(userslvl["lvl1"]["avatar"]);
+var lvl1Nickname = JSON.stringify(userslvl["lvl1"]["nickname"]);
+var lvl1Slug = JSON.stringify(userslvl["lvl1"]["slug"]);
+
+var lvl2Avatar = JSON.stringify(userslvl["lvl2"]["avatar"]);
+var lvl2Nickname = JSON.stringify(userslvl["lvl2"]["nickname"]);
+var lvl2Slug = JSON.stringify(userslvl["lvl2"]["slug"]);
+
+var lvl3Avatar = JSON.stringify(userslvl["lvl3"]["avatar"]);
+var lvl3Nickname = JSON.stringify(userslvl["lvl3"]["nickname"]);
+var lvl3Slug = JSON.stringify(userslvl["lvl3"]["slug"]);
+
+var lvl4Avatar = JSON.stringify(userslvl["lvl4"]["avatar"]);
+var lvl4Nickname = JSON.stringify(userslvl["lvl4"]["nickname"]);
+var lvl4Slug = JSON.stringify(userslvl["lvl4"]["slug"]);
+
+var lvl5Avatar = JSON.stringify(userslvl["lvl5"]["avatar"]);
+var lvl5Nickname = JSON.stringify(userslvl["lvl5"]["nickname"]);
+var lvl5Slug = JSON.stringify(userslvl["lvl5"]["slug"]);
+
+var lvl6Avatar = JSON.stringify(userslvl["lvl6"]["avatar"]);
+var lvl6Nickname = JSON.stringify(userslvl["lvl6"]["nickname"]);
+var lvl6Slug = JSON.stringify(userslvl["lvl6"]["slug"]);
+
+var lvl7Avatar = JSON.stringify(userslvl["lvl7"]["avatar"]);
+var lvl7Nickname = JSON.stringify(userslvl["lvl7"]["nickname"]);
+var lvl7Slug = JSON.stringify(userslvl["lvl7"]["slug"]);
+
+document.getElementById("lvl1").innerHTML='<p>Name '+ lvl7Nickname.replace(/['"]+/g, '') +'</p>';
+</script>
+-->

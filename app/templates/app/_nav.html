@@ -1,0 +1,243 @@
+<!-- MENU RESPONSIVE BARRA-->
+<div id="responsivemenu">
+<ul class="ul-l">
+<a href="javascript:openmenu()" class="menu-ul-l" id="menu-ul-l">Menú</a>
+<a href="/" id="logores">CEANV</a>
+{%if not user.userprofile%}
+<a href="{%url 'app.logins'%}" class="menu-ul-r" id="menu-ul-r">Ingresar</a>
+{%else%}
+<a href="{% url 'app.userprofile' user.userprofile.slug%}" class="profile-r">Perfil</a>
+{%endif%}
+</ul>
+</div>
+<!-- MENU RESPONSIVE MENU-->
+<div id="rmenu" class="rmenu-c">
+<ul>
+	<h1><a href="{%url 'app.login'%}">CEANV</a></h1>
+    {%if user.userprofile%}
+    <a class="appgreen" href="{%url 'app.signup'%}">MI SUSCRIPCIÓN</a>
+    <a href="{%url 'app.uploadtrack'%}">Crear Audio</a>
+    {%if user.userprofile.admin == 1%}
+    <a href="{%url 'app.createblog'%}">Crear Blog</a>
+    {%endif%}
+    {%endif%}
+    {%if user.userprofile%}
+    <a href="{%url 'app.categories'%}">Temas</a>
+    <a href="{%url 'app.companies'%}">Empresas</a>
+    {%else%}
+    <a href="{%url 'app.categories'%}">Tendencias</a>
+    {%endif%}
+    <a href="{%url 'app.dates'%}">Eventos</a>
+    {%if user.userprofile%}
+    <a href="{%url 'app.cart'%}">Carrito de compras</a>
+    {%if user.userprofile.admin == 1%}
+    <a href="/admin/app/">Administración</a>
+    {%endif%}
+    {%else%}
+    <a href="{%url 'app.us'%}">Nosotros</a>
+    {%if config.whatsapp%}
+    <a href="https://wa.me/{{config.whatsapp}}">Contacto</a>
+    {%else%}
+    <a href="https://wa.me/+573192121193">Contacto</a>
+    {%endif%}
+    {%endif%}
+    {%if user.userprofile%}
+    {%else%}
+    <a class="appgreen" href="{%url 'app.signup'%}">Crear cuenta</a>
+    <a class="appgreen" href="{%url 'app.logins'%}">Ingresar a su cuenta</a>
+    {%endif%}
+	<div class="appcall">
+        {%if user.userprofile%}
+        <a class="wame" href="{%url 'app.logout'%}">Salir</a>
+        {%else%}
+        {%if config.tlf%}
+        <a class="wame" href="https://web.whatsapp.com/send?phone={{config.whatsapp}}&text=">{{config.tlf}}</a>
+        {%else%}
+        <a class="wame" href="https://wa.me/+573192121193">Inscripciones: (+57) 319-212-1193</a>
+        {%endif%}
+        {%endif%}
+    </div>
+</br></br></br>
+	</ul>
+</div>
+
+<!-- BARRA DEL MENU -->
+<div class="app-loginNav" id="app-loginNav">
+	<ul>
+	<h1><a href="{%url 'app.login'%}">CEANV</a></h1>
+    {%if user.userprofile%}
+    <a class="appgreen" href="{%url 'app.signup'%}">MI SUSCRIPCIÓN</a>
+    <a href="{%url 'app.uploadtrack'%}">Crear audio</a>
+    {%if user.userprofile.admin == 1%}
+    <a href="{%url 'app.createblog'%}">Crear Blog</a>
+    {%endif%}
+    {%endif%}
+    {%if user.userprofile%}
+    <a href="{%url 'app.companies'%}">Empresas</a>
+    {%else%}
+    <a href="{%url 'app.categories'%}">Tendencias</a>
+    <a href="{%url 'app.companies'%}">Empresas</a>
+    {%endif%}
+    {%if user.userprofile%}
+    <a href="{%url 'app.cart'%}">Carrito de compras</a>
+    {%if user.userprofile.admin == 1%}
+    <a href="/admin/app/">Administración</a>
+    {%endif%}
+    {%else%}
+    <a href="{%url 'app.us'%}">Nosotros</a>
+    {%endif%}
+    {%if user.userprofile%}
+    {%else%}
+    <a class="appgreen" href="{%url 'app.signup'%}">Crear cuenta</a>
+    {%endif%}
+	<div class="appcall">
+        {%if user.userprofile%}
+        <a class="wame" href="{%url 'app.logout'%}">Salir</a>
+        {%else%}
+        {%if config.tlf%}
+        <a class="wame" href="https://web.whatsapp.com/send?phone={{config.whatsapp}}&text=">{{config.tlf}}</a>
+        {%else%}
+        <a class="wame" href="https://wa.me/+573192121193">Inscripciones: (+57) 319-212-1193</a>
+        {%endif%}
+        {%endif%}
+    </div>
+        {%if not user.userprofile%}
+<a href="{%url 'app.logins'%}" class="menu-ul-k" id="menu-ul-k">Ingresar</a>
+{%endif%}
+	</ul>
+</div>
+
+<!-- FINAL DE LOS MENU. FUNCIONES Y ESTILOS -->
+
+<script type="text/javascript">
+	// Initial state
+//var scrollPos = 0;
+// adding scroll event
+//window.addEventListener('scroll', function(){
+  // detects new state and compares it with the new one
+//  if ((document.body.getBoundingClientRect()).top > scrollPos)
+//		document.getElementById('app-loginNav').className = 'app-loginNav';
+//	else
+//		document.getElementById('app-loginNav').className = 'app-loginNav-0';
+	// saves the new position for iteration.
+//	scrollPos = (document.body.getBoundingClientRect()).top;
+// });
+</script>
+<style type="text/css">
+	body{padding-top: 52px;padding-right: 0px;}
+	*{margin: 0;padding: 0;text-decoration: none;list-style: none;font-family: 'Roboto', sans-serif;-webkit-transition: All 0.2s ease;-moz-transition: All 0.2s ease;-o-transition: All 0.2s ease;-ms-transition: All 0.2s ease;transition: All 0.2s ease;box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+	body{background:#42566b;}
+	section{background:#42566b;display:inline-block;vertical-align:top;width:49%;}
+	.app-loginNav-0{top: -100px!important;}
+    {%if config.color%}
+	#app-loginNav{background:{{config.color}};position: fixed;top:0;left:0;z-index:9;width:100%;height:52px;padding:0px;text-align:left;}
+	{%else%}
+    #app-loginNav{background:#077486;position: fixed;top:0;left:0;z-index:9;width:100%;height:52px;padding:0px;text-align:left;}
+    {%endif%}
+    {%if user.userprofile.color%}
+    #app-loginNav{background:{{user.userprofile.color}}!important;position: fixed;top:0;left:0;z-index:9;width:100%;height:52px;padding:0px;text-align:left;}
+    {%endif%}
+    .menu-ul-k{padding:0 10px;padding-left:30px!important;background: rgba(0,0,0,0.4) url(/static/img/user.png)no-repeat left 8px center;background-size:18px;}
+    .menu-ul-k:hover{padding:0 10px;padding-left:20px;background: rgba(0,0,0,0.2) url(/static/img/user.png)no-repeat left 8px center!important;background-size:18px!important;}
+    #app-loginNav p{color:#fff;display:inline-block;vertical-align: middle;}
+	#app-loginNav span{color:red;font-size:12px;}
+	#app-loginNav div{display:inline-block;vertical-align:middle;}
+	#app-loginNav h1{display:inline-block;vertical-align:middle;}
+	#app-loginNav h1 a{padding:5px;color:rgba(255,255,255,0.0)!important;background:rgba(255,255,255,0.1) url(/static/img/logo-h1.png)no-repeat center center;background-size:100%;font-size:16px;padding-left: 64px;}
+	#app-loginNav h1 a:hover{background:rgba(255,255,255,0.2) url(/static/img/logo-h1.png)no-repeat center center;background-size:110%;}
+	#app-loginNav a{color:white;font-size:14px;display: flex;justify-content: center;align-items: center;vertical-align:middle;padding: 10px 20px;height: 100%;}
+	#app-loginNav a:hover{background: rgba(0,0,0,0.3);}
+	#app-loginNav ul{display: flex;width: 100%;height: 100%;text-align: left;}
+	.appgreen{background: #3a95e6!important;color: white!important;font-weight: bold;font-size: 16px;}
+	.appcall{position: absolute;right: 0;height: 52px;}
+	{%if user.userprofile%}
+    .wame{padding-left: 40px!important;background: url(/static/img/logo.png)no-repeat left 5px center;background-size: 30px;}
+	.wame:hover{padding-left: 40px!important;background: rgba(0,0,0,0.5)url(/static/img/logo.png)no-repeat left 5px center!important;background-size: 30px!important;}
+    {%else%}
+    .wame{padding-left: 40px!important;background: url(/static/img/callss.png)no-repeat left 5px center!important;background-size: 30px!important;}
+    .wame:hover{padding-left: 40px!important;background: rgba(0,0,0,0.5)url(/static/img/callss.png)no-repeat left 5px center!important;background-size: 30px!important;}
+    {%endif%}
+	#responsivemenu{display:none;}
+    #rmenu{display:none;}
+    .new-l{display:block;text-align:center;font-size:12px;color: white;padding:5px;margin-top:10px;}
+@media screen and (max-width:1000px){
+	body{padding-top:60px;padding-right: 0;}
+	#app-loginNav{position:relative;height:auto;padding-left:5px;display:none;}
+	#app-loginNav a{color:white;font-size:14px;display: flex;justify-content: center;align-items: center;vertical-align:middle;padding: 20px 20px;height: auto;width: 100%;display: block;}
+	#app-loginNav ul{display: block;width: 100%;height: auto;text-align: left;}
+	.appcall{position: relative;right: 0;height: auto;padding: 20px;}
+    #responsivemenu{display:block;width:100%;height:60px;
+    {%if config.color%}
+    background:{{config.color}};
+    {%else%}
+    background:#077486;
+    {%endif%}
+    {%if user.userprofile.color%}
+    background:{{user.userprofile.color}}!important;
+    {%endif%}
+    position:fixed;top:0;left:0;z-index:11;text-align:center;}
+    .responsivemenu-0{top:-100px!important;}
+    .responsivemenu{top:0px!important;}
+    .ul-l{display:block;position:relative;width:100%;height:100%;}
+    .ul-l a{text-align:center;width:60px;font-size:12px;color: white;line-height:99px;display:inline-block;top:0;height:60px;}
+    .menu-ul-l{position:absolute;left:0;padding:0 10px;background: rgba(0,0,0,0.4) url(/static/img/menu.png)no-repeat center center;background-size:22px;}
+    .menu-ul-l-c{position:absolute;font-size:0px!important;left:0;padding:0 10px;background: rgba(0,0,0,0.4) url(/static/img/cerrar.png)no-repeat center center;background-size:40px;}
+    .menu-ul-r{position:absolute;right:0;padding:0 10px;background: rgba(0,0,0,0.4) url(/static/img/user.png)no-repeat center center;background-size:22px;}
+    .menu-ul-r-c{position:absolute;font-size:0px!important;right:0;padding:0 10px;background: rgba(0,0,0,0.4) url(/static/img/cerrar.png)no-repeat center center;background-size:40px;}
+    #rmenu{display:block;overflow:auto;}
+    #rmenu a{display:block;padding:10px;color:black;opacity:0.8;background:rgba(0,0,0,0.1);}
+    #rmenu a:hover{opacity:1;background:rgba(0,0,0,0.3);}
+    .rmenu{width:100%;height:100%;position:fixed;top:0;left:0;background:white;padding-top:60px;z-index:10;}
+    .rmenu-c{width:0%;height:0%;position:fixed;top:0;left:0;background:white;padding-top:60px;z-index:10;}
+    #logores{width:130px;padding:5px;color:rgba(255,255,255,0.0)!important;background:rgba(255,255,255,0.1) url(/static/img/logo-h1.png)no-repeat center center;background-size:100%;font-size:16px;padding-left: 64px;}
+    .profile-r{position:absolute;right:0;padding:0 10px;
+    {%if user.userprofile.avatar%}
+    background: rgba(0,0,0,0.4) url(/media/{{user.userprofile.avatar}})no-repeat top 7px center;
+    {%else%}
+    background: rgba(0,0,0,0.4) url(/static/img/avatar.png)no-repeat top 7px center;
+    {%endif%}
+    background-size:30px;}
+}
+</style>
+
+<script type="text/javascript">
+	// Initial state
+//var scrollPos1 = 0;
+// adding scroll event
+//window.addEventListener('scroll', function(){
+  // detects new state and compares it with the new one
+//  if ((document.body.getBoundingClientRect()).top > scrollPos1)
+	//	document.getElementById('responsivemenu').className = 'responsivemenu';
+//	else
+//		document.getElementById('responsivemenu').className = 'responsivemenu-0';
+	// saves the new position for iteration.
+//	scrollPos1 = (document.body.getBoundingClientRect()).top;
+//});
+</script>
+
+<script type="text/javascript">
+function openlogin(){
+     if(document.getElementById('appRnav').className == 'appRnav')
+      {
+       document.getElementById('appRnav').className = 'appRnavOpen';
+       document.getElementById('menu-ul-r').className = 'menu-ul-r-c';
+       document.getElementById('rmenu').className = 'rmenu-c';
+       document.getElementById('menu-ul-l').className = 'menu-ul-l';
+            } else {
+            document.getElementById('appRnav').className = 'appRnav';
+            document.getElementById('menu-ul-r').className = 'menu-ul-r';
+            }                     
+    } 
+function openmenu(){
+     if(document.getElementById('rmenu').className == 'rmenu')
+      {
+       document.getElementById('rmenu').className = 'rmenu-c';
+       document.getElementById('menu-ul-l').className = 'menu-ul-l';
+            } else {
+            document.getElementById('rmenu').className = 'rmenu';
+            document.getElementById('menu-ul-l').className = 'menu-ul-l-c';
+            document.getElementById('appRnav').className = 'appRnav';
+            document.getElementById('menu-ul-r').className = 'menu-ul-r';
+            }                     
+    } 
+</script>

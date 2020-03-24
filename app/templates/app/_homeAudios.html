@@ -1,0 +1,74 @@
+<!--////////////////////// /banner -->
+<section class="app-banner">
+	<h2>Accede a nuevos audios que te ayudarán en tu carrera profesional. </h2>
+</section>
+
+<style type="text/css">
+	.app-banner{background: rgba(0,0,0,0.7);display: block;width: 100%;padding: 40px 20px; color: #fff;text-align: center;}
+</style>
+<!--////////////////////// /banner -->
+<!-- ////////////////////////////////// app-homeList-->
+<section class="app-homeList">
+<!--
+	<article>
+		<a href="{%url 'app.signup'%}"><img src="/static/img/avatar.png" alt="Listen Audio"></a>
+		<p><strong>CEANV:</strong> "Con tu cuenta puedes acceder a nuevos audios que te ayudarán a mejorar tu carrera profesional. Crea tus propias presentaciones y compartelas con profesores y alumnos."</p>
+		<a href="{%url 'app.signup'%}"><button></button></a>
+	</article>
+-->
+<h3>El Playlist que necesitas</h3>
+	{%for track in track%}
+	<article>
+		<a href="{% url 'app.userprofile' track.user.userprofile.slug%}">{%if track.user.userprofile.avatar%}
+			<img src="/media/{{track.user.userprofile.avatar}}" alt="User: {{track.user.userprofile.nickname}}.">
+			{%else%}
+			<img src="/static/img/avatar.png" alt="User: {{track.user.userprofile.nickname}}.">
+			{%endif%}</a>
+		<p><strong>{{track.user.userprofile.nickname}}:</strong> "{{track.title|slice:":100"}}..." </br> <span> Hace 	{{track.create_at|timesince}}</span></p>
+		<a onclick="play{{track.id}}()"><button></button></a>
+		<div class="hiddenPlayer" id="player-{{track.id}}">
+		<iframe src="{% url 'app.track' track.slug%}"></iframe>	
+		</div>
+	</article>
+	<script type="text/javascript">
+	function play{{track.id}}()
+    {
+     if(document.getElementById('player-{{track.id}}').className == 'hiddenPlayer')
+      {
+       document.getElementById('player-{{track.id}}').className = 'showPlayer';
+            } else {
+            document.getElementById('player-{{track.id}}').className = 'hiddenPlayer';
+            }                     
+    } 
+</script>
+	{%endfor%}
+
+</section>
+
+<style type="text/css">
+	.hiddenPlayer{background: black;width:0px;height: 0px;position: absolute;right: 90px;top: 10px;border-radius: 5px;overflow: hidden;z-index: 1;}
+	.hiddenPlayer iframe{width: 0px;height: 0px;position: relative;border-radius: 5px;overflow: hidden;border: none;}
+	.showPlayer{background: black;width:350px;height: 350px;position: absolute;right: 90px;top: 10px;border-radius: 5px;overflow: hidden;z-index: 1;}
+	.showPlayer iframe{width: 350px;height: 350px;position: relative;border-radius: 5px;overflow: hidden;border: none;}
+	@media screen and (max-width:1000px){
+	.showPlayer{background: black;width:70%;height: 350px;position: absolute;right: 90px;top: 10px;border-radius: 5px;overflow: hidden;z-index: 1;}
+	.showPlayer iframe{width: 100%;height: 350px;position: relative;border-radius: 5px;overflow: hidden;border: none;}
+</style>
+
+<style type="text/css">
+
+.app-homeList {width: 100%;background:#e0e8f0;}
+
+	.app-homeList article{position:relative;background:white;padding:10px;margin:4px;border-radius: 5px;display: flex;}
+		.app-homeList article img{position:absolute;left:5px;display:inline-block;width:60px;height:60px;border-radius:50%;background:#333;}
+		.app-homeList span{font-size:10px;}
+		.app-homeList p{padding-left:65px;padding-right:80px;display:inline-block;color:#333;height:60px;overflow:hidden;font-size:14px;}
+		.app-homeList button{display:inline-block;position:absolute;top:15px;right:20px;width:50px;height:50px;background:#bdbdc6 url(/static/img/play.png) no-repeat center center;background-size:40px;border:none;border-radius:5px;opacity:0.8;}
+		.app-homeList button:hover{opacity:1;cursor:pointer;}
+        .app-homeList h3{margin:20px;background:#626262d6;font-size:18px;text-align:left;color:#fff;padding:10px;border-radius:5px;}
+	
+</style>
+<style type="text/css">@media screen and (max-width:1000px){
+	section{display:block;width:100%!important;}
+	.app-homeList p{padding-left:65px;padding-right:80px;display:inline-block;color:#333;height:auto;overflow:hidden;font-size:14px;}
+}</style>

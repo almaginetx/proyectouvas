@@ -1,0 +1,20 @@
+{% include 'app/_header.html'%}
+{% include 'app/_nav.html'%}
+
+<div class="tasks">
+<h2>Documentación de la plataforma CEANV</h2>
+<p>Para la documentación de nuestra API puede ponerse en contacto con el equipo de desarrollo escribiendo al correo webmaster@proyectouvas.com </br></p>
+</br>
+{%for task in task%}
+<article>
+<h5>{{task.title}}</h5>
+</br></br>
+<p>Fecha de actualización: {{task.create_at}}</p>
+</article>
+{%endfor%}
+</div>
+<style type="text/css">
+.tasks{width:100%;padding:20px;background:white;}
+.tasks article{display:block;margin:5px;padding:10px;border:1px solid #333;border-radius:5px;}
+</style>
+{% include 'app/_footer.html'%}

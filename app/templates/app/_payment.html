@@ -1,0 +1,32 @@
+<div class="payments">
+<h2>Pagos y donaciones</h2>
+<p>Si usted desea hacer pagos nacionales o internacionales puede consignar a los siguientes números de cuentas bancarias y enviarnos un mensaje confirmando su número de recibo.</p>
+
+<article>
+<img src="/media/{{payment.picture}}">
+{%if payment.title%}<h3>{{payment.title}}</h3>{%endif%}
+{%if payment.accunttype%}<strong>Tipo de cuenta: {{payment.accunttype}}</strong>{%endif%}
+{%if payment.account%}<p>Número de cuenta: {{payment.account}}</p>{%endif%}
+{%if payment.link%}<a href="{{payment.link}}" target="_blank">Ver entidad</a>{%endif%}
+{%if payment.country%}<strong>País: {{payment.country}}</strong>{%endif%}
+{%if payment.name%}<strong>Datos del Titular: {{payment.name}}</strong>{%endif%}
+{%if payment.govermentid%}<strong>Identificación: {{payment.govermentid}}</strong>{%endif%}
+{%if payment.phone%}<strong>Número de Teléfono{{payment.phone}}</strong>{%endif%}
+{%if payment.mail%}<strong>mail: {{payment.email}}</strong>{%endif%}
+{%if payment.address%}<strong>Dirección: {{payment.address}}</strong>{%endif%}
+{%if payment.description%}<p>Nota adicional: {{payment.description}}</p>{%endif%}
+</article>
+
+</br>
+<a class="confirmc" href="{% url 'app.paymentc'%}">Confirmar pago</a>
+</div>
+
+<style type="text/css">
+.payments{background: #fff;padding:10px;margin:5px;border-radius:5px;}
+.payments article{color:#fff;margin:3px;background: rgba(58, 149, 230, 0.89);padding:10px;border:1px solid rgba(58, 149, 230, 0.89); border-radius:3px;}
+.payments h2{padding:10px; }
+.payments p{padding:10px;font-size:12px;}
+.payments img{width:200px; height: auto;}
+.payments strong{display:block;padding:5px;font-size:12px;}
+.confirmc{background:#13c15f;display:inline-block;padding:20px;color:white!important;font-size:16px;margin:5px 0;font-weight:bold!important;}
+</style>

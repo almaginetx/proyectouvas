@@ -1,0 +1,33 @@
+<div id="appRnav" class="appRnav">
+	<form method="post" action="">
+		<p>Ingrese a su cuenta</p>
+        	{% csrf_token %}
+        	{% if message %}<span>{{ message }}</span>{% endif %}
+	        <label for="username">Correo electrónico</label>
+			<input placeholder="Email" type="email" id="username" name="username" value="{{ username }}">
+			<label for="password">Contraseña</label>
+			<input placeholder="Password" type="password" id="password" name="password">
+			<button type="submit">Ingresar</button>
+            </br>
+            <a class="new-l" href="{%url 'app.signup'%}">¿No tienes cuenta? Crea una.</a>
+		</form>
+</div>
+
+<style type="text/css">
+*{margin: 0;padding: 0;text-decoration: none;list-style: none;font-family: 'Roboto', sans-serif;-webkit-transition: All 0.2s ease;-moz-transition: All 0.2s ease;-o-transition: All 0.2s ease;-ms-transition: All 0.2s ease;transition: All 0.2s ease;box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+body{background:#000 url(/static/img/banner.jpg)no-repeat center center;background-size:auto 100%;}
+	#appRnav{padding:20px;margin:0 auto;width: 100%;height: 100%;right: 0;top: 0;background: rgb(58, 149, 230);display: flex;justify-content: center;align-items: center;}
+	#appRnav button{background:#68ae139c;border:none;border-radius:5px;padding:10px 20px;color:#fff;text-align:center;margin:5px auto;font-size:12px;display: inline-block;width: 100%;}
+	#appRnav label{display:none;}
+	#appRnav input{width: 100%;border:none;border-radius:30px;padding:10px;font-size:12px;margin:5px 0px;border: 2px solid rgba(0,0,0,0.5);}
+	#appRnav input:focus{width: 160px;}
+	#appRnav input:valid{border: 2px solid green;}
+	#appRnav input:invalid{border: 2px solid red;}
+	#appRnav form p{color: #fff;padding: 10px;font-size: 14px;font-weight: bold;}
+	#appRnav form{background: rgba(255,255,255,0.1);padding: 5px;}
+	#appRnav form span{color: orange;font-size: 14px;padding: 10px;display: block;}
+    
+</style>
+<style type="text/css">@media screen and (max-width:1000px){
+	input{width: 100%;}
+}</style>

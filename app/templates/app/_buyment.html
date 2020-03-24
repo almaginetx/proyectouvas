@@ -1,0 +1,35 @@
+<div class="buyment">
+<h2>Finaliza tu compra {{user.userprofile.nickname}}</h2>
+{%for buyments in buyments%}
+{%if buyments.buyment.id == user.userprofile.id%}
+<article>
+<p>Código de compra: {{buyments.slug}}</p>
+<a href="{%url 'app.cart'%}">Ver detalles de la compra</a>
+</article>
+{%endif%}
+{%endfor%}
+
+<section class="app-homeForm">
+	<h2>Realiza tu pago y confírmalo</h2>
+    <p>Para finalizar tu compra realiza tu pago en una de las <a href="{%url 'app.payments'%}">cuentas bancarias y opciones de pago</a> que encontrarás más abajo en esta página, guarda tu comprobante de pago, regresa y llena la información solicitada para confirmar tu compra. Recuerda que siempre puedes regresar a confirmar tus pagos desde tu carrito de compras.</p>
+    {% if message %}<div><h3>{{ message }}</h3></div>{% endif %}
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+			<button type="submit">Confirmar pago</button>
+            </form>
+</section>
+
+
+<style type="text/css">
+.buyment{background:white;padding:10px;}
+.buyment article{margin:3px;padding:10px;border:1px solid black;}
+.app-homeForm{width:100%;background: #0d8c6e; color:white;padding:20px;}
+.app-homeForm p{padding:10px;}
+.app-homeForm label{display:block;}
+.app-homeForm input{padding:10px;font-size:18px;width:100%;}
+.app-homeForm select{padding:10px;font-size:18px;width:100%;}
+.app-homeForm textarea{padding:10px;font-size:18px;width:100%;}
+.app-homeForm button{background:yellow;font-size:18px;width:100%;padding:15px;border:none;border-radius:20px;}
+.app-homeForm li{padding:5px;background:red; color:white;}
+</style>

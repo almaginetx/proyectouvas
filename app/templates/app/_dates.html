@@ -1,0 +1,27 @@
+
+<div class="dates-list">
+{%if date%}
+<h1>Calendario de eventos</h1>
+{%for date in date%}
+<article id="date-article{{date.id}}">
+<figure>
+</figure>
+<div>
+<h3>{{date.title}}.</h3>
+<h4 class="dates-init">Comienza el {{date.start}}.</h4>
+<h4 class="dates-finish">Termina el {{date.finish}}.</h4>
+<h4>{{date.address}}.</h4>
+<p>{{date.description}}</p>
+<ul><a href="#">Comprar tickets</a></ul>
+<li><a href="#">Organizador: {{date.owner}}</a></li>
+</div>
+</article>
+<style type="text/css">
+#date-article{{date.id}}{background:#333 url(/media/{{date.picture}})no-repeat top center;background-size:cover;}
+</style>
+{%endfor%}
+{%else%}
+<h1>No hay eventos próximos</h1>
+{%endif%}
+{% include 'app/_datesst.html'%}
+</div>

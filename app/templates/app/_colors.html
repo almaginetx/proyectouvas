@@ -1,0 +1,85 @@
+{%if user.userprofile%}
+<div class="colors-palette">
+{%if message%}
+<p><strong>{{message}}</strong></p>
+{%else%}
+<p><strong>Gracias por ingresar {{user.userprofile.nickname}}. Para una experiencia personalizada comienza seleccionando un color de perfil.</strong></p>
+{%endif%}
+<div class="card-colors">
+<a href="{% url 'app.colora' user.userprofile.slug%}" class="colora">Color A</a>
+<a href="{% url 'app.colorb' user.userprofile.slug%}" class="colorb">Color B</a>
+<a href="{% url 'app.colorc' user.userprofile.slug%}" class="colorc">Color C</a>
+<a href="{% url 'app.colord' user.userprofile.slug%}" class="colord">Color D</a>
+<a href="{% url 'app.colore' user.userprofile.slug%}" class="colore">Color E</a>
+<a href="{% url 'app.colorf' user.userprofile.slug%}" class="colorf">Color F</a>
+<a href="{% url 'app.colorg' user.userprofile.slug%}" class="colorg">Color G</a>
+<a href="{% url 'app.colorh' user.userprofile.slug%}" class="colorh">Color H</a>
+<a href="{% url 'app.colori' user.userprofile.slug%}" class="colori">Color I</a>
+<a href="{% url 'app.colorj' user.userprofile.slug%}" class="colorj">Color J</a>
+<a href="{% url 'app.colork' user.userprofile.slug%}" class="colork">Color K</a>
+<a href="{% url 'app.colorl' user.userprofile.slug%}" class="colorl">Color L</a>
+</div>
+</div>
+<style type="text/css">
+.colors-palette{
+    background:white;
+    height:auto;
+    padding:10px;
+    text-align:center;
+    }
+.colors-palette p strong{
+    padding:10px;font-size:12px;color:#333;display:block;
+    }
+    .card-colors{
+        padding:10px;
+        text-align:center;
+        border:1px solid #e8e8f0;
+        border-radius:12px;
+        background: #e8e8f0;
+        }
+.colors-palette a{
+    padding:20px;
+    display:inline-block;
+    vertical-align:top;
+    border-radius:50%;
+    font-size:0px;
+    }
+.colora{
+    background: #512218; 
+    }
+.colorb{
+    background: #077486; 
+    }
+.colorc{
+    background: #777619; 
+    }
+.colord{
+    background: #8d9091; 
+    }
+.colore{
+    background: #84587b; 
+    }
+.colorf{
+    background: #000; 
+    }
+.colorg{
+    background: #a62517; 
+    }
+.colorh{
+    background: #3f8e5e; 
+    }
+.colori{
+    background: #4d5b93; 
+    }
+.colorj{
+    background: #ff6c00; 
+    }
+.colork{
+    background: #7d6222; 
+    }
+.colorl{
+    background: #332607; 
+    }
+</style>
+
+{%endif%}

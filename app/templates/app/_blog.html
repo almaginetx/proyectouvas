@@ -1,0 +1,42 @@
+
+<section class="blog_banner">
+<h1>{{ablog.title}}</h1>
+</br>
+
+<figure>
+<img src="/media/{{ablog.picture}}">
+</figure>
+<div class="blog-banner">
+</br>
+{{ablog.description|safe}}
+</br>
+</br>
+<strong>Creado el {{ablog.create_at}} en {{ablog.category}}</strong>
+</div>
+
+<div class="sociallinks">
+
+<ul>
+<div class="fb-share-button" data-href="https://www.proyectouvas.com" data-layout="box_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.proyectouvas.com/blog/{{ablog.slug}}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+</ul>
+<ul>
+<!-- Your send button code -->
+  <div class="fb-send" 
+    data-href="https://www.proyectouvas.com/blog/{{ablog.slug}}" 
+    data-layout="button_count">
+  </div>
+</ul>
+<ul>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Compartir en Twitter</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</ul>
+</div>
+
+<style type="text/css">
+.sociallinks{background:#fff;margin:10px;padding:20px;border-radius:10px; width:100%;}
+.sociallinks ul{display:inline-block;vertical-align:top;padding:10px;}
+.blog_banner{width:100%;padding:50px 20px;background:url(/media/{{ablog.category.picture}})no-repeat center center;background-size:cover;text-align:center;color:white;}
+.blog-banner{display:block;margin:10px;padding:20px;line-height:1.5;background:white;color:#333;text-align:left;}
+.blog_banner img{width: 70%;margin:10px auto;text-align:center;}
+.blog_banner figure{width:100%;text-align:center;background:rgba(255,255,255,0.4)}
+</style>
+</section>

@@ -1,0 +1,29 @@
+
+{% include 'app/_header.html'%}
+{% include 'app/_nav.html'%}
+
+ <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+
+      <div id="slide1" class="swiper-slide" data-hash="slide1">
+        {% include 'app/_banner.html'%}
+        {% include 'app/_homeCategories.html'%}
+        {% include 'app/_homeBlogs.html'%}
+        {% include 'app/_homeAudios.html'%}
+        {% include 'app/_homeProfiles.html'%}
+        {% include 'app/_datehome.html'%}
+        {% include 'app/_products.html'%}
+        {% include 'app/_videos.html'%}
+        {% include 'app/_map.html'%}
+        {% include 'app/_footer.html'%}
+      </div>
+      <div id="slide2" class="swiper-slide" data-hash="slide2">
+
+      {% include 'app/_payments.html'%}
+
+      </div>
+    </div>
+  </div>
+
+{% include 'app/_menuapp.html'%}

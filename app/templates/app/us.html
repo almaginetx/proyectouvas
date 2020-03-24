@@ -1,0 +1,28 @@
+{% include 'app/_header.html'%}
+{% include 'app/_nav.html'%}
+
+<section class="blog_banner">
+<h1>Sobre nosotros</h1>
+</br>
+
+<figure>
+<img src="/static/img/avatar.png">
+</figure>
+<p>
+</br>
+{%if config.who%}
+{{config.who}}
+{%else%}
+Somos una organización dirigida a estudiantes, visionarios, empresarios y emprendedores que desean aumentar sus ingresos y aprender sobre negocios y proyectos online. Ofrecemos una oferta educativa basada en modelos de negocio que impulsarán su productividad y le ayudarán a crecer financieramente. Estamos avalados por una comunidad de profesionales dispuestos a ayudarle a afianzar sus oportunidades de negocio gracias a la plataforma CeanV. Usted puede contactarnos en Colombia o desde cualquier parte del mundo desde nuestro portal web y con gusto atenderemos sus inquietudes.
+{%endif%}
+</p>
+<style type="text/css">
+.blog_banner{width:100%;padding:50px 20px;background:url(/static/img/applogin.jpg)no-repeat center center;background-size:cover;text-align:center;color:white;}
+.blog_banner p{display:block;margin:10px;padding:20px;line-height:1.5;background:white;color:#333;font-size:20px;text-align:left;}
+.blog_banner img{width: 70%;margin:10px auto;text-align:center;}
+.blog_banner figure{width:100%;text-align:center;background:rgba(255,255,255,0.4)}
+.blog_banner h1{background:#077486;padding:10px;color:white;}
+</style>
+</section>
+
+{% include 'app/_footer.html'%}

@@ -1,0 +1,73 @@
+<div class="cart">
+<h2>Carrito de compras de {{user.userprofile.nickname}}</h2>
+<h3>{{message}}</h3>
+
+{%for cart in cart%}
+{%if cart.owner.id == user.userprofile.id%}
+<article>
+<p>Producto: {{cart.product.title}}</p>
+<p>Cantidad: {{cart.cant}}</p>
+<p>Total: {{cart.price}} $COP</p>
+<ul><a href="{% url 'app.deletecart' cart.slug%}">Eliminar</a></ul>
+</article>
+
+{%endif%}
+{%endfor%}
+
+<h2>Total a pagar: <span id="total"></span> $COP</h2>
+ <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AXJl7zTB204Lr7ZWAEx5fM9hlqVfmvaLsV_tmmu_vkA1FgONnxu_CEPIiEqd4Q41jF0FgyNvE1ta_E-k&currency=USD"></script>
+<div id="paypal-button-container"></div>
+<script type="text/javascript">
+{%for cart in cart%}
+{%if cart.owner.id == user.userprofile.id%}
+var cant{{cart.id}} = {{cart.price}};
+{%endif%}
+{%endfor%}
+
+var sum = 
+{%for cart in cart%}
+{%if cart.owner.id == user.userprofile.id%}
+cant{{cart.id}} +
+{%endif%}
+{%endfor%}
+0;
+document.getElementById("total").innerHTML=sum;
+
+var usdp = sum * 3200;
+
+
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            // El valor value es el que debe de modificarse
+            createOrder: function(data, actions) {
+
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: usdp;
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                });
+            }
+
+        }).render('#paypal-button-container');
+
+</script>
+
+<ul><a href="{% url 'app.addbuyment' %}">Confirmar compra</a></ul>
+</div>
+<style type="text/css">
+.cart{background:white;padding:10px;}
+.cart article{margin:3px;padding:10px;border:1px solid black;}
+</style>
