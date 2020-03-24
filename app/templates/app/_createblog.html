@@ -17,7 +17,7 @@
 <script>
 ClassicEditor
     .create( document.querySelector( '#id_description' ), {
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'blockQuote' ],
         heading: {
             options: [
                 { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
@@ -33,13 +33,14 @@ ClassicEditor
 </script>
 
 <style type="text/css">
-.crearblog{padding:20px; background:white;}
-.app-homeForm{padding:10px;border-radius:5px;}
-.app-homeForm{width:100%; background: #fff7f0;}
+.crearblog{padding:2px; background:white;text-align:center;background:orange;}
+.app-homeForm{width:100%;display:block;}
+.app-homeForm{padding:5px;border-radius:5px;margin:0 auto;width:100%;max-width:300px}
+.app-homeForm{width:100%;background: #fff7f0;}
 .app-homeForm h2{background:orange;color:white;padding:10px;margin:20px 0;font-size:18px;border-radius:5px;}
-.app-homeForm label{display:block;padding-top:10px;color:orange;font-weight:bold;}
-.app-homeForm input{font-size:18px;padding:10px;margin:5px;width:100%;}
-.app-homeForm select{font-size:18px;padding:10px;margin:5px;width:100%;}
+.app-homeForm label{display:block;padding:5px;color:orange;font-weight:bold;}
+.app-homeForm input{background:#fff;border-radius:5px;border:1px solid orange;font-size:18px;padding:10px;margin:5px 0;width:100%;}
+.app-homeForm select{font-size:18px;padding:10px;margin:5px 0;width:100%;}
 .app-homeForm button{color:white;background:orange;padding:10px 20px;font-size:18px;width:100%;font-weight:bold;border:none;}
 .app-homeForm button:hover{cursor:move;}
 #id_description{width:100%!important;margin-top:10px;padding:10px;}
