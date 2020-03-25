@@ -36,6 +36,9 @@
     {%for categorys in categorys%}
 		<a href="{% url 'app.category' categorys.slug%}">{{categorys.title}}</a>
     {%endfor%}
+        {%for title in title%}
+		<a href="{{title.title}}" class="{{title.id}}main">{{title.date.month}}. Tendencia: {{title.id}}{{title.title}}</a>
+    {%endfor%}
     </ul>
 	<br>
     <img src="/static/img/httpss.png">
@@ -74,11 +77,14 @@
 background-image: -webkit-linear-gradient(left,#144C57,#01422F);
 background-image: linear-gradient(to right,
 #144C57,#01422F);}
+
 	footer a{color:white;padding:10px;display:block;font-size:12px;}
     footer a:hover{background:rgba(0,0,0,0.2);}
 	footer img{margin:0;auto;width:100px;height:auto;background:rgba(255,255,255,0.2);padding:5px;border-radius:3px;display:inline-block;vertical-align:top;}
 	footer ul{display: inline-block;vertical-align: top;padding: 10px;margin:10px 0;background:rgba(255,255,255,0.2);border-radius:3px;}
-    
+{%for title in title%}
+.{{title.id}}main{color:orange;}    
+{%endfor%}
     footer p{font-weight:bold;color:white; text-align: center;padding: 10px;}
     .img200{width:260px;}
 </style>

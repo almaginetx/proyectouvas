@@ -8,6 +8,7 @@ from django.utils.text import slugify
 from django.core.urlresolvers import reverse
 from django.utils.timezone import now
 import os
+import random
 from ckeditor_uploader.fields import RichTextUploadingField
 
 class UserProfile(models.Model):
@@ -330,3 +331,59 @@ class Buyment(models.Model):
             date.year, date.month, date.day, self.id
         )
         super(Buyment, self).save()
+
+def random_string():
+        return str(random.randint(10000, 99999))
+        
+class Wallet(models.Model):
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Usuario",related_name='wallet_owner')
+    total = models.FloatField(blank=True, null=True, default=0, verbose_name="Wallet")
+    code = models.IntegerField(default = random_string)
+    create_at = models.DateTimeField(default=now, editable=False)
+    update_at = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
+    slug = models.SlugField(editable=False)
+
+    class Meta:
+        ordering = ['create_at']
+        verbose_name = "INKACOIN Wallet"
+        verbose_name_plural = 'INKACOIN Wallets'
+
+    def __unicode__(self):
+        return self.slug
+    
+    def save(self):
+        super(Wallet, self).save()
+        date = self.create_at
+        string = self.code * self.code
+        hash = string + string
+        self.slug = '%i-%i-%i-%i-%i-%i-%i-INKC' % (
+            hash, self.code, string, date.year, date.month, date.day, self.id
+        )
+        super(Wallet, self).save()
+        
+class Link(models.Model):
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Usuario",related_name='wallet_owner')
+    total = models.FloatField(blank=True, null=True, default=0, verbose_name="Wallet")
+    code = models.IntegerField(default = random_string)
+    link = models.CharField(default='link')
+    create_at = models.DateTimeField(default=now, editable=False)
+    update_at = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
+    slug = models.SlugField(editable=False)
+
+    class Meta:
+        ordering = ['create_at']
+        verbose_name = "INKACOIN LINK"
+        verbose_name_plural = 'INKACOIN LINKS'
+
+    def __unicode__(self):
+        return self.slug
+    
+    def save(self):
+        super(Link, self).save()
+        date = self.create_at
+        string = self.code * self.code
+        hash = string + string
+        self.slug = '%i-%i-%i-%i-%i-%i-%i-INKC' % (
+            hash, self.code, string, date.year, date.month, date.day, self.id
+        )
+        super(Link, self).save()

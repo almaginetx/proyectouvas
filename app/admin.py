@@ -16,16 +16,30 @@ class BlogAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('title', 'picture', 'create_at', 'slug')
     
+class CompanyAdmin(admin.ModelAdmin):
+    list_display = ('title', 'create_at', 'slug')
+
+class DateAdmin(admin.ModelAdmin):
+    list_display = ('title', 'create_at', 'slug')
+    
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('title', 'create_at', 'slug')
+
+class WalletAdmin(admin.ModelAdmin):
+    list_display = ('user', 'code', 'create_at', 'slug')
+    
 admin.site.register(Track, TrackAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Config)
 admin.site.register(Task)
-admin.site.register(Company)
-admin.site.register(Date)
-admin.site.register(Product)
+admin.site.register(Company, CompanyAdmin)
+admin.site.register(Date, DateAdmin)
+admin.site.register(Product, ProductAdmin)
 admin.site.register(Payment)
 admin.site.register(Boucher)
 admin.site.register(Cart)
 admin.site.register(Buyment)
+admin.site.register(Wallet, WalletAdmin)
+admin.site.register(Link)

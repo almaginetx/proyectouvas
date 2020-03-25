@@ -159,6 +159,7 @@ def welcome_view(request):
     date = Date.objects.get(active = 1)
     now = timezone.now()
     config = Config.objects.get(active = 1)
+    title = Link.objects.all().order_by('-create_at')
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
 def us_view(request):
