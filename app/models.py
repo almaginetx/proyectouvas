@@ -362,10 +362,10 @@ class Wallet(models.Model):
         super(Wallet, self).save()
         
 class Link(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Usuario",related_name='wallet_owner')
-    total = models.FloatField(blank=True, null=True, default=0, verbose_name="Wallet")
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Usuario",related_name='title_owner')
+    total = models.FloatField(blank=True, null=True, default=0, verbose_name="Titled")
     code = models.IntegerField(default = random_string)
-    link = models.CharField(default='link')
+    link = models.CharField(default='link', max_length="1200")
     create_at = models.DateTimeField(default=now, editable=False)
     update_at = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
     slug = models.SlugField(editable=False)
