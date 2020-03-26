@@ -159,7 +159,7 @@ def welcome_view(request):
     date = Date.objects.get(active = 1)
     now = timezone.now()
     config = Config.objects.get(active = 1)
-    title = Link.objects.all().order_by('-create_at')
+    link = Link.objects.all().order_by('-create_at')
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
 def us_view(request):
@@ -927,10 +927,9 @@ def search(request):
     query = request.GET.get('q', '')
     if query:
         qset = (
-            Q(name__icontains=query) | Q(userprofile__nickname__icontains=query) 
-            | Q(track__title__icontains=query) | Q(category__title__icontains=query) | Q(category__description__icontains=query) | Q(blog__title__icontains=query) | Q(blog__description__icontains=query) | Q(product__title__icontains=query) | Q(product__description__icontains=query) | Q(company__title__icontains=query) | Q(company__description__icontains=query) | Q(date__title__icontains=query) | Q(date__description__icontains=query)
+            Q(userprofile__nickname__icontains=query) | Q(track__title__icontains=query) | Q(category__title__icontains=query) | Q(category__description__icontains=query) | Q(blog__title__icontains=query) | Q(blog__description__icontains=query) | Q(product__title__icontains=query) | Q(product__description__icontains=query) | Q(company__title__icontains=query) | Q(company__description__icontains=query) | Q(date__title__icontains=query) | Q(date__description__icontains=query)
         )
-        results = UserProfile.objects.filter(qset).order_by('nickname').distinct()
+        results = UserProfile.objects.filter(qset).order_by('id').distinct()
     else:
         results = []
     return render_to_response("app/search.html", {
