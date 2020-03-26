@@ -1,0 +1,20 @@
+<section class="buscador">
+<h1>Buscar en Proyecto Uvas</h1>
+<form action="." method="GET">
+    <input type="text" name="q" value="{{ query|escape }}" autofocus="true">
+    <input id="enviar" type="submit" value="Buscar">
+</form>
+ 
+  {% if query %}
+    <h2>Resultados para "{{ query|escape }}":</h2>
+      
+    {% if results %}
+      {% for UserProfile in results %}
+        <p>{{userprofile.nickname}}</p>
+      {% endfor %}
+    {% else %}
+      <p class="bigSearch">No se encontraron resultados</p>
+    {% endif %}
+  {% endif %}
+
+</section>

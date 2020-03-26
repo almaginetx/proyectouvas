@@ -909,3 +909,43 @@ def blogs_view(request):
         message = 'Datos de ingreso incorrectos. Intente de nuevo'
     return render_to_response(template,locals(),context_instance=RequestContext(request))
     
+    
+def search(request):
+    userprofile = UserProfile.objects.all().order_by('-create_at')
+    track = Track.objects.all().order_by('-create_at')
+    category = Category.objects.all().order_by('-create_at')
+    blog = Blog.objects.all().order_by('-create_at')
+    product = Product.objects.all().order_by('-create_at')
+    company = Product.objects.all().order_by('-create_at')
+    date = Date.objects.all().order_by('-create_at')
+    payment = Payment.objects.all().order_by('-create_at')
+    boucher = Boucher.objects.all().order_by('-create_at')
+    cart = Cart.objects.all().order_by('-create_at')
+    buyment = Buyment.objects.all().order_by('-create_at')
+    wallet = Wallet.objects.all().order_by('-create_at')
+    link = Link.objects.all().order_by('-create_at')
+    query = request.GET.get('q', '')
+    if query:
+        qset = (
+            Q(name__icontains=query) | Q(userprofile__nickname__icontains=query) 
+            | Q(track__title__icontains=query) | Q(category__title__icontains=query) | Q(category__description__icontains=query) | Q(blog__title__icontains=query) | Q(blog__description__icontains=query) | Q(product__title__icontains=query) | Q(product__description__icontains=query) | Q(company__title__icontains=query) | Q(company__description__icontains=query) | Q(date__title__icontains=query) | Q(date__description__icontains=query)
+        )
+        results = UserProfile.objects.filter(qset).order_by('nickname').distinct()
+    else:
+        results = []
+    return render_to_response("app/search.html", {
+        "results": results,
+        "query": query,
+        "userprofile": userprofile,
+        "track": track,
+        "category": category,
+        "blog": blog,
+        "product": product,
+        "company": company,
+        "date": date,
+        "payment": payment,
+        "boucher": boucher,
+        "buyment": buyment,
+        "wallet": wallet,
+        "link": link,
+    })
