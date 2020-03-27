@@ -13,11 +13,11 @@
       <div class="results">
         <article>
         <div>
-        <a href="{% url 'app.blog' Blog.slug%}">
+        <a href="{% url 'app.blog' Blog.slug%}" target="_blank">
         <img src="/media/{{Blog.picture}}">
         </a>
         <h4>{{Blog.title}}</h4>
-        <a class="artb" href="{% url 'app.blog' Blog.slug%}">Ver más</a>
+        <a class="artb" href="{% url 'app.blog' Blog.slug%}" target="_blank">Ver más</a>
         </div>
         </article>
       </div>
@@ -29,7 +29,7 @@
     
     <section class="onboard">
     <h4>Tus aportes y donaciones son importantes y valiosas.</h4>
-    <a href="{%url 'app.payments'%}">Quiero hacer un aporte</a>
+    <a href="{%url 'app.payments'%}" target="_blank">Quiero hacer un aporte</a>
     </section>
     
   {% endif %}
