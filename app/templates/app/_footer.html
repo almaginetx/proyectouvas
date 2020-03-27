@@ -9,7 +9,10 @@
 .holding{text-align:center;width:100%;padding:30px;background:red;color:white;}
 </style>
 <footer>
-	<img class="img200" src="/static/img/payu.png">
+
+<iframe src="{% url 'app.search' %}" ></iframe>
+	
+    <img class="img200" src="/static/img/payu.png">
 	<br>
 	<ul>
 	<a href="{%url 'app.login'%}">Inicio</a>
@@ -87,6 +90,7 @@ background-image: linear-gradient(to right,
 {%endfor%}
     footer p{font-weight:bold;color:white; text-align: center;padding: 10px;}
     .img200{width:260px;}
+    footer iframe{width:100%;margin:10px;border:none;height:300px;}
 </style>
 
 <script src="/static/swiper.js"></script>

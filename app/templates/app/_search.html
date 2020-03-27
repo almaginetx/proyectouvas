@@ -1,20 +1,52 @@
 <section class="buscador">
-<h1>Buscar en Proyecto Uvas</h1>
+<h3>Buscar en Proyecto Uvas</h3>
 <form action="." method="GET">
-    <input type="text" name="q" value="{{ query|escape }}" autofocus="true">
-    <input id="enviar" type="submit" value="Buscar">
+    <input class="buscadorapp" type="text" name="q" value="{{ query|escape }}" autofocus="true">
+    <button class="buscadorsearch" id="enviar" type="submit" value="Buscar">buscar</button>
 </form>
  
   {% if query %}
     <h2>Resultados para "{{ query|escape }}":</h2>
       
     {% if results %}
-      {% for UserProfile in results %}
-        <p>{{userprofile.nickname}}</p>
-      {% endfor %}
+      {% for Blog in results %}
+      <div class="results">
+        <article>
+        <div>
+        <a href="{% url 'app.blog' Blog.slug%}">
+        <img src="/media/{{Blog.picture}}">
+        </a>
+        <h4>{{Blog.title}}</h4>
+        <a class="artb" href="{% url 'app.blog' Blog.slug%}">Ver más</a>
+        </div>
+        </article>
+      </div>
+     {% endfor %}
     {% else %}
       <p class="bigSearch">No se encontraron resultados</p>
     {% endif %}
+    {%else%}
+    
+    <section class="onboard">
+    <h4>Tus aportes y donaciones son importantes y valiosas.</h4>
+    <a href="{%url 'app.payments'%}">Quiero hacer un aporte</a>
+    </section>
+    
   {% endif %}
 
+    <style class="text/css">
+        .onboard{text-align:center;background: blueviolet;padding:20px;}
+        .onboard h4{color:white;font-size:20px;}
+        .onboard a{margin:5px;border-radius:5px;border:2px solid white;display:inline-block;color:white;padding:10px;}
+        .results{background:rgba(255,255,255,0.8);padding:5px;border-radius:5px;margin:2px;}
+        .results article{display:inline-block;vertical-align:top;background:white;marging:2px;border-radius:3px;width:200px;}
+        .buscadorapp{width:100%;padding:10px;border-radius:50px;}
+        .results article h4{font-color:black;font-size:12px;padding:10px;}
+        .artb{display:inline-block;color:white;font-size:12px;padding:10px; background:orange;}
+        .results article img{border-radius:1px;width:50px;height:auto;padding:10px;}
+        .buscador form{position relative;}
+        .buscador h3{color:white;font-size:15px;font-family:true;}
+        .buscador h2{color:white;font-size:15px;font-family:true;}
+        .buscadorsearch{position:absolute;right:0px;border-radius:50px;height:38px;width:70px;}
+    </style>
 </section>
