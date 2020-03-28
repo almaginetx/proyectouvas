@@ -1,27 +1,29 @@
 <section class="ink">
-<section class="inkacoin">
-<img class="none" src="/static/img/inkas.jpg">
-</section>
-<section class="inkas">
-{%for wallet in wallet%}
-<article>
-<p><strong>Id Transaction: </strong>{{wallet.code}}</p><p><strong>Hash Transaction: </strong>{{wallet.total}}</p><p><strong>Id Transaction: </strong>{{wallet.slug}}</p>
-</article>
-{%endfor%}
-</section>
-
+    <section class="inkacoin">
+    <img class="none" src="/static/img/inkas.jpg">
+    </section>
+<div class="pad">
+    <section class="inkas">
+        {%for wallet in wallet%}
+            <article>
+            <p><strong>Id Transaction: </strong>{{wallet.code}} </p><p><strong>Cost Transaction: </strong>$ {{wallet.total}} COP. </p><p><strong>IKC Transaction: </strong>{{wallet.slug}}</p>
+            </article>
+        {%endfor%}
+    </section>
+</div>
 <style type="text/css">
 .inkacoin{
     width:100%;
-    background: url(/static/img/inkas.jpg) no-repeat center center;
-    background-size: 100%;
+    background: url(/static/img/inkas.jpg) no-repeat top center;
+    background-size: 100% 100%;
     }
 .none{width:100%;height:auto;opacity:0;}
 #app-loginNav{background:rgba(255,204,0,255)!important;}
-.inkas{padding:margin:20px;background:white;}
-.inkas p{display:inline-block;vertical-align:top;}
-.inkas article{border:1px solid blue;}
-.ink{background:f9f9f9ff;width:100%;}
+.inkas{padding:20px;background:white;width:100%;}
+.inkas p{display:inline-block;vertical-align:top;padding:5px;}
+.inkas article{box-shadow: 1px 2px rgba(0, 0, 0, 0.1);padding:5px;border-radius:5px;}
+.ink{background:#f0f2f5;width:100%;}
+.pad{padding:20px;}
 </style>
 
 </section>
