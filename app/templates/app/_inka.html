@@ -1,0 +1,27 @@
+<section class="ink">
+<section class="inkacoin">
+<img class="none" src="/static/img/inka.jpg">
+</section>
+<section class="inkas">
+{%for wallet in wallet%}
+<article>
+<p><strong>Id Transaction: </strong>{{wallet.code}}</p><p><strong>Hash Transaction: </strong>{{wallet.total}}</p><p><strong>Id Transaction: </strong>{{wallet.slug}}</p>
+</article>
+{%endfor%}
+</section>
+
+<style type="text/css">
+.inkacoin{
+    width:100%;
+    background: url(/static/img/inka.jpg) no-repeat center center;
+    background-size: 100%;
+    }
+.none{width:100%;height:auto;opacity:0;}
+#app-loginNav{background:rgba(255,204,0,255)!important;}
+.inkas{padding:margin:20px;background:white;}
+.inkas p{display:inline-block;vertical-align:top;}
+.inkas article{border:1px solid blue;}
+.ink{background:f9f9f9ff;width:100%;}
+</style>
+
+</section>

@@ -927,3 +927,32 @@ def search(request):
         "category": category,
         "blog": blog,
     })
+
+def inka_view(request):
+    message = ''
+    userprofile = UserProfile.objects.all().order_by('-create_at')
+    track = Track.objects.all().order_by('-create_at')
+    category = Category.objects.all().order_by('-create_at')[:3]
+    categorys = Category.objects.all().order_by('-create_at')
+    blog = Blog.objects.all().order_by('-create_at')
+    product = Product.objects.all().order_by('-create_at')
+    payment = Payment.objects.all().order_by('-create_at')
+    wallet = Wallet.objects.all().order_by('-create_at')
+    now = timezone.now()
+    config = Config.objects.get(active = 1)
+    date = Date.objects.get(active = 1)
+    template = 'app/inka.html'
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect(reverse('app.logins'))
+            else:
+                # Redireccionar informando que la cuenta esta inactiva
+                # Lo dejo como ejercicio al lector :)
+                pass
+        message = 'Datos de ingreso incorrectos. Intente de nuevo'
+    return render_to_response(template,locals(),context_instance=RequestContext(request))

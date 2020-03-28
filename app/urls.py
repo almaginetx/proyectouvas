@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^dashboard/$', views.welcome_view, name='app.welcome'),
     url(r'^signup/$', views.signup_view, name='app.signup'),
     url(r'^login/$', views.logins_view, name='app.logins'),
+    url(r'^inkacoin/$', views.inka_view, name='app.inka'),
     url(r'^nosotros/$', views.us_view, name='app.us'),
     url(r'^documentacion-api/$', views.tasks_view, name='app.tasks'),
     url(r'^empresas/$', views.companies_view, name='app.companies'),
