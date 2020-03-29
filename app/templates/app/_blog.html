@@ -1,12 +1,12 @@
 
 <section class="blog_banner">
+<div class="blog-banner">
+</br>
 <h1>{{ablog.title}}</h1>
 </br>
-
 <figure>
 <img src="/media/{{ablog.picture}}">
 </figure>
-<div class="blog-banner">
 </br>
 {{ablog.description|safe}}
 </br>
@@ -32,11 +32,12 @@
 </div>
 
 <style type="text/css">
-.sociallinks{background:#fff;margin:10px;padding:20px;border-radius:10px; width:100%;}
+.sociallinks{background:#fff;margin:5px 0;padding:10px; width:100%;}
 .sociallinks ul{display:inline-block;vertical-align:top;padding:10px;}
-.blog_banner{width:100%;padding:50px 20px;background:url(/media/{{ablog.category.picture}})no-repeat center center;background-size:cover;text-align:center;color:white;}
+.blog_banner{width:100%;padding:0px 20px;background:url(/media/{{ablog.category.picture}})no-repeat center center;background-size:cover;text-align:center;color:white;}
 .blog-banner{display:block;margin:10px;padding:20px;line-height:1.5;background:white;color:#333;text-align:left;}
-.blog_banner img{width: 70%;margin:10px auto;text-align:center;}
+.blog-banner h1{color:black;font-size:20px;}
+.blog_banner img{width: 300px;margin:10px auto;text-align:center;}
 .blog_banner figure{width:100%;text-align:center;background:rgba(255,255,255,0.4)}
 </style>
 </section>

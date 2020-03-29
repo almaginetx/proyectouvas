@@ -2,10 +2,13 @@
 {% include 'app/_nav.html'%}
 
 <section class="category_banner">
+<div class="backs">
 <h1>{{acategory.title}}</h1>
 <p>{{acategory.description}}</p>
+</div>
 <style type="text/css">
 .category_banner{width:100%;padding:50px 20px;background:url(/media/{{acategory.picture}})no-repeat center center;background-size:cover;text-align:center;color:white;}
+.backs{width:100%;height:auto;background:rgba(0,0,0,0.5);}
 </style>
 </section>
 

@@ -1,7 +1,7 @@
 
 <section class="blog-list">
 {%for blog in blog%}
-    {%if blog.category.id == acategory.id%}
+    {%if blog.category.id == acategory.id or template == 'app/blog.html'%}
    <article>
     <a href="{% url 'app.blog' blog.slug%}">
     <img src="/media/{{blog.picture}}"></img>
@@ -22,9 +22,9 @@
 .blog-list article img{width:100%;}
 .blog-list article h2 a{padding:10px;display:block;color:black;}
 .blog-list article p{padding:10px;}
-.blog-list article:hover{border: 1px solid blue;}
+.blog-list article:hover{border: 1px solid orange;}
 .blog-list article strong{padding:10px;font-size:10px;display:block;}
-.blog-list article li a{margin:10px;display:inline-block;padding:10px;background:blue;border-radius:10px;color:white;}
+.blog-list article li a{margin:10px;display:inline-block;padding:10px;background:orange;border-radius:10px;color:white;}
 </style>
 <style type="text/css">@media screen and (max-width:1000px){
 .blog-list article{width:90%;}

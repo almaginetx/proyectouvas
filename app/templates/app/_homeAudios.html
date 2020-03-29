@@ -16,7 +16,7 @@
 		<a href="{%url 'app.signup'%}"><button></button></a>
 	</article>
 -->
-<h3>El Playlist que necesitas</h3>
+<h3>El playlist que necesitas</h3>
 	{%for track in track%}
 	<article>
 		<a href="{% url 'app.userprofile' track.user.userprofile.slug%}">{%if track.user.userprofile.avatar%}
@@ -63,9 +63,9 @@
 		.app-homeList article img{position:absolute;left:5px;display:inline-block;width:60px;height:60px;border-radius:50%;background:#333;}
 		.app-homeList span{font-size:10px;}
 		.app-homeList p{padding-left:65px;padding-right:80px;display:inline-block;color:#333;height:60px;overflow:hidden;font-size:14px;}
-		.app-homeList button{display:inline-block;position:absolute;top:15px;right:20px;width:50px;height:50px;background:#bdbdc6 url(/static/img/play.png) no-repeat center center;background-size:40px;border:none;border-radius:5px;opacity:0.8;}
+		.app-homeList button{display:inline-block;position:absolute;top:15px;right:20px;width:50px;height:50px;background:#bdbdc6 url(/static/img/play.png) no-repeat center center;background-size:30px;border:none;border-radius:50%;opacity:0.8;}
 		.app-homeList button:hover{opacity:1;cursor:pointer;}
-        .app-homeList h3{margin:20px;background:#626262d6;font-size:18px;text-align:left;color:#fff;padding:10px;border-radius:5px;}
+        .app-homeList h3{margin:20px 10px;background:#626262d6 url(/static/img/icons/109.png)no-repeat left 5px center;background-size:20px;font-size:18px;text-align:left;color:#fff;padding:10px;border-radius:5px;padding-left:30px;}
 	
 </style>
 <style type="text/css">@media screen and (max-width:1000px){

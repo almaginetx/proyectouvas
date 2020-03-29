@@ -1,19 +1,20 @@
 
 <div class="dates-list">
 {%if date%}
-<h1>Calendario de eventos</h1>
+<h1>Descubre eventos online y cerca de ti</h1>
 {%for date in date%}
 <article id="date-article{{date.id}}">
 <figure>
 </figure>
 <div>
 <h3>{{date.title}}.</h3>
-<h4 class="dates-init">Comienza el {{date.start}}.</h4>
+<h4 class="dates-init">{{date.start}}.</h4>
+<!--
 <h4 class="dates-finish">Termina el {{date.finish}}.</h4>
+-->
 <h4>{{date.address}}.</h4>
 <p>{{date.description}}</p>
 <ul><a href="#">Comprar tickets</a></ul>
-<li><a href="#">Organizador: {{date.owner}}</a></li>
 </div>
 </article>
 <style type="text/css">

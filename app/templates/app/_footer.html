@@ -6,14 +6,12 @@
 </div>
 </a>
 <style type="text/css">
-.holding{text-align:center;width:100%;padding:30px;background:red;color:white;}
+.holding{text-align:center;width:100%;padding:30px;padding-top:50px;background:red url(/static/img/icons/125.png)no-repeat center top 10px;background-size:40px;color:white;}
 </style>
 <footer>
 
 <iframe src="{% url 'app.search' %}" ></iframe>
-	
-    <img class="img200" src="/static/img/payu.png">
-	<br>
+	<p>Síguenos: @ProyectoUvas</p>
 	<ul>
 	<a href="{%url 'app.login'%}">Inicio</a>
 	<a href="{%url 'app.signup'%}">Crear una cuenta gratuita</a>
@@ -44,9 +42,11 @@
         {%endfor%}
     </ul>
 	<br>
+    <img class="img200" src="/static/img/payu.png">
+    <br> <br>
+    <img src="/static/img/bitcoin.png">
     <img src="/static/img/httpss.png">
 	<img src="/static/img/logo-h1.png">
-    <img src="/static/img/bitcoin.png">
     
     </br></br>
     <p>Cl 18#4-85. Oficina 103. Bogotá, Colombia. (+57)3192121193</p>
@@ -81,8 +81,8 @@ background-image: -webkit-linear-gradient(left,#144C57,#01422F);
 background-image: linear-gradient(to right,
 #144C57,#01422F);}
 
-	footer a{color:white;padding:10px;display:block;font-size:12px;}
-    footer a:hover{background:rgba(0,0,0,0.2);}
+	footer a{background: url(/static/img/icons/133.png)no-repeat left 5px center;background-size:20px;color:white;padding:10px;padding-left:30px;display:block;font-size:12px;}
+    footer a:hover{background:rgba(0,0,0,0.2) url(/static/img/icons/133.png)no-repeat left 5px center;background-size:20px;}
 	footer img{margin:0;auto;width:100px;height:auto;background:rgba(255,255,255,0.2);padding:5px;border-radius:3px;display:inline-block;vertical-align:top;}
 	footer ul{display: inline-block;vertical-align: top;padding: 10px;margin:10px 0;background:rgba(255,255,255,0.2);border-radius:3px;}
 {%for link in link%}
