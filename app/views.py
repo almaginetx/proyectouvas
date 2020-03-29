@@ -30,9 +30,6 @@ import json
 from django.views.generic.list import ListView
 
 def login_view(request):
-    # Si el usuario esta ya logueado, lo redireccionamos a index_view
-    if request.user.is_authenticated():
-        return redirect(reverse('app.welcome'))
     message = ''
     userprofile = UserProfile.objects.all().order_by('-create_at')
     track = Track.objects.all().order_by('-create_at')

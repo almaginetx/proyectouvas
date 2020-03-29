@@ -15,7 +15,7 @@
 <ul>
 	<h1><a href="{%url 'app.login'%}">CEANV</a></h1>
     {%if user.userprofile%}
-    <a class="appgreen" href="{%url 'app.signup'%}">MI SUSCRIPCIÓN</a>
+    <a class="appgreen" href="{%url 'app.welcome'%}">DASHBOARD</a>
     <a href="{%url 'app.uploadtrack'%}">Crear Audio</a>
     {%if user.userprofile.admin == 1%}
     <a href="{%url 'app.createblog'%}">Crear Blog</a>
@@ -67,26 +67,26 @@
 	<ul>
 	<h1><a href="{%url 'app.login'%}">CEANV</a></h1>
     {%if user.userprofile%}
-    <a class="appgreen" href="{%url 'app.signup'%}">MI SUSCRIPCIÓN</a>
-    <a href="{%url 'app.uploadtrack'%}">Crear audio</a>
+    <a class="appgreen" href="{%url 'app.welcome'%}">DASHBOARD</a>
+    <a class="icon-audio" href="{%url 'app.uploadtrack'%}">Crear audio</a>
     {%if user.userprofile.admin == 1%}
-    <a href="{%url 'app.createblog'%}">Crear Blog</a>
+    <a class="icon-blog" href="{%url 'app.createblog'%}">Crear Blog</a>
     {%endif%}
     {%endif%}
-    <a href="{%url 'app.inka'%}">Inkacoin</a>
+    <a class="icon-inka" href="{%url 'app.inka'%}">Inkacoin</a>
     {%if user.userprofile%}
-    <a href="{%url 'app.companies'%}">Empresas</a>
+    <a class="icon-company" href="{%url 'app.companies'%}">Empresas</a>
     {%else%}
-    <a href="{%url 'app.categories'%}">Tendencias</a>
-    <a href="{%url 'app.companies'%}">Empresas</a>
+    <a class="icon-trends" href="{%url 'app.categories'%}">Tendencias</a>
+    <a class="icon-company" href="{%url 'app.companies'%}">Empresas</a>
     {%endif%}
     {%if user.userprofile%}
-    <a href="{%url 'app.cart'%}">Carrito de compras</a>
+    <a class="icon-buy" href="{%url 'app.cart'%}">Carrito de compras</a>
     {%if user.userprofile.admin == 1%}
-    <a href="/admin/app/">Administración</a>
+    <a class="icon-admin" href="/admin/app/">Administración</a>
     {%endif%}
     {%else%}
-    <a href="{%url 'app.us'%}">Nosotros</a>
+    <a class="icon-us" href="{%url 'app.us'%}">Nosotros</a>
     {%endif%}
     {%if user.userprofile%}
     {%else%}
@@ -162,6 +162,24 @@
 	#responsivemenu{display:none;}
     #rmenu{display:none;}
     .new-l{display:block;text-align:center;font-size:12px;color: white;padding:5px;margin-top:10px;}
+
+    .icon-audio{padding-left:30px!important;background:url(/static/img/icons/109.png)no-repeat left 5px center;background-size:20px;}
+    .icon-audio:hover{padding-left:30px!important;background:rgba(0,0,0,0.1) url(/static/img/icons/109.png)no-repeat left 5px center!important;background-size:20px!important;}
+    .icon-blog{padding-left:30px!important;background:url(/static/img/icons/116.png)no-repeat left 5px center;background-size:20px;}
+    .icon-blog:hover{padding-left:30px!important;background:rgba(0,0,0,0.1) url(/static/img/icons/116.png)no-repeat left 5px center!important;background-size:20px!important}
+    .icon-inka{padding-left:30px!important;background:url(/static/img/icons/130.png)no-repeat left 5px center;background-size:20px;}
+    .icon-inka:hover{padding-left:30px!important;background:rgba(0,0,0,0.1) url(/static/img/icons/130.png)no-repeat left 5px center!important;background-size:20px!important}
+    .icon-company{padding-left:30px!important;background:url(/static/img/icons/125.png)no-repeat left 5px center;background-size:20px;}
+    .icon-company:hover{padding-left:30px!important;background:rgba(0,0,0,0.1) url(/static/img/icons/125.png)no-repeat left 5px center!important;background-size:20px!important}
+    .icon-trends{padding-left:30px!important;background:url(/static/img/icons/123.png)no-repeat left 5px center;background-size:20px;}
+    .icon-trends:hover{padding-left:30px!important;background:rgba(0,0,0,0.1) url(/static/img/icons/123.png)no-repeat left 5px center!important;background-size:20px!important}
+    .icon-buy{padding-left:30px!important;background:url(/static/img/icons/121.png)no-repeat left 5px center;background-size:20px;}
+    .icon-buy:hover{padding-left:30px!important;background:rgba(0,0,0,0.1) url(/static/img/icons/121.png)no-repeat left 5px center!important;background-size:20px!important}
+    .icon-admin{padding-left:30px!important;background:url(/static/img/icons/1.png)no-repeat left 5px center;background-size:20px;}
+    .icon-admin:hover{padding-left:30px!important;background:rgba(0,0,0,0.1) url(/static/img/icons/1.png)no-repeat left 5px center!important;background-size:20px!important}
+    .icon-us{padding-left:30px!important;background:url(/static/img/icons/119.png)no-repeat left 5px center;background-size:20px;}
+    .icon-us:hover{padding-left:30px!important;background:rgba(0,0,0,0.1) url(/static/img/icons/119.png)no-repeat left 5px center!important;background-size:20px!important}
+
 @media screen and (max-width:1000px){
 	body{padding-top:60px;padding-right: 0;}
 	#app-loginNav{position:relative;height:auto;padding-left:5px;display:none;}
