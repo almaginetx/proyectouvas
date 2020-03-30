@@ -1,6 +1,12 @@
 *media/
 media/
 media/*
+*cert/
+cert/
+cert/*
+*more/
+more/
+more/*
 *.pyc
 *.swp
 *initial.py
