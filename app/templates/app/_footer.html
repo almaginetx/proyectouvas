@@ -32,7 +32,8 @@
     <a href="{%url 'app.cart'%}">Carrito de compras</a>
      <a href="https://github.com/almaginetx/proyectouvas" target="_blank">Código fuente</a>
     <a href="https://www.facebook.com/proyectouvas" target="_blank">Facebook</a>
-	</ul>
+	<a href="/static/proyectouvas.apk">Descarga el App para Android</a>
+    </ul>
 	<ul>
     {%for categorys in categorys%}
 		<a href="{% url 'app.category' categorys.slug%}">{{categorys.title}}</a>
