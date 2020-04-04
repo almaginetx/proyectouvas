@@ -7,6 +7,9 @@ cert/*
 *more/
 more/
 more/*
+/app/templates/app/ignore/_paypalcode.html
+
+/*
 *.pyc
 *.swp
 *initial.py

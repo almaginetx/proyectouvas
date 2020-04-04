@@ -16,8 +16,10 @@
 
 <h2>Total a pagar: <span id="total"></span> $COP</h2>
  <!-- Include the PayPal JavaScript SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AXJl7zTB204Lr7ZWAEx5fM9hlqVfmvaLsV_tmmu_vkA1FgONnxu_CEPIiEqd4Q41jF0FgyNvE1ta_E-k&currency=USD"></script>
-<div id="paypal-button-container"></div>
+    {% include 'app/ignore/_paypalcode.html'%}
+
+ <div id="paypal-button-container"></div>
+ 
 <script type="text/javascript">
 {%for cart in cart%}
 {%if cart.owner.id == user.userprofile.id%}
@@ -34,20 +36,16 @@ cant{{cart.id}} +
 0;
 document.getElementById("total").innerHTML=sum;
 
-var usdp = sum * 3200;
-
-
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
 
             // Set up the transaction
             // El valor value es el que debe de modificarse
             createOrder: function(data, actions) {
-
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: sum;
+                            value: sum
                         }
                     }]
                 });
