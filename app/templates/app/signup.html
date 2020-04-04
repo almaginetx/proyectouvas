@@ -2,7 +2,7 @@
 {% include 'app/_nav.html'%}
 
 <section class="app-homeForm">
-	<h2>Crea una cuenta en CEANV</h2>
+	<h2>Crea una cuenta</h2>
 	{% if message %}<div><h3>{{ message }}</h3></div>{% endif %}
             <form method="post" action="" enctype="multipart/form-data">
                 {% csrf_token %}
