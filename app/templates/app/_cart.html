@@ -15,6 +15,7 @@
 {%endfor%}
 
 <h2>Total a pagar: <span id="total"></span> $COP</h2>
+<h2>Total a pagar (USD) <span id="totales"></span> $</h2>
  <!-- Include the PayPal JavaScript SDK -->
     {% include 'app/ignore/_paypalcode.html'%}
 
@@ -34,7 +35,10 @@ cant{{cart.id}} +
 {%endif%}
 {%endfor%}
 0;
+var usd = 4000;
+var suma = sum / usd;
 document.getElementById("total").innerHTML=sum;
+document.getElementById("totales").innerHTML=suma;
 
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
