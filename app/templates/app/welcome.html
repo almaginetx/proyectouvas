@@ -1,27 +1,88 @@
 {% include 'app/_header.html'%}
 {% include 'app/_nav.html'%}
-
+<div class="appcontainer">
 <!-- Swiper -->
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-    
-      <div id="slide1" class="swiper-slide" data-hash="slide1">
-{% include 'app/_userheader.html'%}
-{% include 'app/_homeCategories.html'%}
-{% include 'app/_homeAudios.html'%}
-{% include 'app/_homeProfiles.html'%}
-{% include 'app/_products.html'%}
-{% include 'app/_videos.html'%}
-{% include 'app/_datehome.html'%}
-{% include 'app/_footer.html'%}
- </div>
-      <div id="slide2" class="swiper-slide" data-hash="slide2">
-      
-      {% include 'app/_useroptions.html'%}
-      {% include 'app/_lvl.html'%}
-      
-      </div>
-    </div>
-  </div>
+<div class="swiper-container">
+<div class="swiper-wrapper">
+<div id="slide1" class="swiper-slide" data-hash="slide1">
+<!--PANTALLA PRINCIPAL DE BIENVENIDA -->
+<h4 class="message">Bienvenido a tu cuenta {{user.userprofile.nickname}}</h4>
+<div class="appbanner">
+<div class="appcortain">
+    <div class="wallet">
+    <table>
+    <td><img src="/static/img/inkas.png"></td><td>info</td>
+    </table>
+    <table>
+        <td>
+        mas info
+        </td>
+    </table>
+    </div>    
+</div>
+</div>
+
+<style type="text/css">
+.message{padding:10px;color:white;font-weight:normal;background:blueviolet;text-align:center;}
+.appbanner{height:auto;background: url(/static/img/uvascity.jpg)no-repeat center center;background-size:cover;}
+.appcortain{background:rgba(0,0,0,0.2);width:100%;height:400px;padding:20px;}
+.wallet{width:260px;height:180px;background:blueviolet;border-radius:10px;}
+</style>
+    {% include 'app/_footer.html'%}
+</div>
+<!--MENÚ DE CONFIGURACIONES-->
+<div id="slide2" class="swiper-slide" data-hash="slide2">      
+    {% include 'app/_useroptions.html'%}
+    {% include 'app/_lvl.html'%}
+</div>
+</div>
+</div>
+
+
 
 {% include 'app/_usermenuapp.html'%}
+
+</div>
+
+<!-- MENU DE APLICACIONES-->
+<div id="appbar" class="appbar">
+<a href="{% url 'app.userprofile' user.userprofile.slug%}">
+{%if user.userprofile.avatar%}
+<img src="/media/{{user.userprofile.avatar}}">
+{%else%}
+<img src="/static/img/icons/63.png">
+{%endif%}
+Perfil
+</a>
+<a>
+<img src="/static/img/icons/exp2.png">
+Mensajes
+</a>
+<a>
+<img src="/static/img/icons/84.png">
+Eventos
+</a>
+<a>
+<img src="/static/img/icons/33.png">
+Videos
+</a>
+<a  href="{%url 'app.logout'%}">
+<img src="/static/img/icons/logout.png">
+Salir
+</a>
+</div>
+<style type="text/css">
+.appcontainer{margin-right:50px;}
+.appbar{z-index:100;position:fixed;width:50px;height:100%;top:0;right:0px;background:blueviolet;}
+.appbar a{display:block;text-align:center;padding:5px;font-size:11px;color:white;}
+.appbar a:hover{background:rgba(0,0,0,0.2);}
+.appbar img{width:33px;}
+
+</style>
+<!--////////////////////// -->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		alert("Estamos haciendo cambios en nuestra plataforma. Regrese más tarde");
+	});
+</script>

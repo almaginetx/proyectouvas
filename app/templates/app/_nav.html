@@ -5,8 +5,6 @@
 <a href="/" id="logores">CEANV</a>
 {%if not user.userprofile%}
 <a href="{%url 'app.logins'%}" class="menu-ul-r" id="menu-ul-r">Ingresar</a>
-{%else%}
-<a href="{% url 'app.userprofile' user.userprofile.slug%}" class="profile-r">Perfil</a>
 {%endif%}
 </ul>
 </div>
@@ -94,7 +92,7 @@
     {%endif%}
 	<div class="appcall">
         {%if user.userprofile%}
-        <a class="wame" href="{%url 'app.logout'%}">Salir</a>
+
         {%else%}
         {%if config.tlf%}
         <a class="wame" href="https://web.whatsapp.com/send?phone={{config.whatsapp}}&text=">{{config.tlf}}</a>
