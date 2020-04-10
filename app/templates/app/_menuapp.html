@@ -1,7 +1,7 @@
 
 <!-- MENU DE APLICACIONES-->
 <div id="appbar" class="appbar">
-<a href="{% url 'app.userprofile' user.userprofile.slug%}">
+<a class="avatarlis" href="{% url 'app.userprofile' user.userprofile.slug%}">
 {%if user.userprofile.avatar%}
 <img src="/media/{{user.userprofile.avatar}}">
 {%else%}
@@ -32,6 +32,7 @@ Salir
 .appbar a{display:block;text-align:center;padding:5px;font-size:11px;color:white;}
 .appbar a:hover{background:rgba(0,0,0,0.2);}
 .appbar img{width:33px;}
+.avatarlis img{border-radius:50%;}
 
 .foot{margin-right:50px;}
 #apploader{padding-right:60px!important}
