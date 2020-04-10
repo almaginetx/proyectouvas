@@ -2,6 +2,10 @@
 <div class="opciones">
 <a href="{%url 'app.updateavatar' user.userprofile.slug%}">Cambiar foto</a>
     <a href="{%url 'app.updatenickname' user.userprofile.slug%}">Cambiar nombre</a>
+    <a href="javascript:alertas()">Cambiar correo</a>
+    <a href="javascript:alertas()">Cambiar telefono</a>
+    <a href="javascript:alertas()">Cambiar contraseña</a>
+    <a href="javascript:alertas()">Recargar Wallet</a>
 </div>
 
 <style type="text/css">
@@ -10,3 +14,10 @@
 .opciones a{color:#333;display:block;font-size:18px;padding:10px;border-left:10px solid blue;border-bottom:1px solid rgba(0,0,0,0.2);}
 .opciones a:hover{background:rgba(0,0,0,0.2);}
 </style>
+
+<script type="text/javascript">
+    function alertas()
+    {
+        alert("Actualización en el sistema, pronto estará disponible");
+        }
+</script>
