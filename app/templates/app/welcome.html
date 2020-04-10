@@ -11,11 +11,17 @@
 <div class="appcortain">
     <div class="wallet">
     <table>
-    <td><img src="/static/img/inkas.png"></td><td>info</td>
+    <td><figure><img class="wikclogo" src="/static/img/inkas.png"></figure></td>
+    <td class="wright">
+    <h3>{{wallet.total}} IKC</h3>
+    <a class="chargew" href="javascript:comprar();">Recargar</a>
+    </td>
     </table>
     <table>
         <td>
-        mas info
+        <p class="ikcw">{{wallet.slug}}</p>
+        <p class="datew">{{wallet.create_at}}</p>
+        <div class="mailw"><p>{{user.userprofile.user}}</p></div>
         </td>
     </table>
     </div>    
@@ -26,7 +32,16 @@
 .message{padding:10px;color:white;font-weight:normal;background:blueviolet;text-align:center;}
 .appbanner{height:auto;background: url(/static/img/uvascity.jpg)no-repeat center center;background-size:cover;}
 .appcortain{background:rgba(0,0,0,0.2);width:100%;height:400px;padding:20px;}
-.wallet{width:260px;height:180px;background:blueviolet;border-radius:10px;}
+.wallet{padding:10px;width:280px;height:180px;background:blueviolet;border-radius:10px;}
+.wikclogo{width:80px;}
+.ikcw{color:#fff;font-size:12px;}
+.figure{padding:10px;}
+.datew{font-size:12px;}
+.mailw{width:100%;text-align:right;}
+.mailw p{font-size.12px;color:white;font-size:10px;}
+.chargew{background:#3a95e6;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
+.wright{text-align:right;width:150px;}
+.wallet table h3{font-size:24px;font-weight:bold;color:white;text-align:right;}
 </style>
     {% include 'app/_footer.html'%}
 </div>
@@ -85,4 +100,9 @@ Salir
 	$(document).ready(function() {
 		alert("Estamos haciendo cambios en nuestra plataforma. Regrese más tarde");
 	});
+    
+    function comprar()
+    {
+        alert("Actualización en el sistema, regrese más tarde");
+        }
 </script>
