@@ -52,4 +52,7 @@ urlpatterns = [
     url(r'^api/tracks', views.TracksApi.as_view(), name='api-tracks'),
     url(r'^api/device', views.device, name='api-device'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    # APP 
+    url(r'^app/eventos$', views.dates_app, name='app.dates_app'),
+    url(r'^app/loading$', views.loading_app, name='app.loading_app'),
 ]

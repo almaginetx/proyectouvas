@@ -1,4 +1,4 @@
-
+<div class="foot">
 <!-- ////////////////////////////////// app-homeFooter-->
 <a href="{%url 'app.companies'%}">
 <div class="holding">
@@ -34,7 +34,7 @@
      <a href="https://github.com/almaginetx/proyectouvas" target="_blank">Código fuente</a>
     <a href="https://www.facebook.com/proyectouvas" target="_blank">Facebook</a>
 	<a href="/static/proyectouvas.apk">Descarga el App para Android</a>
-    <a id="appl" href="javascript:apploader()">Mapsite</a>
+    <a id="appl" href="javascript:applinks()">Mapsite</a>
     </ul>
 	<ul>
     {%for categorys in categorys%}
@@ -120,12 +120,15 @@ background-image: linear-gradient(to right,
 <aside>
     <img src="/static/img/proyectouvascom.png">
     <style type="text/css">
-    aside{background:white;width:100%;padding:20px;text-align:center;}
+    aside{background:white;width:100%;padding:20px;padding-bottom:40px;text-align:center;}
     aside img{width:300px;margin:0 auto;}
+    body{height:100%;}
+    html{height:100%;}
     </style>
 </aside>
 
 {% include 'app/_apploader.html'%}
 
+</div>
 </body>
 </html>

@@ -1,22 +1,40 @@
 
-<div class="menuapp" id="menuapp">
-<a href="#slide1">Portada</a>
-<a href="#slide2">Donaciones</a>
+<!-- MENU DE APLICACIONES-->
+<div id="appbar" class="appbar">
+<a href="{% url 'app.userprofile' user.userprofile.slug%}">
+{%if user.userprofile.avatar%}
+<img src="/media/{{user.userprofile.avatar}}">
+{%else%}
+<img src="/static/img/icons/63.png">
+{%endif%}
+Perfil
+</a>
+<a href="javascript:applinks()">
+<img src="/static/img/icons/exp2.png">
+Mensajes
+</a>
+<a href="javascript:appeventos()">
+<img src="/static/img/icons/84.png">
+Eventos
+</a>
+<a>
+<img src="/static/img/icons/33.png">
+Videos
+</a>
+<a  href="{%url 'app.logout'%}">
+<img src="/static/img/icons/logout.png">
+Salir
+</a>
 </div>
-
 <style type="text/css">
-#menuapp{text-align:center;position:fixed;background:#ecebf2d1;;bottom:0px;left:0px;width:100%;height:40px;z-index:10;}
-#menuapp a {
-    display: inline-block;
-    vertical-align: middle;
-    height: auto;
-    padding: 5px 16px;
-    background: blueviolet;
-    margin: 4px;
-    border-radius: 50px;
-    font-size: 14px;
-    color:white;
-}
-#menuapp a:active{background:blue;}
-body{padding-bottom:40px;}
+.appcontainer{margin-right:50px;}
+.appbar{z-index:100;position:fixed;width:50px;height:100%;top:0;right:0px;background:blueviolet;}
+.appbar a{display:block;text-align:center;padding:5px;font-size:11px;color:white;}
+.appbar a:hover{background:rgba(0,0,0,0.2);}
+.appbar img{width:33px;}
+
+.foot{margin-right:50px;}
+#apploader{padding-right:60px!important}
+
 </style>
+<!--////////////////////// -->

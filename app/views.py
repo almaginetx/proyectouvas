@@ -984,3 +984,12 @@ def app_view(request):
                 pass
         message = 'Datos de ingreso incorrectos. Intente de nuevo'
     return render_to_response(template,locals(),context_instance=RequestContext(request))
+
+def dates_app(request):
+    template = 'app/_dates.html'
+    date = Date.objects.all().order_by('-create_at')
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+    
+def loading_app(request):
+    template = 'app/_loading.html'
+    return render_to_response(template,locals(),context_instance=RequestContext(request))

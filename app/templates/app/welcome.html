@@ -76,7 +76,7 @@
     .appright{display:inline-block;vertical-align:top; width:100%;}
 }
 </style>
-    {% include 'app/_footer.html'%}
+    
 </div>
 <!--MENÚ DE CONFIGURACIONES-->
 <div id="slide2" class="swiper-slide" data-hash="slide2">      
@@ -92,42 +92,7 @@
 
 </div>
 
-<!-- MENU DE APLICACIONES-->
-<div id="appbar" class="appbar">
-<a href="{% url 'app.userprofile' user.userprofile.slug%}">
-{%if user.userprofile.avatar%}
-<img src="/media/{{user.userprofile.avatar}}">
-{%else%}
-<img src="/static/img/icons/63.png">
-{%endif%}
-Perfil
-</a>
-<a>
-<img src="/static/img/icons/exp2.png">
-Mensajes
-</a>
-<a>
-<img src="/static/img/icons/84.png">
-Eventos
-</a>
-<a>
-<img src="/static/img/icons/33.png">
-Videos
-</a>
-<a  href="{%url 'app.logout'%}">
-<img src="/static/img/icons/logout.png">
-Salir
-</a>
-</div>
-<style type="text/css">
-.appcontainer{margin-right:50px;}
-.appbar{z-index:100;position:fixed;width:50px;height:100%;top:0;right:0px;background:blueviolet;}
-.appbar a{display:block;text-align:center;padding:5px;font-size:11px;color:white;}
-.appbar a:hover{background:rgba(0,0,0,0.2);}
-.appbar img{width:33px;}
-
-</style>
-<!--////////////////////// -->
+{% include 'app/_menuapp.html'%}
 
 <script type="text/javascript">
     function comprar()
@@ -135,3 +100,6 @@ Salir
         alert("Actualización en el sistema, regrese más tarde");
         }
 </script>
+
+
+{% include 'app/_footer.html'%}
