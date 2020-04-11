@@ -1,6 +1,6 @@
 <!--////////////////////// app tags-->
 <section class="app-tags">
-	<h2 class="icon-trends">Explora tendencias y desarrolla tus habilidades profesionales con nosotros</h2>
+	<h2 class="icon-trends">Explora tendencias internacionales y desarrolla tus habilidades comerciales</h2>
     {%for category in category%}
 	<article>
         <a href="{% url 'app.category' category.slug%}">
@@ -16,7 +16,7 @@
 	</article>
     {%endfor%}
 	<br>
-	<a class="boton-blue" href="{% url 'app.categories' %}">Más tendencias</a>
+	<a class="boton-blue" href="{% url 'app.categories' %}">Todas las tendencias</a>
 </section>
 
 <style type="text/css">
