@@ -354,11 +354,19 @@ class Wallet(models.Model):
     def save(self):
         super(Wallet, self).save()
         date = self.create_at
-        string = self.code * self.code
-        hash = string + string
-        self.slug = '%i-%i-%i-%i-%i-%i-%i-INKC' % (
-            hash, self.code, string, date.year, date.month, date.day, self.id
-        )
+        codi = self.code
+        codis = int(codi)
+        strings = codis * codis
+        string = str(strings)
+        hashs = string + string
+        hash = str(hashs)
+        ikc = 'IKC'
+        year = str(date.year)
+        month = str(date.month)
+        day = str(date.day)
+        ids = str(self.id)
+        variable = hash + codi + string + year + month + day + ids + ikc
+        self.slug = slugify(variable)
         super(Wallet, self).save()
         
 class Link(models.Model):
@@ -383,7 +391,7 @@ class Link(models.Model):
         date = self.create_at
         string = self.code * self.code
         hash = string + string
-        self.slug = '%i-%i-%i-%i-%i-%i-%i-INKC' % (
+        self.slug = '%d-%i-%d-%i-%i-%i-%i-INKC' % (
             hash, self.code, string, date.year, date.month, date.day, self.id
         )
         super(Link, self).save()

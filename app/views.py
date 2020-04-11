@@ -23,6 +23,7 @@ from django import forms
 from django.middleware.csrf import CsrfViewMiddleware, get_token
 from django.utils.decorators import available_attrs, decorator_from_middleware
 from django.template import RequestContext
+import random
 
 #API REST
 from django.db.models.query import QuerySet
@@ -122,6 +123,10 @@ def signup_view(request):
             user_profile.password2 = password2
             user_profile.save()
             # Ahora, redireccionamos a la pagina
+            wallet = Wallet()
+            wallet.user = user_profile
+            wallet.total = 0
+            wallet.save()
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:
@@ -139,6 +144,7 @@ def signup_view(request):
     context = {'form': form}
     context['userprofile'] = UserProfile.objects.all()
     context['categorys'] = Category.objects.all()
+    context['wallet'] = Wallet.objects.all()
     context['config'] = Config.objects.get(active = 1)
     context['viewl'] = 1
     # Y mostramos los datos
