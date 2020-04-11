@@ -6,7 +6,11 @@
 <div class="swiper-wrapper">
 <div id="slide1" class="swiper-slide" data-hash="slide1">
 <!--PANTALLA PRINCIPAL DE BIENVENIDA -->
+{% if message %}
+<h4 class="message">{{message}}</h4>
+{%else%}
 <h4 class="message">Bienvenido a tu cuenta {{user.userprofile.nickname}}</h4>
+{%endif%}
 <div class="appbanner">
 <div class="appcortain">
 
@@ -30,7 +34,7 @@
     <td><figure><img class="wikclogo" src="/static/img/inkas.png"></figure></td>
     <td class="wright">
     <h3>{{wallet.total}} IKC</h3>
-    <a class="chargew" href="javascript:comprar();">Recargar</a>
+    <a class="chargew" href="javascript:appcharge();">Recargar</a>
     </td>
     </table>
     <table>
@@ -43,11 +47,18 @@
     </div> 
  
  </div>
+
    
 </div>
 </div>
 
+ <div class="notice">
+ <h3>Precio del Inkacoin (IKC) {{now}}: 1 IKC = $10 COP/USD 0,0033$</h3>
+ </div>
+ 
 <style type="text/css">
+.notice{background:white;padding:10px;}
+.notice h3{color:black;font-size:14px;text-align:center;}
 .message{padding:10px;color:white;font-weight:normal;background:blueviolet;text-align:center;}
 .appbanner{height:auto;background: url(/static/img/uvascity.jpg)no-repeat center center;background-size:cover;}
 .appcortain{background:rgba(0,0,0,0.2);width:100%;height:auto;padding:20px;}
@@ -101,5 +112,7 @@
         }
 </script>
 
+<!-- Include the PayPal JavaScript SDK -->
+{% include 'app/ignore/_paypalcode.html'%}
 
 {% include 'app/_footer.html'%}

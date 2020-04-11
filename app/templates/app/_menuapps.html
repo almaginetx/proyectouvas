@@ -2,7 +2,7 @@
 <!-- MENU DE APLICACIONES-->
 <div id="appbar" class="appbar">
 {%if user.userprofile.slug%}
-<a class="avatarlis" href="{% url 'app.userprofile' user.userprofile.slug%}">
+<a class="avatarlis" href="{% url 'app.welcome'%}">
 {%if user.userprofile.avatar%}
 <img src="/media/{{user.userprofile.avatar}}">
 {%else%}
@@ -11,18 +11,22 @@
 Perfil
 </a>
 {%endif%}
+<!--
 <a href="javascript:applinks()">
 <img src="/static/img/icons/exp2.png">
 Mensajes
 </a>
+-->
 <a href="javascript:appeventos()">
 <img src="/static/img/icons/84.png">
 Eventos
 </a>
+<!--
 <a>
 <img src="/static/img/icons/33.png">
 Videos
 </a>
+-->
 <a  href="{%url 'app.logout'%}">
 <img src="/static/img/icons/logout.png">
 Salir

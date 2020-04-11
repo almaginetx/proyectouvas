@@ -1,0 +1,106 @@
+<div class="ikcharge">
+
+<form class="behind" id="formikc">
+
+<input placeholder="Cantidad de Inkacoins a recargar" id="id_tickets"></input>
+<a class="mores" onclick="more()">Calcular</a>
+</br></br>
+
+<p>1 IKC = $ 10 COP.</p>
+<p id="mensaje"></p>
+<p id="comprar"></p>
+<p id="cantidad"></p>
+<p id="dolar"></p>
+
+</form>
+<p id="total"></p>
+<p id="metodo"></p>
+<div id="paypal-button-container"></div>
+
+<style type="text/css">
+  .mores{background: #1abd62;color: #fff;display: inline-block;vertical-align: middle;font-size: 18px;font-weight: bold;text-align: center;padding: 10px;margin: 0 5px;line-height: 0.9;position: absolute;}
+  .mores:hover{cursor: pointer;}
+  .confirm{display:block;background: blueviolet;color: #fff;font-size: 18px;font-weight: bold;text-align: center;padding: 10px;margin: 0 5px;line-height: 0.9;}
+  .confirm:hover{cursor: pointer;}
+  .dateimg{position: absolute;width: 50px;margin: 0 5px;}
+  #id_tickets{width: 180px!important;text-align: center;}
+  .ikcharge{height:100%;background:#fff;padding:10px;}
+  .behind{display:block;}
+  .behinded{display:none;}
+  .dom-ready{background:white;}
+  #total{padding:10px;font-size:30px;}
+  #metodo{padding:10px;text-align:center;}
+</style>
+
+
+    
+<script type="text/javascript">
+  
+  function more() {
+  var iikc = document.getElementById("id_tickets").value;
+  var cantidad = iikc * 10;
+  var dolares = cantidad / 3000;
+  numer = isNaN(iikc);
+  if(numer){
+  document.getElementById("mensaje").innerHTML = "Por favor, digite la cantidad en numeros de Inkacoins que desea comprar";
+  document.getElementById("dolar").innerHTML = "";
+  document.getElementById("comprar").innerHTML = "";
+  document.getElementById("cantidad").innerHTML = "";
+  $( ".confirm" ).remove();
+  } else{
+      document.getElementById("cantidad").innerHTML = "Total $ " + cantidad + " COP.";
+  document.getElementById("dolar").innerHTML = "Total USD " + dolares + " $.";
+  document.getElementById("comprar").innerHTML = "Comprar  " + iikc + " IKC.";
+  document.getElementById("mensaje").innerHTML = "";
+  $( ".confirm" ).remove();
+  $( '<a class="confirm" href="javascript:pays()">Confirmar</a>' ).insertAfter( "#dolar" );
+      }
+}
+  function pays(){
+      var iikc = 0;
+       var iikc = document.getElementById("id_tickets").value;
+        var cantidad = iikc * 10;
+        var dolares = cantidad / 3000;
+        var total = parseFloat(Math.round(dolares * 100) / 100).toFixed(2);
+      document.getElementById('formikc').className = 'behinded'; 
+      document.getElementById("total").innerHTML = "Total a pagar: USD " + total + " $";
+      document.getElementById("metodo").innerHTML = "Seleccione el método de pago";
+        // Render the PayPal button into #paypal-button-container
+
+        paypal.Buttons({
+
+            // Set up the transaction
+            // El valor value es el que debe de modificarse
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: total
+                        }
+                    }]
+                });
+            },
+            
+            onCancel: function (data) {
+            
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    var recarga = parseInt(iikc);
+                    var ref = "/charge/" + recarga;
+                    location.href=ref;
+                });
+            }
+
+        }).render('#paypal-button-container');
+      }
+
+
+   
+
+</script>
+
+</div>

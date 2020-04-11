@@ -999,3 +999,22 @@ def dates_app(request):
 def loading_app(request):
     template = 'app/_loading.html'
     return render_to_response(template,locals(),context_instance=RequestContext(request))
+    
+def charge_app(request):
+    template = 'app/_charge.html'
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+    
+def monto_app(request, monto):
+    template = 'app/_monto.html'
+    coins = monto
+    coin = float(coins)
+    persona = request.user.userprofile
+    wallet = Wallet.objects.get(user = persona)
+    wall = wallet.total
+    wally = float(wall)
+    blockchain = wally + coin
+    bl = "{0:.2f}".format(blockchain)
+    wallet.total = bl
+    wallet.save()
+    message = "Recarga Exitosa"
+    return redirect(reverse('app.welcome'), {'message': message})

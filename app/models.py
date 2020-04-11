@@ -357,6 +357,7 @@ class Wallet(models.Model):
         codi = self.code
         codis = int(codi)
         strings = codis * codis
+        cod = str(codi)
         string = str(strings)
         hashs = string + string
         hash = str(hashs)
@@ -365,7 +366,7 @@ class Wallet(models.Model):
         month = str(date.month)
         day = str(date.day)
         ids = str(self.id)
-        variable = hash + codi + string + year + month + day + ids + ikc
+        variable = hash + cod + string + year + month + day + ids + ikc
         self.slug = slugify(variable)
         super(Wallet, self).save()
         
