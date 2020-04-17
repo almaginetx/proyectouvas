@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^blog/(?P<slug>[^\.]+)/$', views.blog_view, name='app.blog'),
     url(r'^eventos/$', views.dates_view, name='app.dates'),
     url(r'^tienda/$', views.products_view, name='app.products'),
+    url(r'^tienda/(?P<slug>[^\.]+)/$', views.product_view, name='app.product'),
     url(r'^pagos/$', views.payments_view, name='app.payments'),
     url(r'^pago/(?P<slug>[^\.]+)/$', views.payment_view, name='app.payment'),
     url(r'^cart/$', views.cart_view, name='app.cart'),

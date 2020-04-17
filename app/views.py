@@ -1018,3 +1018,11 @@ def monto_app(request, monto):
     wallet.save()
     message = "Recarga Exitosa"
     return redirect(reverse('app.welcome'), {'message': message})
+
+# STORE VIEWS
+
+@login_required
+def product_view(request, slug):
+    template = 'app/product.html'
+    product = Product.objects.get(slug = slug)
+    return render_to_response(template,locals(),context_instance=RequestContext(request))

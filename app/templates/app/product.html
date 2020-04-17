@@ -1,0 +1,19 @@
+<div class="productapp" id="productapp">
+<h1>{{request.user.userprofile.nickname}}</h1>
+
+<div class="productcontainer">
+<img src="/media/{{product.picture}}">
+<h2>{{product.title}}</h2>
+<h3>Tienda</h3>
+</div>
+</div>
+
+<style type="text/css">
+*{margin:0;}
+.productapp{padding:5px;background:blueviolet;}
+.productapp h1{font-size:16px;padding:5px;border-bottom:1px solid #333;}
+.productapp h2{font-size:16px;padding:5px;border-bottom:1px solid #333;}
+.productapp h3{font-size:11px;padding:5px;}
+.productcontainer{background:white;border-radius:2px;margin:5px;}
+..productcontainer img{width:100%;border-radius:2px;}
+</style>

@@ -210,6 +210,7 @@ class Product(models.Model):
     picture = models.ImageField(upload_to='dates', blank=True, null=True)
     price = models.IntegerField(blank=True, null=True, default=0, verbose_name="Precio en $COP")
     link = models.CharField(blank=True, max_length=3000, verbose_name="Link")
+    pdf = models.FileField(upload_to='products/pdf', blank=True, null=True)
     create_at = models.DateTimeField(default=now, editable=False)
     update_at = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
     slug = models.SlugField(editable=False)
