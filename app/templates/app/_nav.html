@@ -13,7 +13,7 @@
 <ul>
 	<h1><a href="{%url 'app.login'%}">CEANV</a></h1>
     {%if user.userprofile%}
-    <a class="appgreen" href="{%url 'app.welcome'%}">DASHBOARD</a>
+    <a class="appgreen" href="{%url 'app.welcome'%}">MI MURO</a>
     <a href="{%url 'app.uploadtrack'%}">Crear Audio</a>
     {%if user.userprofile.admin == 1%}
     <a href="{%url 'app.createblog'%}">Crear Blog</a>
@@ -65,7 +65,7 @@
 	<ul>
 	<h1><a href="{%url 'app.login'%}">CEANV</a></h1>
     {%if user.userprofile%}
-    <a class="appgreen" href="{%url 'app.welcome'%}">DASHBOARD</a>
+    <a class="appgreen" href="{%url 'app.welcome'%}">MI MURO</a>
     <a class="icon-audio" href="{%url 'app.uploadtrack'%}">Crear audio</a>
     {%if user.userprofile.admin == 1%}
     <a class="icon-blog" href="{%url 'app.createblog'%}">Crear Blog</a>
