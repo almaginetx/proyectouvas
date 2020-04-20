@@ -1,6 +1,6 @@
 <div class="product-list">
 {%if product%}
-<h1>Un catálogo virtual ideal para comenzar tu colección</h1>
+<h1>Un catálogo virtual ideal para comenzar tu colección IKC</h1>
 {%for product in product%}
 <article id="product-article{{product.id}}">
 	<a href="{% url 'app.addcart' product.slug%}">
