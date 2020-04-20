@@ -19,7 +19,7 @@ class signup_form(forms.Form):
         min_length=1,
         widget=forms.TextInput(attrs={'class': 'form-control'}))
     password = forms.CharField(
-        label='Contraseña',
+        label='Cree una contraseña segura',
         min_length=3,
         widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password2 = forms.CharField(
