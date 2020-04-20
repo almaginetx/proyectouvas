@@ -16,7 +16,7 @@
 		<a href="{%url 'app.signup'%}"><button></button></a>
 	</article>
 -->
-<h3>El playlist que necesitas</h3>
+<h3>Comienza a compartir todos los audios que quieras</h3>
 	{%for track in track%}
 	<article>
 		<a href="{% url 'app.userprofile' track.user.userprofile.slug%}">{%if track.user.userprofile.avatar%}
