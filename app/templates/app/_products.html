@@ -3,22 +3,24 @@
 <h1>Dísfruta una tienda llena de sorpresas</h1>
 {%for product in product%}
 <article id="product-article{{product.id}}">
-<img src="/media/{{product.picture}}">
-<div>
-<h3>{{product.title}}</h3>
-<p>Costo por unidad: $ {{product.price}} COP.</p>
-<p>Inkacoins: <span id="inkc{{product.id}}"></span> IKC.</p>
+	<a href="{% url 'app.addcart' product.slug%}">
+	<img src="/media/{{product.picture}}">
+	</a>
+	<div>
+	<h3>{{product.title}}</h3>
+	<p>Costo por unidad: $ {{product.price}} COP.</p>
+	<p>Inkacoins: <span id="inkc{{product.id}}"></span> IKC.</p>
 
-<script type="text/javascript">
-var ikc = 10;
-var inkc{{product.id}} = {{product.price}} / ikc;
-document.getElementById("inkc{{product.id}}").innerHTML=inkc{{product.id}};
-</script>
-<!--
-<ul><a href="{{product.link}}" target="_blank">Comprar</a></ul>
--->
-<ul><a href="{% url 'app.addcart' product.slug%}">Comprar</a></ul>
-</div>
+	<script type="text/javascript">
+	var ikc = 10;
+	var inkc{{product.id}} = {{product.price}} / ikc;
+	document.getElementById("inkc{{product.id}}").innerHTML=inkc{{product.id}};
+	</script>
+	<!--
+	<ul><a href="{{product.link}}" target="_blank">Comprar</a></ul>
+	-->
+	<ul><a href="{% url 'app.addcart' product.slug%}">Comprar</a></ul>
+	</div>
 </article>
 
 <style type="text/css">
