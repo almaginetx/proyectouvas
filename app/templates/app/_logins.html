@@ -1,6 +1,6 @@
 <div id="appRnav" class="appRnav">
 	<form method="post" action="">
-		<p>Ingrese a su cuenta</p>
+		<p>¿Ya tiene cuenta? Ingrese.</p>
         	{% csrf_token %}
         	{% if message %}<span>{{ message }}</span>{% endif %}
 	        <label for="username">Correo electrónico</label>
