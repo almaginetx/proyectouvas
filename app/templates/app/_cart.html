@@ -1,26 +1,28 @@
 <div class="cart">
-<h2>Carrito de compras de {{user.userprofile.nickname}}</h2>
+<h2>Bienvenido a tu lista de compras {{user.userprofile.nickname}}</h2>
 <h3>{{message}}</h3>
 
 {%for cart in cart%}
 {%if cart.owner.id == user.userprofile.id%}
 <article>
 <p>Producto: {{cart.product.title}}</p>
-<p>Cantidad: {{cart.cant}}</p>
-<p>Total: {{cart.price}} $COP</p>
+<p>Costo: <span id="inkc{{cart.id}}"></span> IKC Inkacoins.</p>
 <ul><a href="{% url 'app.deletecart' cart.slug%}">Eliminar</a></ul>
 </article>
 
+<script type="text/javascript">
+	var ikc{{cart.id}} = 10;
+	var inkc{{cart.id}} = {{cart.product.price}} / ikc{{cart.id}};
+	document.getElementById("inkc{{cart.id}}").innerHTML=inkc{{cart.id}};
+	</script>
+    
 {%endif%}
 {%endfor%}
 
-<h2>Total a pagar: <span id="total"></span> $COP</h2>
-<h2>Total a pagar (USD) <span id="totales"></span> $</h2>
- <!-- Include the PayPal JavaScript SDK -->
-    {% include 'app/ignore/_paypalcode.html'%}
-
- <div id="paypal-button-container"></div>
- 
+<h2>Total a pagar: <span id="total"></span> IKC Inkacoins</h2>
+<h4>Usted posee {{wallet.total}} IKC</h4>
+<h4>Si realiza esta compra su saldo será: <span id="saldo"></span> IKC</h4>
+ <div id="loader" class="loading"></div>
 <script type="text/javascript">
 {%for cart in cart%}
 {%if cart.owner.id == user.userprofile.id%}
@@ -35,41 +37,47 @@ cant{{cart.id}} +
 {%endif%}
 {%endfor%}
 0;
-var usd = 4000;
-var suma = sum / usd;
-document.getElementById("total").innerHTML=sum;
-document.getElementById("totales").innerHTML=suma;
+var ikc = 10;
+var suma = sum / ikc;
+wal = {{wallet.total}};
+sal = wal - suma;
+document.getElementById("total").innerHTML=suma;
+document.getElementById("saldo").innerHTML=sal;
 
-        // Render the PayPal button into #paypal-button-container
-        paypal.Buttons({
+function confirmar(){
+    document.getElementById('loader').className = 'loader';
+    {%for cart in cart%}
+    {%if cart.owner.id == user.userprofile.id%}
+            $("#addowner{{cart.id}}").load('{%url 'app.loading_app'%}');
+            function loading(){
+                $("#appsite").load('{% url 'app.addowner' cart.slug%}');
+                }
+            setTimeout(loading, 3000);
+    {%endif%}
+    {%endfor%}
+    function rer(){
+    window.location.href = "{%url 'app.welcome'%}";
+    }
 
-            // Set up the transaction
-            // El valor value es el que debe de modificarse
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: sum
-                        }
-                    }]
-                });
-            },
-
-            // Finalize the transaction
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    // Show a success message to the buyer
-                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
-                });
-            }
-
-        }).render('#paypal-button-container');
-
+    setTimeout(rer, 20000);
+    }
 </script>
 
-<ul><a href="{% url 'app.addbuyment' %}">Confirmar compra</a></ul>
+<ul><a class="cesta" href="javascript:confirmar();">Confirmar compra</a></ul>
+
+{%for cart in cart%}
+{%if cart.owner.id == user.userprofile.id%}
+<div id="addowner{{cart.id}}"></div>
+{%endif%}
+{%endfor%}
 </div>
+
+
 <style type="text/css">
 .cart{background:white;padding:10px;}
 .cart article{margin:3px;padding:10px;border:1px solid black;}
+.loader{position:fixed;top:0;left:0;z-index:100;width:100%;height:100%;background: white url(/static/img/loading.gif) no-repeat center center;background-size:200px;}
+.loading{display:none;}
+.cesta{background:#06e969;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
+
 </style>

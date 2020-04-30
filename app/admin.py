@@ -28,6 +28,9 @@ class ProductAdmin(admin.ModelAdmin):
 class WalletAdmin(admin.ModelAdmin):
     list_display = ('user', 'code', 'create_at', 'slug')
     
+class OwnerAdmin(admin.ModelAdmin):
+    list_display = ('user', 'product', 'create_at', 'slug')
+    
 admin.site.register(Track, TrackAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Blog, BlogAdmin)
@@ -43,3 +46,4 @@ admin.site.register(Cart)
 admin.site.register(Buyment)
 admin.site.register(Wallet, WalletAdmin)
 admin.site.register(Link)
+admin.site.register(Owner, OwnerAdmin)

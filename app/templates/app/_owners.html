@@ -1,0 +1,47 @@
+<div class="product-list">
+<h1>Disfruta tus adquisiciones</h1>
+{%for owner in owner%}
+{% if owner.user == request.user.userprofile %}
+<article id="product-article{{owner.id}}">
+	<a href="/media/{{owner.product.pdf}}">
+	<img src="/media/{{owner.product.picture}}">
+	</a>
+	<div>
+	<h3>{{owner.product.title}}</h3>
+	<p><span id="inkc{{owner.id}}"></span> IKC.</p>
+
+	<script type="text/javascript">
+	var ikc = 10;
+	var inkc{{owner.id}} = {{owner.product.price}} / ikc;
+	document.getElementById("inkc{{owner.id}}").innerHTML=inkc{{owner.id}};
+	</script>
+	<!--
+	<ul><a href="{{product.link}}" target="_blank">Comprar</a></ul>
+	-->
+	<ul><a href="/media/{{owner.product.pdf}}">Descargar</a></ul>
+	</div>
+</article>
+
+<style type="text/css">
+#product-article{{product.id}}{background:#333;margin: 2px;margin-bottom:5px;}
+</style>
+{%endif%}
+{%endfor%}
+
+<br><br>
+<a class="boton-store" href="https://web.whatsapp.com/send?phone={{config.whatsapp}}&text=">Iniciar un chat</a>
+<style type="text/css">
+.product-list{background:#1d2328;padding:20px;}
+.product-list h1{background:#42aeef url(/static/img/icons/121.png)no-repeat left 5px center;background-size:20px;padding-left:30px;color:white;padding:10px;padding-left:30px;margin:20px 0;font-size:18px;border-radius:5px;}
+.product-list article{border:4px solid rgba(0,0,0,0.1);border-radius:2px;overflow:hidden;width:200px;display:inline-block;vertical-align:top;}
+.product-list div{padding:10px;background:white;}
+.product-list figure{width:100%;height:200px;overflow:hidden;background:rgba(0,0,0,0.5);}
+.product-list article h3{padding:10px 0;font-size:14px;font-weight: normal;text-transform: lowercase;}
+.product-init{color:#7153dd;font-weight:bold;}
+.product-finish{color:orange;font-weight:bold;}
+.product-list p{padding:10px 0;color:#42aeef;font-size:12px;}
+.product-list img{width:100%;height:auto;}
+.boton-store{padding: 10px 20px;display: inline-block;text-align: center;background: #42aeef url(/static/img/icons/131.png)no-repeat left 10px center;background-size:30px;padding-left:50px;border-radius: 5px;margin: 10px;color: white;font-weight: bold;font-size:16px;}
+.product-list article ul a{padding:10px 20px;margin:10px 0;background:#42aeef;color:white;text-align:center;border-radius:12px;display:inline-block;}
+</style>
+</div>

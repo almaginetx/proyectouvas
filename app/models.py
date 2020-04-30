@@ -398,3 +398,27 @@ class Link(models.Model):
             hash, self.code, string, date.year, date.month, date.day, self.id
         )
         super(Link, self).save()
+        
+class Owner(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Producto")
+    user = models.ForeignKey(UserProfile, related_name='user_owner', blank=True, null=True, verbose_name="Usuario")
+    cant = models.IntegerField(blank=True, null=True, default=1, verbose_name="Cantidad")
+    create_at = models.DateTimeField(default=now, editable=False)
+    update_at = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
+    slug = models.SlugField(editable=False)
+
+    class Meta:
+        ordering = ['create_at']
+        verbose_name = "compra realizadas"
+        verbose_name_plural = 'compras realizadas'
+
+    def __unicode__(self):
+        return self.slug
+
+    def save(self):
+        super(Owner, self).save()
+        date = self.create_at
+        self.slug = '%i-%i-%i-owner-%i' % (
+            date.year, date.month, date.day, self.id
+        )
+        super(Owner, self).save()

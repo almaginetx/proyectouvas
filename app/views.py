@@ -746,6 +746,8 @@ def cart_view(request):
     template = 'app/cart.html'
     config = Config.objects.get(active = 1)
     cart = Cart.objects.all().order_by('-create_at')
+    coin = request.user.userprofile
+    wallet = Wallet.objects.get(user = coin)
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
 @login_required
@@ -760,6 +762,43 @@ def addcart_view(request, slug):
     cart.save()
     message = 'Producto agregado a su lista de compras'
     return redirect(reverse('app.cart'), {'message': message})
+    
+@login_required
+def addowner_view(request, slug):
+    cart = Cart.objects.get(slug = slug)
+    product = cart.product
+    template = 'app/cart.html'
+    owner = Owner()
+    owner.product = product
+    owner.price = product.price
+    owner.cant = 1
+    owner.user = request.user.userprofile
+    owner.save()
+    persona = request.user.userprofile
+    wallet = Wallet.objects.get(user = persona)
+    wall = wallet.total
+    wally = float(wall)
+    prices = float(product.price)
+    price = prices / 10
+    total = wally - price
+    bl = "{0:.2f}".format(total)
+    wallet.total = bl
+    wallet.save()
+    cart.delete()
+    message = 'Producto agregado a su lista de compras'
+    return redirect(reverse('app.ownerready'), {'message': message})
+    
+@login_required
+def ownerready_view(request):
+    template = 'app/_ownerready.html'
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+
+@login_required
+def owners_view(request):
+    template = 'app/owners.html'
+    owner = Owner.objects.all().order_by('-create_at')
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+
     
 @login_required
 def deletecart_view(request, slug):
