@@ -26,7 +26,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('title', 'create_at', 'slug')
 
 class WalletAdmin(admin.ModelAdmin):
-    list_display = ('user', 'code', 'create_at', 'slug')
+    list_display = ('user', 'total', 'create_at', 'slug')
     
 class OwnerAdmin(admin.ModelAdmin):
     list_display = ('user', 'product', 'create_at', 'slug')
