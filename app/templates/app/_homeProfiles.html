@@ -5,15 +5,15 @@
 	<a href="{%url 'app.signup'%}">Crea una presentación</a> -->
 		<div>
 		<h3>Obtén una cuenta Premium y comparte tu propio contenido</h3>
-		{%for userprofile in userprofile%}
-        {%if userprofile.verified == 1%}
+		{%for userprofiles in userprofiles%}
+        {%if userprofiles.verified == 1%}
 		<article>
-		<a href="{% url 'app.userprofile' userprofile.slug%}">{%if userprofile.avatar%}
-			<img src="/media/{{userprofile.avatar}}" alt="User: {{userprofile.nickname}}.">
+		<a href="{% url 'app.userprofile' userprofiles.slug%}">{%if userprofiles.avatar%}
+			<img src="/media/{{userprofiles.avatar}}" alt="User: {{userprofiles.nickname}}.">
 			{%else%}
-			<img src="/static/img/avatar.png" alt="User: {{userprofile.nickname}}.">
+			<img src="/static/img/avatar.png" alt="User: {{userprofiles.nickname}}.">
 			{%endif%}</a>
-		<h4>{{userprofile.nickname}}</h4>
+		<h4>{{userprofiles.nickname}}</h4>
 		</article>
         {%endif%}
 		{%endfor%}

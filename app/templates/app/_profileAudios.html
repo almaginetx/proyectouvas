@@ -1,23 +1,9 @@
-<!--////////////////////// /banner -->
-<section class="app-banner">
-	<h2>Accede a nuevos audios para mejorar tu carrera profesional. </h2>
-</section>
 
-<style type="text/css">
-	.app-banner{background: rgba(0,0,0,0.7);display: block;width: 100%;padding: 40px 20px; color: #fff;text-align: center;}
-</style>
-<!--////////////////////// /banner -->
 <!-- ////////////////////////////////// app-homeList-->
 <section class="app-homeList">
-<!--
-	<article>
-		<a href="{%url 'app.signup'%}"><img src="/static/img/avatar.png" alt="Listen Audio"></a>
-		<p><strong>CEANV:</strong> "Con tu cuenta puedes acceder a nuevos audios que te ayudarán a mejorar tu carrera profesional. Crea tus propias presentaciones y compartelas con profesores y alumnos."</p>
-		<a href="{%url 'app.signup'%}"><button></button></a>
-	</article>
--->
-<h3>Comienza a compartir con la comunidad online</h3>
+<h3>Biblioteca de Audios de {{userprofile.nickname}}</h3>
 	{%for track in track%}
+    {%if userprofile.id == track.user.userprofile.id%}
 	<article>
 		<a href="{% url 'app.userprofile' track.user.userprofile.slug%}">{%if track.user.userprofile.avatar%}
 			<img src="/media/{{track.user.userprofile.avatar}}" alt="User: {{track.user.userprofile.nickname}}.">
@@ -41,6 +27,7 @@
             }                     
     } 
 </script>
+{%endif%}
 	{%endfor%}
 
 </section>
@@ -65,7 +52,7 @@
 		.app-homeList p{padding-left:65px;padding-right:80px;display:inline-block;color:#333;height:60px;overflow:hidden;font-size:14px;}
 		.app-homeList button{display:inline-block;position:absolute;top:15px;right:20px;width:50px;height:50px;background:#bdbdc6 url(/static/img/play.png) no-repeat center center;background-size:30px;border:none;border-radius:50%;opacity:0.8;}
 		.app-homeList button:hover{opacity:1;cursor:pointer;}
-        .app-homeList h3{margin:20px 10px;background:#165960 url(/static/img/icons/109.png)no-repeat left 5px center;background-size:20px;font-size:18px;text-align:left;color:#fff;padding:10px;border-radius:5px;padding-left:30px;}
+        .app-homeList h3{margin:20px 10px;background:#626262d6 url(/static/img/icons/109.png)no-repeat left 5px center;background-size:20px;font-size:18px;text-align:left;color:#fff;padding:10px;border-radius:5px;padding-left:30px;}
 	
 </style>
 <style type="text/css">@media screen and (max-width:1000px){

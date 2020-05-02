@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^blog/$', views.blogs_view, name='app.blogs'),
     url(r'^blog/(?P<slug>[^\.]+)/$', views.blog_view, name='app.blog'),
     url(r'^eventos/$', views.dates_view, name='app.dates'),
-    url(r'^tienda/$', views.products_view, name='app.products'),
+    url(r'^mercado-inkacoin/$', views.products_view, name='app.products'),
     url(r'^tienda/(?P<slug>[^\.]+)/$', views.product_view, name='app.product'),
     url(r'^pagos/$', views.payments_view, name='app.payments'),
     url(r'^pago/(?P<slug>[^\.]+)/$', views.payment_view, name='app.payment'),
@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^nuevo-audio/$', views.uploadtrack_view, name='app.uploadtrack'),
     url(r'^audios/(?P<slug>[^\.]+)/$', views.track_view, name='app.track'),
     url(r'^publicar/$', views.createblog_view, name='app.createblog'),
-    url(r'^usuario/(?P<slug>[^\.]+)/$', views.userprofile_view, name='app.userprofile'),
+    url(r'^@/(?P<slug>[^\.]+)/$', views.userprofile_view, name='app.userprofile'),
     url(r'^actualizar/foto-perfil/(?P<slug>[^\.]+)/$', views.updateavatar_view, name='app.updateavatar'),
     url(r'^actualizar/nombre-usuario/(?P<slug>[^\.]+)/$', views.updatenickname_view, name='app.updatenickname'),
     url(r'^actualizar/miembro-color-a/(?P<slug>[^\.]+)/$', views.updatecolora_view, name='app.colora'),
@@ -61,4 +61,11 @@ urlpatterns = [
     url(r'^app/loading$', views.loading_app, name='app.loading_app'),
     url(r'^app/charges$', views.charge_app, name='app.charge_app'),
     url(r'^charge/(?P<monto>[^\.]+)/$', views.monto_app, name='app.monto_app'),
+###################################################################################
+###########################################################################
+############################################################################
+###########################################################################
+# PROYECTO UVAS 2.0
+    url(r'^academy/$', views.academy, name='app.academy'),
+
 ]

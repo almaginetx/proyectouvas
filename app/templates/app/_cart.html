@@ -1,3 +1,4 @@
+<style>.nones{display:none;}</style>
 <div class="cart">
 <h2>Bienvenido a tu lista de compras {{user.userprofile.nickname}}</h2>
 <h3>{{message}}</h3>
@@ -21,8 +22,14 @@
 
 <h2>Total a pagar: <span id="total"></span> IKC Inkacoins</h2>
 <h4>Usted posee {{wallet.total}} IKC</h4>
+<div id="nones">
 <h4>Si realiza esta compra su saldo será: <span id="saldo"></span> IKC</h4>
  <div id="loader" class="loading"></div>
+ <ul><a class="cesta" href="javascript:confirmar();">Confirmar compra</a></ul>
+ </div>
+ <div id="none" class="nones">
+ <ul><a class="cestas" href="{%url 'app.welcome'%}">Recargue su tarjeta virtual IKC</a></ul>
+</div>
 <script type="text/javascript">
 {%for cart in cart%}
 {%if cart.owner.id == user.userprofile.id%}
@@ -44,6 +51,11 @@ sal = wal - suma;
 document.getElementById("total").innerHTML=suma;
 document.getElementById("saldo").innerHTML=sal;
 
+if (wal < suma){
+    document.getElementById('nones').className = 'nones';
+    document.getElementById('none').className = '';
+    }
+
 function confirmar(){
     document.getElementById('loader').className = 'loader';
     {%for cart in cart%}
@@ -63,7 +75,7 @@ function confirmar(){
     }
 </script>
 
-<ul><a class="cesta" href="javascript:confirmar();">Confirmar compra</a></ul>
+
 
 {%for cart in cart%}
 {%if cart.owner.id == user.userprofile.id%}
@@ -79,5 +91,6 @@ function confirmar(){
 .loader{position:fixed;top:0;left:0;z-index:100;width:100%;height:100%;background: white url(/static/img/loading.gif) no-repeat center center;background-size:200px;}
 .loading{display:none;}
 .cesta{background:#06e969;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
+.cestas{background:#3a95e6;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
 
 </style>

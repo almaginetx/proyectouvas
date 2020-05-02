@@ -32,7 +32,7 @@ from django.views.generic.list import ListView
 
 def login_view(request):
     message = ''
-    userprofile = UserProfile.objects.all().order_by('-create_at')
+    userprofiles = UserProfile.objects.all().order_by('-create_at')
     track = Track.objects.all().order_by('-create_at')
     category = Category.objects.all().order_by('-create_at')[:3]
     categorys = Category.objects.all().order_by('-create_at')
@@ -955,21 +955,19 @@ def blogs_view(request):
     
     
 def search(request):
-    blog = Blog.objects.all().order_by('title')
-    category = Category.objects.all()
+    product = Product.objects.all().order_by('title')
     query = request.GET.get('q', '')
     if query:
         qset = (
-            Q(title__icontains=query) | Q(description__icontains=query) | Q(category__title__icontains=query) | Q(category__description__icontains=query)
+            Q(title__icontains=query) | Q(description__icontains=query)
         )
-        results = Blog.objects.filter(qset).order_by('title').distinct()
+        results = Product.objects.filter(qset).order_by('title').distinct()
     else:
         results = []
     return render_to_response("app/search.html", {
         "results": results,
         "query": query,
-        "category": category,
-        "blog": blog,
+        "product": product,
     })
 
 def inka_view(request):
@@ -1065,3 +1063,15 @@ def product_view(request, slug):
     template = 'app/product.html'
     product = Product.objects.get(slug = slug)
     return render_to_response(template,locals(),context_instance=RequestContext(request))
+    
+###################################################################################
+###########################################################################
+############################################################################
+###########################################################################
+# PROYECTO UVAS 2.0
+
+def academy(request, slug):
+    template = 'app/academy/home.html'
+    product = Product.objects.get(slug = slug)
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+    

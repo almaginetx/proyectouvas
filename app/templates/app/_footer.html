@@ -15,34 +15,37 @@
 	<p>Síguenos: @ProyectoUvas</p>
 	<ul>
 	<a href="{%url 'app.login'%}">Inicio</a>
-	<a href="{%url 'app.signup'%}">Crear una cuenta gratuita</a>
 	<a href="{%url 'app.us'%}">Quienes somos</a>
     {%if config.whatsapp%}
     <a href="https://wa.me/{{config.whatsapp}}">Contacto</a>
     {%else%}
     <a href="https://wa.me/+573192121193">Contacto</a>
     {%endif%}
+    <a href="{%url 'app.signup'%}">Crear una cuenta gratuita</a>
     <a href="{%url 'app.dates'%}">Eventos</a>
-    <a href="{%url 'app.products'%}">Tienda</a>
-    <a href="https://biz.payulatam.com/L0ccfcfBD5BBEAA" target="_blank">Comprar Inkacoins</a>
     <a href="{%url 'app.companies'%}">Holding empresarial</a>
-	<a href="http://www.osoriomartinez.com">Desarrolladores</a>
-    <a href="{%url 'app.tasks'%}">API Documentación</a>
-    <a href="{%url 'app.payments'%}">Pagos y donaciones</a>
-    <a href="{% url 'app.paymentc'%}">Confirmar un pago</a>
-    <a href="{%url 'app.cart'%}">Carrito de compras</a>
-     <a href="https://github.com/almaginetx/proyectouvas" target="_blank">Código fuente</a>
-    <a href="https://www.facebook.com/proyectouvas" target="_blank">Facebook</a>
-	<a href="/static/proyectouvas.apk">Descarga el App para Android</a>
-    <a id="appl" href="javascript:applinks()">Mapsite</a>
+    <a href="{%url 'app.products'%}">Mercado Inkacoin</a>
+    <a href="{%url 'app.cart'%}">Mi lista de compras</a>
     </ul>
 	<ul>
+    <a href="{%url 'app.academy'%}">Academia</a>
+    <a href="https://biz.payulatam.com/L0ccfcfBD5BBEAA" target="_blank">Comprar Inkacoins</a>
     {%for categorys in categorys%}
 		<a href="{% url 'app.category' categorys.slug%}">{{categorys.title}}</a>
     {%endfor%}
         {%for link in link%}
 		<a href="{{link.title}}" class="{{link.id}}main">{{link.create_at}}. {{link.link}}</a>
         {%endfor%}
+    <a id="appl" href="javascript:applinks()">Mapsite</a>
+    </ul>
+    <ul>
+    <a href="https://www.facebook.com/proyectouvas" target="_blank">Facebook</a>
+    <a href="/static/proyectouvas.apk">Descarga el App para Android</a>
+    <a href="https://github.com/almaginetx/proyectouvas" target="_blank">Código fuente</a>
+    <a href="{%url 'app.tasks'%}">API Documentación</a>
+    <a href="{%url 'app.payments'%}">Pagos y donaciones</a>
+    <a href="{% url 'app.paymentc'%}">Confirmar un pago</a>
+    <a href="http://www.osoriomartinez.com">Desarrolladores</a>
     </ul>
 	<br>
     <img class="img200" src="/static/img/payu.png">
@@ -93,7 +96,7 @@ background-image: linear-gradient(to right,
 {%endfor%}
     footer p{font-weight:bold;color:white; text-align: center;padding: 10px;}
     .img200{width:260px;}
-    footer iframe{width:100%;margin:10px;border:none;height:300px;}
+    footer iframe{width:100%;border:none;height:300px;}
 </style>
 
 <script src="/static/swiper.js"></script>

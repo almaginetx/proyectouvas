@@ -26,6 +26,7 @@ Eventos
 Videos
 </a>
 -->
+{%if user.userprofile%}
 <a href="javascript:appcharge()">
 <img src="/static/img/icons/126.png">
 Recargar Inkacoins
@@ -34,6 +35,7 @@ Recargar Inkacoins
 <img src="/static/img/icons/logout.png">
 Salir
 </a>
+{%endif%}
 </div>
 <style type="text/css">
 .appcontainer{margin-left:50px;}

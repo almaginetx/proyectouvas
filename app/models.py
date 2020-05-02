@@ -207,6 +207,7 @@ class Date(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length=300, verbose_name="Titulo")
+    description = models.TextField(blank=True, verbose_name="Descripción")
     picture = models.ImageField(upload_to='dates', blank=True, null=True)
     price = models.IntegerField(blank=True, null=True, default=0, verbose_name="Precio en $COP")
     link = models.CharField(blank=True, max_length=3000, verbose_name="Link")

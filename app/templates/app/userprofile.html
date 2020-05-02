@@ -1,95 +1,92 @@
 {% include 'app/_header.html'%}
 {% include 'app/_nav.html'%}
-<!-- ////////////////////////////////// app-homeForm-->
+<div class="appcontainer">
+<!-- Swiper -->
+<div class="swiper-container">
+<div class="swiper-wrapper">
+<div id="slide1" class="swiper-slide" data-hash="slide1">
+<!--PANTALLA PRINCIPAL DE BIENVENIDA -->
 
-<section class="app-homeForm">
-	<h1>Perfil de miembro:</h1>
-	{% if message %}<h2>{{ message }}</h2>
-	{%endif%}
-	<h2>{{userprofile.nickname}}</h2>
-	<h3>Año de Registro: {{userprofile.create_at|date:"Y"}}.</h3>
-    <h3>Costo de suscripción: 50 pts.</h3>
-    <h3>Ganancias por nivel: 350 pts.</h3>
-    <h3>Niveles creados: 3.</h3>
-    <a class="boton-blue" href="javascript:alerta();">Suscribirse a este perfil</a>
-</section>
+<div class="appbanner">
+<div class="appcortain">
+
+ <div class="appleft">
+    
+    <figure class="appavatar">
+        {%if userprofile.avatar%}
+        <img src="/media/{{userprofile.avatar}}">
+        {%else%}
+        <img src="/static/img/icons/63.png">
+        {%endif%}
+    </figure>
+    <h2>{{userprofile.nickname}}</h2>
+ </div><div class="appright">
+ <p class="miwallet">Registrado en {{userprofile.create_at|date:"M d-l Y"}}. Adquiera una cuenta Premium para contactar a este miembro</p>
+
+ </div>
+
+   
+</div>
+</div>
+
+ <div class="notice">
+ <h3>Precio del Inkacoin (IKC) {{now}}: 1 IKC = $10 COP/USD 0,0033$</h3>
+ </div>
+ {% include 'app/_profileAudios.html'%}
+ {% include 'app/_homeProfiles.html'%}
+ 
+<style type="text/css">
+.notice{background:white;padding:10px;}
+.notice h3{color:black;font-size:14px;text-align:center;}
+.miwallet{color:white;background:rgba(0,0,0,0.6);font-size: 13px;padding:6px;border-radius:6px;margin-bottom: 3px;}
+.message{height:44px;padding:10px;color:white;font-weight:normal;background:#2be2a6;text-align:left;}
+.appbanner{height:auto;background: url(/static/img/uvascity.jpg)no-repeat center center;background-size:cover;}
+.appcortain{background:rgba(0,0,0,0.2);width:100%;height:auto;padding:20px;}
+.wallet{padding:10px;width:100%;height:auto;background:#5581a9;border-radius:10px;}
+.wikclogo{width:80px;}
+.ikcw{color:#fff;font-size:11px;}
+.figure{padding:10px;}
+.datew{font-size:12px;color:#ece2e2;}
+.mailw{width:100%;text-align:right;}
+.mailw p{font-size.12px;color:white;font-size:10px;}
+.chargew{background:#0cff1b;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
+.wright{text-align:right;width:150px;}
+.wallet table h3{font-size:24px;font-weight:bold;color:white;text-align:right;}
+.cesta{background:#06e969;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
+
+.appleft{display:inline-block;vertical-align:top; width:70%;}
+.appright{display:inline-block;vertical-align:top; width:29%;}
+.appavatar{border-radius:50%;position:relative;display:inline-block;padding:16px;background:rgba(255,255,255,0.5);height:100%;}
+.appavatar img{width:160px;height:160px;border-radius:50%;opacity:1;}
+.appavatar img:hover{opacity:0.8;}
+.appleft h2{font-size:36px;color:white;padding:10px;dispĺay:block;}
+.float{z-index:2;border-radius:50%;position:absolute;background:rgba(0,0,0,0.8);padding:5px;display:inline-block;top:5px;left:5px;}
+.float img{width:26px;height:26px;}
+
+@media screen and (max-width:1000px){
+    .appleft{display:inline-block;vertical-align:top; width:100%;}
+    .appright{display:inline-block;vertical-align:top; width:100%;}
+}
+</style>
+    
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+{% include 'app/_menuapps.html'%}
 
 <script type="text/javascript">
-function alerta(){
-    alert("Usted no cuenta con suficientes puntos.");
-    }
+    function comprar()
+    {
+        alert("Actualización en el sistema, regrese más tarde");
+        }
 </script>
 
-<style type="text/css">
-    .boton-blue{padding: 10px 20px;display: inline-block;text-align: center;background: orange;border-radius: 5px;margin: 10px;color: white;font-weight: bold;}
-	.app-homeForm{width:30%;}
-	.app-homeForm{background:#000;padding:20px 30px 20px 0;}
-	.app-homeForm h1{padding:10px;color:#d2d2d2;background:#000;font-size:16px;}
-	.app-homeForm h2{font-size: 20px;text-align:left;color:#fff;padding:10px;}
-	.app-homeForm h3{font-size: 12px;text-align:left;color:#fff;padding:10px;}
-	.app-homeForm a{display:block;padding:20px;padding-left:60px;background:#f6c434 url(/static/img/icon.png) no-repeat left 5px center;background-size:50px;color:#000;border-radius:5px;opacity:0.8;font-weight:bold;}
-	.app-homeForm a:hover{opacity:1;}
-	.app-homeForm img{width:120px;height:120px;display:inline-block;vertical-align:top;margin:5px;border-radius:50%;}
-	.app-homeForm div{text-align:center;}
-	.app-homeForm article{display:inline-block;vertical-align:top;text-align:center;}
-	.app-homeForm article h4{margin-bottom:5px;color:#fff;display:block;width:130px;height:28px;overflow:hidden;font-size:12px;text-align:center;}
-
-</style>
-<style type="text/css">@media screen and (max-width:1000px){
-	input{width: 100%;}
-}</style>
-
-<!-- ////////////////////////////////// app-homeList-->
-<section class="app-homeList">
-	<header>
-		<div class="centered">
-		<figure onclick="load()">
-			{%if userprofile.avatar%}
-			<img src="/media/{{userprofile.avatar}}" alt="User: {{userprofile.nickname}}.">
-			{%else%}
-			<img src="/static/img/avatar.png" alt="User: {{userprofile.nickname}}.">
-			{%endif%}
-		</figure>
-		</div>
-	</header>
-{% include 'app/_lvl.html'%}
-
-	{%for track in track%}
-	{%if track.user.userprofile.id == userprofile.id%}
-	<article>
-		<a >{%if track.user.userprofile.avatar%}
-			<img src="/media/{{track.user.userprofile.avatar}}" alt="User: {{track.user.userprofile.nickname}}.">
-			{%else%}
-			<img src="/static/img/avatar.png" alt="User: {{track.user.userprofile.nickname}}.">{%endif%}</a>
-		<p><strong>{{track.user.userprofile.nickname}}:</strong> "{{track.title}}" <span> {{track.create_at|timesince}} ago</span></p>
-		<a href="{% url 'app.track' track.slug%}"><button></button></a>
-	</article>
-	{%endif%}
-	{%endfor%}
-
-</section>
-
-<style type="text/css">
-	*{margin: 0;padding: 0;text-decoration: none;list-style: none;font-family: 'Roboto', sans-serif;-webkit-transition: All 0.2s ease;-moz-transition: All 0.2s ease;-o-transition: All 0.2s ease;-ms-transition: All 0.2s ease;transition: All 0.2s ease;box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
-
-	section{background:rgba(0,0,0,0.2);display:inline-block;vertical-align:top;width:49%;}
-
-.app-homeList {width: 69%}
-
-	.app-homeList header{position:relative;background:url(/static/img/banner.jpg)no-repeat center center;background-size:cover;background-attachment:fixed;margin-bottom:130px;height:200px;text-align:center;}
-		.centered{height: 100%;display:block;width:220px;margin: 0 auto;}
-		.app-homeList figure{background:rgba(119,119,119,0.1);no-repeat center center;background-size:100%;height:220px;width:220px;border-radius:50%;position:absolute;bottom:-115px;padding-top:25px}
-		.app-homeList figure img{border-radius:50%;width:160px;height:160px;}
-
-	.app-homeList article{position:relative;background:rgba(0,0,0,0.6);padding:10px;margin:2px;}
-	.app-homeList span{font-size:10px;}
-		.app-homeList article img{position:absolute;left:-35px;display:inline-block;width:70px;height:70px;border-radius:50%;}
-		.app-homeList p{padding-left:30px;padding-right:70px;display:inline-block;color:#fff;height:70px;overflow:hidden;font-size:14px;}
-		.app-homeList button{display:inline-block;position:absolute;top:10px;right:10px;width:70px;height:70px;background:#4b4b4b url(/static/img/play.png) no-repeat center center;background-size:40px;border:none;border-radius:5px;opacity:0.8;}
-		.app-homeList button:hover{opacity:1;cursor:pointer;}
-</style>
-<style type="text/css">@media screen and (max-width:1000px){
-	section{background:#0f0f0f;display:block;width:100%!important;}
-}</style>
+<!-- Include the PayPal JavaScript SDK -->
+{% include 'app/ignore/_paypalcode.html'%}
 
 {% include 'app/_footer.html'%}

@@ -14,6 +14,7 @@
 	<h2>{{track.title}}</h2>
 	{%endif%} -->
 	{%if track.audio%}
+    <p>{{track.title}}</p>
 	<audio controls>
     <source src="/media/{{track.audio}}" type="audio/mpeg">
     Su navegador no soporta elementos de audio.
@@ -22,13 +23,13 @@
 	<h3>Hace {{track.create_at|timesince}}</h3>
 	<div>
 	<article>
-		<a href="{% url 'app.userprofile' track.user.userprofile.slug%}">{%if track.user.userprofile.avatar%}
+		{%if track.user.userprofile.avatar%}
 			<img src="/media/{{track.user.userprofile.avatar}}" alt="User: {{track.user.userprofile.nickname}}.">
 			{%else%}
 			<img src="/static/img/avatar.png" alt="User: {{userprofile.nickname}}.">
-			{%endif%}</a>
+			{%endif%}
 		<h4>Creado por: {{track.user.userprofile.nickname}} el {{track.create_at}}</h4>
-	</article>
+    </article>
 	</div>
 </section>
 
@@ -37,12 +38,13 @@
 body{background:#000;}
 	.app-homeForm{width:100%;}
 	.app-homeForm audio{width:100%;}
-	.app-homeForm{background:rgba(0,0,0,0.5);padding:20px;}
+	.app-homeForm{background:rgb(22, 89, 96);padding:20px;}
 	.app-homeForm h2{font-size: 20px;text-align:center;color:#fff;padding:10px;}
 	.app-homeForm h3{font-size: 12px;text-align:center;color:#fff;padding:10px;}
 	.app-homeForm h4{font-size: 12px;text-align:center;color:#fff;padding:10px;}
 	.app-homeForm img{width:120px;height:120px;display:inline-block;vertical-align:top;margin:5px;border-radius:50%;}
-	.app-homeForm div{text-align:center;}
+	.app-homeForm p{font-size: 20px;text-align:center;color:#fff;padding:10px;padding-top:0px;}
+    .app-homeForm div{text-align:center;}
 	.app-homeForm li{padding:20px;background:red;}
 </style>
 <style type="text/css">@media screen and (max-width:1000px){

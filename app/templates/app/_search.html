@@ -1,5 +1,5 @@
 <section class="buscador">
-<h3>Buscar en Proyecto Uvas</h3>
+<h4>Buscar en el Mercado Inkacoin</h4>
 <form action="." method="GET">
     <input class="buscadorapp" type="text" name="q" value="{{ query|escape }}">
     <button class="buscadorsearch" id="enviar" type="submit" value="Buscar">buscar</button>
@@ -9,19 +9,54 @@
     <h2>Resultados para "{{ query|escape }}":</h2>
       
     {% if results %}
-      {% for Blog in results %}
-      <div class="results">
-        <article>
-        <div>
-        <a href="{% url 'app.blog' Blog.slug%}" target="_blank">
-        <img src="/media/{{Blog.picture}}">
-        </a>
-        <h4>{{Blog.title}}</h4>
-        <a class="artb" href="{% url 'app.blog' Blog.slug%}" target="_blank">Ver más</a>
-        </div>
-        </article>
-      </div>
-     {% endfor %}
+      <div class="product-list">
+{%if product%}
+<h1>Adquiere productos y servicios en el mercado digital de Inkacoin</h1>
+{%for product in results %}
+<article id="product-article{{product.id}}">
+	<a target="_blank" href="{% url 'app.addcart' product.slug%}">
+	<img src="/media/{{product.picture}}">
+	</a>
+	<div>
+	<h3>{{product.title}}</h3>
+	<p><span id="inkc{{product.id}}"></span> IKC.</p>
+
+	<script type="text/javascript">
+	var ikc = 10;
+	var inkc{{product.id}} = {{product.price}} / ikc;
+	document.getElementById("inkc{{product.id}}").innerHTML=inkc{{product.id}};
+	</script>
+	<!--
+	<ul><a href="{{product.link}}" target="_blank">Comprar</a></ul>
+	-->
+	<ul><a target="_blank" href="{% url 'app.addcart' product.slug%}">Adquirir</a></ul>
+	</div>
+</article>
+
+<style type="text/css">
+#product-article{{product.id}}{background:#333;margin: 2px;margin-bottom:5px;}
+</style>
+{%endfor%}
+{%else%}
+<h1>No hay productos en la tienda</h1>
+{%endif%}
+<br><br>
+<a class="boton-store" href="https://web.whatsapp.com/send?phone={{config.whatsapp}}&text=">Iniciar un chat</a>
+<style type="text/css">
+.product-list{background:#1d2328;padding:20px;}
+.product-list h1{background:#42aeef url(/static/img/icons/121.png)no-repeat left 5px center;background-size:20px;padding-left:30px;color:white;padding:10px;padding-left:30px;margin:20px 0;font-size:18px;border-radius:5px;}
+.product-list article{border:4px solid rgba(0,0,0,0.1);border-radius:2px;overflow:hidden;width:200px;display:inline-block;vertical-align:top;}
+.product-list div{padding:10px;background:white;}
+.product-list figure{width:100%;height:200px;overflow:hidden;background:rgba(0,0,0,0.5);}
+.product-list article h3{padding:10px 0;font-size:14px;font-weight: normal;text-transform: lowercase;}
+.product-init{color:#7153dd;font-weight:bold;}
+.product-finish{color:orange;font-weight:bold;}
+.product-list p{padding:10px 0;color:#42aeef;font-size:12px;}
+.product-list img{width:100%;height:auto;}
+.boton-store{padding: 10px 20px;display: inline-block;text-align: center;background: #42aeef url(/static/img/icons/131.png)no-repeat left 10px center;background-size:30px;padding-left:50px;border-radius: 5px;margin: 10px;color: white;font-weight: bold;font-size:16px;}
+.product-list article ul a{padding:10px 20px;margin:10px 0;background:#42aeef;color:white;text-align:center;border-radius:12px;display:inline-block;}
+</style>
+</div>
     {% else %}
       <p class="bigSearch">No se encontraron resultados</p>
     {% endif %}
@@ -35,18 +70,15 @@
   {% endif %}
 
     <style class="text/css">
-        .onboard{text-align:center;background: blueviolet;padding:20px;}
+        .onboard{text-align:center;background: #077486;padding:20px;}
         .onboard h4{color:white;font-size:20px;}
         .onboard a{margin:5px;border-radius:5px;border:2px solid white;display:inline-block;color:white;padding:10px;}
-        .results{background:rgba(255,255,255,0.8);padding:5px;border-radius:5px;margin:2px;}
-        .results article{display:inline-block;vertical-align:top;background:white;marging:2px;border-radius:3px;width:200px;}
-        .buscadorapp{width:100%;padding:10px;border-radius:50px;}
-        .results article h4{font-color:black;font-size:12px;padding:10px;}
-        .artb{display:inline-block;color:white;font-size:12px;padding:10px; background:orange;}
-        .results article img{border-radius:1px;width:50px;height:auto;padding:10px;}
-        .buscador form{position relative;}
-        .buscador h3{color:white;font-size:15px;font-family:true;}
+       .buscadorapp{width:100%;padding:10px;border-radius:50px;border:none;}
+       .artb{display:inline-block;color:white;font-size:12px;padding:10px; background:orange;}
+       .buscador form{position relative;}
+        .buscador h4{color:white;font-size:15px;font-family:true;}
         .buscador h2{color:white;font-size:15px;font-family:true;}
-        .buscadorsearch{position:absolute;right:0px;border-radius:50px;height:38px;width:70px;}
-    </style>
+        .buscadorsearch {position: absolute;right: 0px;border-radius: 0 20px 20px 0px;height: 33px;width: 70px;border: none;background: blueviolet;color:white;}
+
+  </style>
 </section>
