@@ -154,6 +154,7 @@ def signup_view(request):
 def welcome_view(request):
     track = Track.objects.all().order_by('-create_at')
     userprofile = UserProfile.objects.all().order_by('-create_at')
+    userprofiles = UserProfile.objects.all().order_by('-create_at')
     template = 'app/welcome.html'
     category = Category.objects.all().order_by('-create_at')[:3]
     categorys = Category.objects.all().order_by('-create_at')
