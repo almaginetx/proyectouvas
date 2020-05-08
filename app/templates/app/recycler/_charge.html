@@ -15,23 +15,7 @@
 </form>
 <p id="total"></p>
 <p id="metodo"></p>
-
-<form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">
-  <input name="merchantId"    type="hidden"  value="839631"   >
-  <input name="accountId"     type="hidden"  value="847089" >
-  <input name="description"   type="hidden"  value="prueba"  >
-  <input name="referenceCode" type="hidden"  value="unapruebauvasproyecto01" >
-  <input name="amount"        type="hidden"  value="2000"   >
-  <input name="tax"           type="hidden"  value="500"  >
-  <input name="taxReturnBase" type="hidden"  value="1500" >
-  <input name="currency"      type="hidden"  value="COP" >
-  <input name="signature"     type="hidden"  value="d85276ba4eac9f211f5f8851b9fa248f"  >
-  <input name="test"          type="hidden"  value="1" >
-  <input name="buyerEmail"    type="hidden"  value="almaginetx@gmail.com" >
-  <input name="responseUrl"    type="hidden"  value="https://www.proyectouvas.com" >
-  <input name="confirmationUrl"    type="hidden"  value="https://www.proyectouvas.com" >
-  <input name="Submit"        type="submit"  value="Enviar" >
-</form>
+<div id="paypal-button-container"></div>
 
 <style type="text/css">
   .mores{background: #1abd62;color: #fff;display: inline-block;vertical-align: middle;font-size: 18px;font-weight: bold;text-align: center;padding: 10px;margin: 0 5px;line-height: 0.9;position: absolute;}
@@ -80,11 +64,42 @@
         var total = parseFloat(Math.round(dolares * 100) / 100).toFixed(2);
       document.getElementById('formikc').className = 'behinded'; 
       document.getElementById("total").innerHTML = "Total a pagar: USD " + total + " $";
-      document.getElementById("metodo").innerHTML = "Confirme su compra";
-      document.getElementById("metodo").innerHTML = "Confirme su compra";
-  }
+      document.getElementById("metodo").innerHTML = "Seleccione el método de pago";
+        // Render the PayPal button into #paypal-button-container
+
+        paypal.Buttons({
+
+            // Set up the transaction
+            // El valor value es el que debe de modificarse
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: total
+                        }
+                    }]
+                });
+            },
+            
+            onCancel: function (data) {
+            
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    var recarga = parseInt(iikc);
+                    var ref = "/charge/" + recarga;
+                    location.href=ref;
+                });
+            }
+
+        }).render('#paypal-button-container');
+      }
 
 
+   
 
 </script>
 
