@@ -28,7 +28,7 @@
     <a href="{%url 'app.inka'%}">Inkacoin</a>
     <a href="{%url 'app.dates'%}">Eventos</a>
     {%if user.userprofile%}
-    <a href="{%url 'app.cart'%}">Lista de compras</a>
+    <a href="{%url 'app.cart'%}">Lista de compras <span id="carro2"></span></a>
     {%if user.userprofile.admin == 1%}
     <a href="/admin/app/">Administración</a>
     {%endif%}
@@ -79,7 +79,7 @@
     <a class="icon-company" href="{%url 'app.companies'%}">Empresas</a>
     {%endif%}
     {%if user.userprofile%}
-    <a class="icon-buy" href="{%url 'app.cart'%}">Lista de compras</a>
+    <a class="icon-buy" href="{%url 'app.cart'%}">Lista de compras  <span id="carro"></span></a>
     {%if user.userprofile.admin == 1%}
     <a class="icon-admin" href="/admin/app/">Administración</a>
     {%endif%}
@@ -232,6 +232,16 @@
 	// saves the new position for iteration.
 //	scrollPos1 = (document.body.getBoundingClientRect()).top;
 //});
+
+var carro = 0;
+
+{%for cart in cart%}
+{%if cart.owner.id == user.userprofile.id%}
+carro = carro + 1;
+{%endif%}
+{%endfor%}
+ document.getElementById("carro").innerHTML=carro;
+ document.getElementById("carro2").innerHTML=carro;
 </script>
 
 <script type="text/javascript">

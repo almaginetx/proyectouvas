@@ -40,6 +40,7 @@ def login_view(request):
     product = Product.objects.all().order_by('-create_at')
     payment = Payment.objects.all().order_by('-create_at')
     now = timezone.now()
+    cart = Cart.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     date = Date.objects.get(active = 1)
     template = 'app/login.html'
@@ -70,6 +71,7 @@ def logins_view(request):
     blog = Blog.objects.all().order_by('-create_at')
     product = Product.objects.all().order_by('-create_at')
     payment = Payment.objects.all().order_by('-create_at')
+    cart = Cart.objects.all().order_by('-create_at')
     now = timezone.now()
     config = Config.objects.get(active = 1)
     date = Date.objects.get(active = 1)
@@ -160,6 +162,7 @@ def welcome_view(request):
     categorys = Category.objects.all().order_by('-create_at')
     product = Product.objects.all().order_by('-create_at')
     blog = Blog.objects.all().order_by('-create_at')
+    cart = Cart.objects.all().order_by('-create_at')
     date = Date.objects.get(active = 1)
     now = timezone.now()
     config = Config.objects.get(active = 1)
@@ -175,6 +178,7 @@ def us_view(request):
     category = Category.objects.all().order_by('-create_at')[:3]
     categorys = Category.objects.all().order_by('-create_at')
     blog = Blog.objects.all().order_by('-create_at')
+    cart = Cart.objects.all().order_by('-create_at')
     now = timezone.now()
     config = Config.objects.get(active = 1)
     template = 'app/us.html'
@@ -265,6 +269,7 @@ def userprofile_view(request, slug):
     categorys = Category.objects.all().order_by('-create_at')
     blog = Blog.objects.all().order_by('-create_at')
     now = timezone.now()
+    cart = Cart.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     template = 'app/userprofile.html'
     if request.method == 'POST':
@@ -390,6 +395,7 @@ def categories_view(request):
     categorys = Category.objects.all().order_by('-create_at')
     blog = Blog.objects.all().order_by('-create_at')
     now = timezone.now()
+    cart = Cart.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     template = 'app/categories.html'
     if request.method == 'POST':
@@ -417,6 +423,7 @@ def category_view(request, slug):
     blog = Blog.objects.all().order_by('-create_at')
     acategory = Category.objects.get(slug = slug)
     now = timezone.now()
+    cart = Cart.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     template = 'app/category.html'
     if request.method == 'POST':
@@ -444,6 +451,7 @@ def blog_view(request, slug):
     blog = Blog.objects.all().order_by('-create_at')
     ablog = Blog.objects.get(slug = slug)
     now = timezone.now()
+    cart = Cart.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     template = 'app/blog.html'
     if request.method == 'POST':
@@ -580,6 +588,7 @@ def tasks_view(request):
     blog = Blog.objects.all().order_by('-create_at')
     task = Task.objects.all().order_by('-create_at')
     now = timezone.now()
+    cart = Cart.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     template = 'app/tasks.html'
     if request.method == 'POST':
@@ -607,6 +616,7 @@ def companies_view(request):
     blog = Blog.objects.all().order_by('-create_at')
     company = Company.objects.all().order_by('create_at')
     now = timezone.now()
+    cart = Cart.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     template = 'app/companies.html'
     if request.method == 'POST':
@@ -635,6 +645,7 @@ def dates_view(request):
     company = Company.objects.all().order_by('create_at')
     date = Date.objects.all().order_by('-create_at')
     now = timezone.now()
+    cart = Cart.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     template = 'app/dates.html'
     if request.method == 'POST':
@@ -664,6 +675,7 @@ def products_view(request):
     date = Date.objects.all().order_by('-create_at')
     product = Product.objects.all().order_by('-create_at')
     now = timezone.now()
+    cart = Cart.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     template = 'app/products.html'
     if request.method == 'POST':
@@ -694,6 +706,7 @@ def payments_view(request):
     product = Product.objects.all().order_by('-create_at')
     payment = Payment.objects.all().order_by('-create_at')
     now = timezone.now()
+    cart = Cart.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     template = 'app/payments.html'
     if request.method == 'POST':
@@ -724,6 +737,7 @@ def payment_view(request, slug):
     date = Date.objects.all().order_by('-create_at')
     product = Product.objects.all().order_by('-create_at')
     now = timezone.now()
+    cart = Cart.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     template = 'app/payment.html'
     if request.method == 'POST':
@@ -936,6 +950,7 @@ def blogs_view(request):
     date = Date.objects.all().order_by('-create_at')
     product = Product.objects.all().order_by('-create_at')
     payment = Payment.objects.all().order_by('-create_at')
+    cart = Cart.objects.all().order_by('-create_at')
     now = timezone.now()
     config = Config.objects.get(active = 1)
     template = 'app/blogs.html'
@@ -981,6 +996,7 @@ def inka_view(request):
     product = Product.objects.all().order_by('-create_at')
     payment = Payment.objects.all().order_by('-create_at')
     wallet = Wallet.objects.all().order_by('-create_at')
+    cart = Cart.objects.all().order_by('-create_at')
     now = timezone.now()
     config = Config.objects.get(active = 1)
     date = Date.objects.get(active = 1)
@@ -1010,6 +1026,7 @@ def app_view(request):
     product = Product.objects.all().order_by('-create_at')
     payment = Payment.objects.all().order_by('-create_at')
     wallet = Wallet.objects.all().order_by('-create_at')
+    cart = Cart.objects.all().order_by('-create_at')
     now = timezone.now()
     config = Config.objects.get(active = 1)
     date = Date.objects.get(active = 1)
