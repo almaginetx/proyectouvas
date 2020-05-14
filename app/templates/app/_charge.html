@@ -32,6 +32,7 @@
   <input name="shippingCity"    type="hidden"  value="Bogota" >
   <input name="shippingCountry"    type="hidden"  value="CO" >
   <input name="telephone"    type="hidden"  value="{{user.userprofile.phone}}" >
+  <input id="fconfirmation" name="confirmationUrl"    type="hidden"  value="http://www.proyectouvas.com" >
 
   <input id="confirmacion" name="Submit" class="behinded"  type="submit"  value="Confirmar" >
 </form>
@@ -304,6 +305,11 @@ var MD5 = function (string) {
       ftax = amount - 500;
       var ftaxr = document.getElementById("ftaxr");
       ftaxr.value = ftax;
+
+      var recarga = parseInt(iikc);
+      var ref = "www.proyectouvas.com/charge/" + recarga;
+      var fconfirmation = document.getElementById("fconfirmation");
+      fconfirmation.value = ref;
 
       document.getElementById('confirmacion').className = 'behind'; 
       document.getElementById("metodo").innerHTML = referencia;
