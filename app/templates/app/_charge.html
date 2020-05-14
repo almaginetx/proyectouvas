@@ -26,12 +26,12 @@
   <input name="signature"     type="hidden"  value="2bef25092823bd48b4b4d4c57a486097"  >
   <input name="accountId"     type="hidden"  value="847089" >
   <input name="currency"      type="hidden"  value="COP" >
-  <input name="buyerFullName"    type="hidden"  value="Nelson Echeverry" >
-  <input name="buyerEmail"    type="hidden"  value="almaginetx@gmail.com" >
+  <input name="buyerFullName"    type="hidden"  value="{{user.userprofile.nickname}}" >
+  <input name="buyerEmail"    type="hidden"  value="{{user}}" >
   <input name="shippingAddress"    type="hidden"  value="Cl18#4-85 Bogota DC" >
   <input name="shippingCity"    type="hidden"  value="Bogota" >
   <input name="shippingCountry"    type="hidden"  value="CO" >
-  <input name="telephone"    type="hidden"  value="3123496081" >
+  <input name="telephone"    type="hidden"  value="{{user.userprofile.phone}}" >
 
   <input name="Submit"        type="submit"  value="Enviar" >
 </form>
