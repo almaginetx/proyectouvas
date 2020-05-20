@@ -3,6 +3,16 @@
     <img class="none" src="/static/img/inkas.jpg">
     </section>
 <div class="pad">
+
+    <p>COSTO ACTUAL INKACOIN:</p>
+    <div id="down" class="green"></div>
+    <p class="currency">1 IKC = <span id="currency">Costo de la crytomoneda</span> $ COP.</p>
+    <p>SUBIDA MAX:</p>
+    <div id="subida">Subida de la crytomoneda</div>
+    <p>BAJADA MAX:</p>
+    <div id="bajada">Bajada de la crytomoneda</div>
+    <div id="appikc"></div>
+
     <section class="inkas">
         {%for wallet in wallet%}
             <article>
@@ -24,6 +34,81 @@
 .inkas article{box-shadow: 1px 2px rgba(0, 0, 0, 0.1);padding:5px;border-radius:5px;}
 .ink{background:#f0f2f5;width:100%;}
 .pad{padding:20px;}
+#down{width: 20px;height: 20px;border-radius: 50%;margin: 10px;display: inline-block;vertical-align: middle;}
+.green{background: green;}
+.red{background: red;}
+.currency{display: inline-block;vertical-align: middle;}
 </style>
+
+
+<script type="text/javascript">
+
+/* VARIABLES ENTRADA*/
+    currency = {{config.inkacoin}};
+    subida = 12040;
+    bajada = 11950;
+    contador = 1;
+    tiempo = 1000;
+
+    /* HILO*/   
+        sube();
+
+/* FUNCION SUBIDA*/
+        function sube(){
+            bajada = bajada;
+            subida = subida;
+            currency = currency;
+            tiempo = tiempo;
+            warning = "warning"
+            document.getElementById("subida").innerHTML=subida;
+            document.getElementById("bajada").innerHTML=bajada;
+
+                if (currency <= subida) {
+                    setTimeout(timer, 1000)
+                        function timer(){
+                        aleator = Math.floor((Math.random() * 40) + 1);
+                        currency = currency + aleator;
+                        document.getElementById("currency").innerHTML=currency;
+                        var ref = "http://localhost:8000/ikc/" + currency;
+                        $("#appikc").load(ref);
+                        sube();
+                        }
+                }else{
+                    if (currency >= subida){
+                    document.getElementById("currency").innerHTML="Bajando: "+currency;
+                    document.getElementById('down').className = 'red';
+                    baja();
+                    }  
+                }       
+        }
+/* FUNCION BAJADA*/
+        function baja(){
+            bajada = bajada;
+            subida = subida;
+            currency = currency;
+            tiempo = tiempo;
+            warning = "warning";
+            document.getElementById("subida").innerHTML=subida;
+            document.getElementById("bajada").innerHTML=bajada;
+
+                if (currency >= bajada) {
+                    setTimeout(timer, 1000)
+                        function timer(){
+                        aleator = Math.floor((Math.random() * 50) + 1);
+                        currency = currency - aleator;
+                        document.getElementById("currency").innerHTML=currency;
+                        var ref = "/ikc/" + currency;
+                        baja();
+                        }
+                }else{
+                    if (currency <= bajada){
+                    document.getElementById("currency").innerHTML="Subiendo: "+currency;
+                    document.getElementById('down').className = 'green';
+                    sube();
+                    }  
+                }       
+        }
+
+</script>
 
 </section>

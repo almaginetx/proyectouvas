@@ -61,6 +61,7 @@ urlpatterns = [
     url(r'^app/loading$', views.loading_app, name='app.loading_app'),
     url(r'^app/charges$', views.charge_app, name='app.charge_app'),
     url(r'^charge/(?P<monto>[^\.]+)/$', views.monto_app, name='app.monto_app'),
+    url(r'^ikc/(?P<currency>[^\.]+)/$', views.ikc_app, name='app.ikc_app'),
 ###################################################################################
 ###########################################################################
 ############################################################################

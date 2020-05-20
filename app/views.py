@@ -1074,6 +1074,17 @@ def monto_app(request, monto):
     message = "Recarga Exitosa"
     return redirect(reverse('app.welcome'), {'message': message})
 
+def ikc_app(request, currency):
+    template = 'app/_monto.html'
+    currency = currency
+    currency = float(currency)
+    persona = request.user.userprofile
+    config = Config.objects.get(active = 1)
+    config.inkacoin = currency
+    config.save()
+    message = "Recarga Exitosa"
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+
 # STORE VIEWS
 
 @login_required
