@@ -27,7 +27,7 @@ class UserProfile(models.Model):
     class Meta:
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
-    def __str__(self):
+    def __unicode__(self):
         return self.nickname
     def save(self, *args, **kwargs):
         if not self.id:
