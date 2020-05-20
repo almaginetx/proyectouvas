@@ -30,6 +30,9 @@ class WalletAdmin(admin.ModelAdmin):
     
 class OwnerAdmin(admin.ModelAdmin):
     list_display = ('user', 'product', 'create_at', 'slug')
+
+class FriendsAdmin(admin.ModelAdmin):
+    list_display = ('friend', 'friendof', 'create_at', 'slug')
     
 admin.site.register(Track, TrackAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
@@ -47,3 +50,4 @@ admin.site.register(Buyment)
 admin.site.register(Wallet, WalletAdmin)
 admin.site.register(Link)
 admin.site.register(Owner, OwnerAdmin)
+admin.site.register(Friends, FriendsAdmin)

@@ -426,3 +426,26 @@ class Owner(models.Model):
             date.year, date.month, date.day, self.id
         )
         super(Owner, self).save()
+
+class Friends(models.Model):
+    friend = models.ForeignKey(UserProfile, related_name='friend', blank=True, null=True, verbose_name="Amigo")
+    friendof = models.ForeignKey(UserProfile, related_name='friendof', blank=True, null=True, verbose_name="Amigo de")
+    create_at = models.DateTimeField(default=now, editable=False)
+    update_at = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
+    slug = models.SlugField(editable=False)
+
+    class Meta:
+        ordering = ['create_at']
+        verbose_name = "Lista de amigos"
+        verbose_name_plural = 'Listas de amigos'
+
+    def __unicode__(self):
+        return self.slug
+
+    def save(self):
+        super(Friends, self).save()
+        date = self.create_at
+        self.slug = '%i-%i-%i-friends-%i' % (
+            date.year, date.month, date.day, self.id
+        )
+        super(Friends, self).save()

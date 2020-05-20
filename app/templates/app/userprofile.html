@@ -1,17 +1,10 @@
 {% include 'app/_header.html'%}
 {% include 'app/_nav.html'%}
 <div class="appcontainer">
-<!-- Swiper -->
-<div class="swiper-container">
-<div class="swiper-wrapper">
-<div id="slide1" class="swiper-slide" data-hash="slide1">
 <!--PANTALLA PRINCIPAL DE BIENVENIDA -->
-
 <div class="appbanner">
 <div class="appcortain">
-
  <div class="appleft">
-    
     <figure class="appavatar">
         {%if userprofile.avatar%}
         <img src="/media/{{userprofile.avatar}}">
@@ -20,21 +13,17 @@
         {%endif%}
     </figure>
     <h2>{{userprofile.nickname}}</h2>
+    {% include 'app/_addfriends.html'%}
  </div><div class="appright">
  <p class="miwallet">Registrado en {{userprofile.create_at|date:"M d-l Y"}}. Adquiera una cuenta Premium para contactar a este miembro</p>
-
  </div>
-
-   
 </div>
 </div>
-
  <div class="notice">
  <h3>Precio del Inkacoin (IKC) {{now}}: 1 IKC = $10 COP/USD 0,0033$</h3>
  </div>
  {% include 'app/_profileAudios.html'%}
  {% include 'app/_homeProfiles.html'%}
- 
 <style type="text/css">
 .notice{background:white;padding:10px;}
 .notice h3{color:black;font-size:14px;text-align:center;}
@@ -43,6 +32,8 @@
 .appbanner{height:auto;background: url(/static/img/uvascity.jpg)no-repeat center center;background-size:cover;}
 .appcortain{background:rgba(0,0,0,0.2);width:100%;height:auto;padding:20px;}
 .wallet{padding:10px;width:100%;height:auto;background:#5581a9;border-radius:10px;}
+.hidden{display: none;}
+.addfriend{display: block;padding: 10px 20px;margin: 5px;background: #61aaea;border-radius: 10px;color: white;font-size: 18px;text-align: center;}
 .wikclogo{width:80px;}
 .ikcw{color:#fff;font-size:11px;}
 .figure{padding:10px;}
@@ -53,7 +44,6 @@
 .wright{text-align:right;width:150px;}
 .wallet table h3{font-size:24px;font-weight:bold;color:white;text-align:right;}
 .cesta{background:#06e969;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
-
 .appleft{display:inline-block;vertical-align:top; width:70%;}
 .appright{display:inline-block;vertical-align:top; width:29%;}
 .appavatar{border-radius:50%;position:relative;display:inline-block;padding:16px;background:rgba(255,255,255,0.5);height:100%;}
@@ -62,31 +52,19 @@
 .appleft h2{font-size:36px;color:white;padding:10px;dispĺay:block;}
 .float{z-index:2;border-radius:50%;position:absolute;background:rgba(0,0,0,0.8);padding:5px;display:inline-block;top:5px;left:5px;}
 .float img{width:26px;height:26px;}
-
 @media screen and (max-width:1000px){
     .appleft{display:inline-block;vertical-align:top; width:100%;}
     .appright{display:inline-block;vertical-align:top; width:100%;}
 }
 </style>
-    
 </div>
-</div>
-</div>
-
-
-
-</div>
-
 {% include 'app/_menuapps.html'%}
-
 <script type="text/javascript">
     function comprar()
     {
         alert("Actualización en el sistema, regrese más tarde");
         }
 </script>
-
 <!-- Include the PayPal JavaScript SDK -->
 {% include 'app/ignore/_paypalcode.html'%}
-
 {% include 'app/_footer.html'%}

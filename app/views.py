@@ -270,6 +270,7 @@ def userprofile_view(request, slug):
     blog = Blog.objects.all().order_by('-create_at')
     now = timezone.now()
     cart = Cart.objects.all().order_by('-create_at')
+    friends = Friends.objects.all().order_by('-create_at')
     config = Config.objects.get(active = 1)
     template = 'app/userprofile.html'
     if request.method == 'POST':
@@ -1084,6 +1085,24 @@ def ikc_app(request, currency):
     config.save()
     message = "Recarga Exitosa"
     return render_to_response(template,locals(),context_instance=RequestContext(request))
+
+def addfriends_app(request, userid):
+    template = 'app/_monto.html'
+    userid = userid
+    friends = Friends()
+    persona = request.user.userprofile
+    amigo = UserProfile.objects.get(id = userid)
+    friends.friend = persona
+    friends.friendof = amigo
+    friends.save()
+    message = "Amigo agregado"
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+
+def addfriend_view(request, slug):
+    template = 'app/_addfriends.html'
+    friends = Friends.objects.all().order_by('-create_at')
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+
 
 # STORE VIEWS
 

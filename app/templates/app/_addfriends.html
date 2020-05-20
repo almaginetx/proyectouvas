@@ -1,0 +1,27 @@
+ <a id="hidden" class="addfriend" href="javascript:addfriend();">Agregar a mis contactos</a>
+    {%for friends in friends%}
+    {% if friends.friendof.id == userprofile.id%}
+    <a class="addfriend" href="#">Este usuario ya esta entre sus contactos</a>
+    <script type="text/javascript">
+        document.getElementById('hidden').className = 'hidden';
+    </script>
+    {%endif%}
+    {%endfor%}
+    <a id="botonf" class="hidden" href="#">Este usuario ya esta entre sus contactos</a>
+
+<div id="friendship"></div>
+
+<script type="text/javascript">
+	function addfriend(){
+	var refer = "/addfriends/{{userprofile.id}}";
+    $("#friendship").load(refer);
+    document.getElementById('hidden').className = 'hidden';
+    document.getElementById('botonf').className = 'addfriend';
+	}
+
+</script>
+
+<style type="text/css">
+	.hidden{display: none;}
+	.addfriend{display: block;padding: 10px 20px;margin: 5px;background: #61aaea;border-radius: 10px;color: white;font-size: 18px;text-align: center;}
+</style>
