@@ -6,7 +6,13 @@
 <a class="mores" onclick="more()">Calcular</a>
 </br></br>
 
-<p>1 IKC = $ 10 COP.</p>
+<p>1 IKC = <span class="green"><span id="ikccosto"></span> $ COP.</span></p>
+
+<script type="text/javascript">
+  ikccosto = {{config.inkacoin}};
+  document.getElementById("ikccosto").innerHTML=new Intl.NumberFormat().format(ikccosto);
+</script>
+
 <p id="mensaje"></p>
 <p id="comprar"></p>
 <p id="cantidad"></p>
@@ -58,7 +64,7 @@
   
   function more() {
   var iikc = document.getElementById("id_tickets").value;
-  var cantidad = iikc * 10;
+  var cantidad = iikc * {{config.inkacoin}};
   var dolares = cantidad / 3000;
   numer = isNaN(iikc);
   if(numer){
@@ -68,8 +74,7 @@
   document.getElementById("cantidad").innerHTML = "";
   $( ".confirm" ).remove();
   } else{
-      document.getElementById("cantidad").innerHTML = "Total $ " + cantidad + " COP.";
-  document.getElementById("dolar").innerHTML = "Total USD " + dolares + " $.";
+      document.getElementById("cantidad").innerHTML = "Total: " + new Intl.NumberFormat().format(cantidad) + " $ COP.";
   document.getElementById("comprar").innerHTML = "Comprar  " + iikc + " IKC.";
   document.getElementById("mensaje").innerHTML = "";
   $( ".confirm" ).remove();
@@ -281,12 +286,12 @@ var MD5 = function (string) {
 
       var iikc = 0;
        var iikc = document.getElementById("id_tickets").value;
-        var cantidad = iikc * 10;
+        var cantidad = iikc * {{config.inkacoin}};
         var dolares = cantidad / 3000;
         var total = parseFloat(Math.round(dolares * 100) / 100).toFixed(2);
         var amount = parseInt(cantidad);
       document.getElementById('formikc').className = 'behinded'; 
-      document.getElementById("total").innerHTML = "Total a pagar: $ " + amount + " COP.";
+      document.getElementById("total").innerHTML = "Total a pagar: " +  new Intl.NumberFormat().format(amount) + " $ COP.";
 
       aleatorio = Math.random() * (10000 - 100) + 100;
       aleatorio = parseInt(aleatorio);
@@ -312,7 +317,7 @@ var MD5 = function (string) {
       fconfirmation.value = ref;
 
       document.getElementById('confirmacion').className = 'behind'; 
-      document.getElementById("metodo").innerHTML = referencia;
+      document.getElementById("metodo").innerHTML = "Proceda a realizar su compra de Inkacoins";
   }
 </script>
 

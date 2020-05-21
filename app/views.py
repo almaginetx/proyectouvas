@@ -782,6 +782,8 @@ def addcart_view(request, slug):
 @login_required
 def addowner_view(request, slug):
     cart = Cart.objects.get(slug = slug)
+    config = Config.objects.get(active = 1)
+    currency = config.inkacoin
     product = cart.product
     template = 'app/cart.html'
     owner = Owner()
@@ -795,7 +797,7 @@ def addowner_view(request, slug):
     wall = wallet.total
     wally = float(wall)
     prices = float(product.price)
-    price = prices / 10
+    price = prices / currency
     total = wally - price
     bl = "{0:.2f}".format(total)
     wallet.total = bl
@@ -1058,6 +1060,7 @@ def loading_app(request):
     
 def charge_app(request):
     template = 'app/_charge.html'
+    config = Config.objects.get(active = 1)
     return render_to_response(template,locals(),context_instance=RequestContext(request))
     
 def monto_app(request, monto):

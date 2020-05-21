@@ -12,7 +12,7 @@
 </article>
 
 <script type="text/javascript">
-	var ikc{{cart.id}} = 10;
+	var ikc{{cart.id}} = {{config.inkacoin}};
 	var inkc{{cart.id}} = {{cart.product.price}} / ikc{{cart.id}};
 	document.getElementById("inkc{{cart.id}}").innerHTML=inkc{{cart.id}};
 	</script>
@@ -44,7 +44,7 @@ cant{{cart.id}} +
 {%endif%}
 {%endfor%}
 0;
-var ikc = 10;
+var ikc = {{config.inkacoin}};
 var suma = sum / ikc;
 wal = {{wallet.total}};
 sal = wal - suma;

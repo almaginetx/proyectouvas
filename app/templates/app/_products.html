@@ -11,8 +11,9 @@
 	<p><span id="inkc{{product.id}}"></span> IKC.</p>
 
 	<script type="text/javascript">
-	var ikc = 10;
+	var ikc = {{config.inkacoin}};
 	var inkc{{product.id}} = {{product.price}} / ikc;
+	var inkc{{product.id}} = inkc{{product.id}}.toFixed(2);
 	document.getElementById("inkc{{product.id}}").innerHTML=inkc{{product.id}};
 	</script>
 	<!--
