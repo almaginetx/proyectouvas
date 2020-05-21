@@ -8,7 +8,7 @@ class TrackAdmin(admin.ModelAdmin):
     list_display = ('title', 'user', 'create_at', 'slug')
 
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'nickname', 'password2', 'create_at', 'slug')
+    list_display = ('user', 'nickname', 'phone','password2', 'create_at', 'slug')
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'picture', 'create_at', 'slug')
