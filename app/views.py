@@ -1123,3 +1123,24 @@ def academy(request, slug):
     product = Product.objects.get(slug = slug)
     return render_to_response(template,locals(),context_instance=RequestContext(request))
     
+def ikcdown_app(request, bajada):
+    template = 'app/_monto.html'
+    bajada = bajada
+    bajada = float(bajada)
+    persona = request.user.userprofile
+    config = Config.objects.get(active = 1)
+    config.minimo = bajada
+    config.save()
+    message = "Recarga Exitosa"
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+
+def ikcup_app(request, subida):
+    template = 'app/_monto.html'
+    subida = subida
+    subida = float(subida)
+    persona = request.user.userprofile
+    config = Config.objects.get(active = 1)
+    config.maximo = subida
+    config.save()
+    message = "Recarga Exitosa"
+    return render_to_response(template,locals(),context_instance=RequestContext(request))

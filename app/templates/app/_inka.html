@@ -8,10 +8,14 @@
     <div id="down" class="green"></div>
     <p class="currency">1 IKC = <span id="currency">Costo de la crytomoneda</span> $ COP.</p>
     <p>SUBIDA MAX:</p>
-    <div id="subida">Subida de la crytomoneda</div>
+    <p class="currency">1 IKC = <span id="subida">Costo de la crytomoneda</span> $ COP.</p>
     <p>BAJADA MAX:</p>
-    <div id="bajada">Bajada de la crytomoneda</div>
+    <p class="currency">1 IKC = <span id="bajada">Costo de la crytomoneda</span> $ COP.</p>
+    <p>ESTADO:</p>
+    <div id="desition">Bajada de la crytomoneda</div>
     <div id="appikc"></div>
+    <div id="appikcdown"></div>
+    <div id="appikcup"></div>
 
     <section class="inkas">
         {%for wallet in wallet%}
@@ -45,66 +49,86 @@
 
 /* VARIABLES ENTRADA*/
     currency = {{config.inkacoin}};
-    subida = 12040;
-    bajada = 11950;
+    subida = {{config.inkacoin}};;
+    bajada = {{config.inkacoin}};;
     contador = 1;
     tiempo = 1000;
+
+    document.getElementById("currency").innerHTML=new Intl.NumberFormat().format(currency);
+    document.getElementById("subida").innerHTML=new Intl.NumberFormat().format(subida);
+    document.getElementById("bajada").innerHTML=new Intl.NumberFormat().format(bajada);
 
     /* HILO*/   
         sube();
 
 /* FUNCION SUBIDA*/
         function sube(){
+            newcurrency = currency;
             bajada = bajada;
             subida = subida;
             currency = currency;
             tiempo = tiempo;
             warning = "warning"
-            document.getElementById("subida").innerHTML=subida;
-            document.getElementById("bajada").innerHTML=bajada;
+            desition = Math.floor((Math.random() * 2) + 1);
 
-                if (currency <= subida) {
-                    setTimeout(timer, 1000)
+                if (desition == 1) {
+                    setTimeout(timer, 700)
                         function timer(){
-                        aleator = Math.floor((Math.random() * 40) + 1);
+                        aleator = Math.floor((Math.random() * 100) + 1);
                         currency = currency + aleator;
-                        document.getElementById("currency").innerHTML=currency;
-                        var ref = "https://www.proyectouvas.com/ikc/" + currency;
+                        document.getElementById("currency").innerHTML=new Intl.NumberFormat().format(currency);
+                        var ref = "/ikc/" + currency;
                         $("#appikc").load(ref);
+                        document.getElementById("desition").innerHTML="Subiendo";
+                        if(newcurrency > subida){
+                        subida = currency;
+                        var refup = "/ikcup/" + subida;
+                        $("#appikcup").load(refup);
+                        }
+                        document.getElementById("subida").innerHTML=new Intl.NumberFormat().format(subida);
                         sube();
                         }
                 }else{
-                    if (currency >= subida){
-                    document.getElementById("currency").innerHTML="Bajando: "+currency;
+                    if (desition == 2){
+                    document.getElementById("currency").innerHTML=new Intl.NumberFormat().format(currency);
                     document.getElementById('down').className = 'red';
+                    document.getElementById("desition").innerHTML="Bajando";
                     baja();
                     }  
                 }       
         }
 /* FUNCION BAJADA*/
         function baja(){
+            newcurrency = currency;
             bajada = bajada;
             subida = subida;
             currency = currency;
             tiempo = tiempo;
             warning = "warning";
-            document.getElementById("subida").innerHTML=subida;
-            document.getElementById("bajada").innerHTML=bajada;
+            desition = Math.floor((Math.random() * 2) + 1);
 
-                if (currency >= bajada) {
-                    setTimeout(timer, 1000)
+                if (desition == 1) {
+                    setTimeout(timer, 700)
                         function timer(){
-                        aleator = Math.floor((Math.random() * 50) + 1);
+                        aleator = Math.floor((Math.random() * 100) + 1);
                         currency = currency - aleator;
-                        document.getElementById("currency").innerHTML=currency;
-                        var ref = "https://www.proyectouvas.com/ikc/" + currency;
+                        document.getElementById("currency").innerHTML=new Intl.NumberFormat().format(currency);
+                        var ref = "/ikc/" + currency;
                         $("#appikc").load(ref);
+                         document.getElementById("desition").innerHTML="Bajando";
+                         if(newcurrency < bajada){
+                            bajada = currency;
+                            var refdown = "/ikcdown/" + bajada;
+                            $("#appikcdown").load(refdown);
+                            }
+                         document.getElementById("bajada").innerHTML=new Intl.NumberFormat().format(bajada);
                         baja();
                         }
                 }else{
-                    if (currency <= bajada){
-                    document.getElementById("currency").innerHTML="Subiendo: "+currency;
+                    if (desition == 2){
+                    document.getElementById("currency").innerHTML=new Intl.NumberFormat().format(bajada);
                     document.getElementById('down').className = 'green';
+                    document.getElementById("desition").innerHTML="Subiendo";
                     sube();
                     }  
                 }       

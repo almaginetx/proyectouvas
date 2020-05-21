@@ -62,6 +62,8 @@ urlpatterns = [
     url(r'^app/charges$', views.charge_app, name='app.charge_app'),
     url(r'^charge/(?P<monto>[^\.]+)/$', views.monto_app, name='app.monto_app'),
     url(r'^ikc/(?P<currency>[^\.]+)/$', views.ikc_app, name='app.ikc_app'),
+    url(r'^ikcdown/(?P<bajada>[^\.]+)/$', views.ikcdown_app, name='app.ikcdown_app'),
+    url(r'^ikcup/(?P<subida>[^\.]+)/$', views.ikcup_app, name='app.ikcup_app'),
     url(r'^addfriends/(?P<userid>[^\.]+)/$', views.addfriends_app, name='app.addfriends_app'),
     url(r'^addfriend/$', views.addfriend_view, name='app.addfriend_view'),
 ###################################################################################
