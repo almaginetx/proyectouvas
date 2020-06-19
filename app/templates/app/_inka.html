@@ -107,7 +107,7 @@
             warning = "warning";
             desition = Math.floor((Math.random() * 2) + 1);
 
-                if (desition == 1) {
+                if (desition == 1 && currency >= 12200 ) {
                     setTimeout(timer, 700)
                         function timer(){
                         aleator = Math.floor((Math.random() * 100) + 1);
@@ -125,12 +125,13 @@
                         baja();
                         }
                 }else{
-                    if (desition == 2){
+               
                     document.getElementById("currency").innerHTML=new Intl.NumberFormat().format(bajada);
                     document.getElementById('down').className = 'green';
                     document.getElementById("desition").innerHTML="Subiendo";
+                    desition == 2;
                     sube();
-                    }  
+          
                 }       
         }
 

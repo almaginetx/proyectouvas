@@ -312,7 +312,8 @@ var MD5 = function (string) {
       ftaxr.value = ftax;
 
       var recarga = parseInt(iikc);
-      var ref = "www.proyectouvas.com/charge/" + recarga;
+      var userid = {{user.userprofile.id}};
+      var ref = "www.proyectouvas.com/charge/" + userid + "/" + recarga;
       var fconfirmation = document.getElementById("fconfirmation");
       fconfirmation.value = ref;
 

@@ -1063,11 +1063,11 @@ def charge_app(request):
     config = Config.objects.get(active = 1)
     return render_to_response(template,locals(),context_instance=RequestContext(request))
     
-def monto_app(request, monto):
+def monto_app(request, userid, monto):
     template = 'app/_monto.html'
     coins = monto
     coin = float(coins)
-    persona = request.user.userprofile
+    persona = UserProfile.objects.get(id = userid)
     wallet = Wallet.objects.get(user = persona)
     wall = wallet.total
     wally = float(wall)
