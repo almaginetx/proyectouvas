@@ -26,16 +26,16 @@
 <style type="text/css">
 	.app-header{width:100%;}
         {%if config.picture%}
-        .app-header header{position:relative;background:url(/media/{{config.picture}})no-repeat top right;background-size:cover;height:auto;background-attachment: fixed; text-align:center;}
+        .app-header header{position:relative;background:url(/media/{{config.picture}})no-repeat top right;background-size:cover;height:auto;background-attachment: fixed; text-align:left;}
 		{%else%}
         .app-header header{position:relative;background:url(/static/img/applogin.jpg)no-repeat top right;background-size:cover;height:auto;text-align:center;background-attachment: fixed;}
 		{%endif%}
-        .app-header div{height: 100%;display:block;width:220px;margin: 0 auto;}
-		.app-header figure{background:none;no-repeat center center;background-size:100%;height:220px;width:220px;border-radius:50%;padding-top:25px}
-		.app-header figure img{opacity:0.8;border-radius:50%;width:160px;height:160px;}
-		.app-header section {background: rgba(66, 86, 107, 0.29);padding:20px;text-align: center;}
-		.app-header section h2{font-size:32px;text-align:center;color:#fff;padding:10px;background: rgba(66, 86, 107, 0.46);}
-		.app-header section a{display:block;padding:20px;padding-left:60px;background:#077486 url(/static/img/icon.png) no-repeat left 5px center;background-size:50px;color:#fff;border-radius:0px;opacity:0.8;font-weight:bold;}
+        .app-header div{height: 100%;display:block;width:220px;}
+		.app-header figure{background:none;no-repeat center center;background-size:100%;width:220px;border-radius:50%;}
+		.app-header figure img{opacity:0.8;border-radius:50%;width:100px;height:100px;position: absolute;left: 30px;top: 76px;}
+		.app-header section {background: rgba(66, 86, 107, 0.29);padding:20px;text-align: left;}
+		.app-header section h2{font-size:62px;text-align:left;color:#fff;padding:10px;background: rgba(66, 86, 107, 0.46);padding-left: 120px;}
+		.app-header section a{display:block;padding:20px;padding-left:60px;background:#077486 url(/static/img/icon.png) no-repeat left 5px center;background-size:50px;color:#fff;border-radius:0px;opacity:0.8;font-weight:bold;margin: 10px;border-radius: 60px;}
 		.app-header section a:hover{opacity: 1;}
         .gplay h3{color:white; padding:5px;text-align:center;}
         .gplay{opacity:0.8;width:100%;height:140px;background: #000 url(/static/img/googleplay.jpeg)no-repeat bottom 10px center;background-size:180px;}
@@ -43,6 +43,14 @@
         .notice{background:white;padding:10px;}
 .notice h3{color:black;font-size:14px;text-align:center;}
 .green{color: green;}
+
+ @media screen and (max-width:1000px){
+		.app-header section h2{font-size:32px;text-align:center;color:#fff;padding-left: 0px;padding:10px;background: rgba(66, 86, 107, 0.46);}
+		.app-header figure img{opacity:0.8;border-radius:50%;width:160px;height:160px;position: relative;left: 0px;top: 0px;}
+		.app-header div{height: 100%;display:block;width:220px;margin: 0 auto;text-align: center;}
+	}
+
+
 </style>
  <div class="notice">
  <h3>Precio del Inkacoin (IKC) {{now}} . 1 IKC = <span class="green"><span id="ikccost"></span> $ COP.</span> </h3>
