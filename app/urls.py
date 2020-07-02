@@ -66,6 +66,7 @@ urlpatterns = [
     url(r'^ikcup/(?P<subida>[^\.]+)/$', views.ikcup_app, name='app.ikcup_app'),
     url(r'^addfriends/(?P<userid>[^\.]+)/$', views.addfriends_app, name='app.addfriends_app'),
     url(r'^addfriend/$', views.addfriend_view, name='app.addfriend_view'),
+    url(r'^friends/$', views.friends_view, name='app.friends_view'),
 ###################################################################################
 ###########################################################################
 ############################################################################

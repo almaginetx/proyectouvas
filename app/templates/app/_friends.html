@@ -1,0 +1,38 @@
+<style type="text/css">
+	.friendlist{background: rgba(0,0,0,0.3);}
+	.friendlist ul img{width: 60px;height: 60px;margin: 2px;border-radius: 50%;}
+	.friendlist ul{background: white;margin: 3px;border-radius: 3px;opacity: 0.7;}
+	.friendlist ul:hover{opacity: 1;}
+	.friendlist ul div a{color: #077486;margin: 10px 0;font-size: 13px;}
+	.f-img{width: 80px;display: inline-block;vertical-align: top;}
+	.f-inf{width: 200px;display: inline-block;vertical-align: top;}
+	.f-phone{display: inline-block; background: #077486;padding: 5px 10px;vertical-align: top;color: white!important;font-size: 11px;border-radius: 20px;}
+</style>
+
+<div class="friendlist">
+<p>Comunidad Inkacoin</p>
+{%for friends in friends%}
+{% if friends.friend.id == user.userprofile.id%}
+<ul>
+	<div class="f-img">
+		<a  href="{% url 'app.userprofile' friends.friendof.slug%}">
+		{% if friends.friendof.avatar%}
+	    <img src="/media/{{friends.friendof.avatar}}">
+	    {%else%}
+	    <img src="/static/img/icons/67.png">
+		{%endif%}
+		</a>
+	</div>
+	<div class="f-inf">
+		<a  href="{% url 'app.userprofile' friends.friendof.slug%}">{{friends.friendof.nickname}}
+			<br>
+		{% if friends.friendof.phone %}
+		<a class="f-phone" href="https://api.whatsapp.com/send?phone={{friends.friendof.phone}}&text=%c2%a1Hola%21%20te%20contacte%20en%20www.proyectouvas.com%20y%20quisiera...%20%f0%9f%98%84&source=&data=&app_absent=">Contacto: {{friends.friendof.phone}}</a>
+		{%else%}
+		{%endif%}
+	</div>
+</ul>
+{%endif%}
+{%endfor%}
+<br>
+</div>

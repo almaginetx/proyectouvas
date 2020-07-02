@@ -29,6 +29,14 @@
                 }
             setTimeout(loading, 3000);
 		};
+        function appfriends(){
+            document.getElementById('apploader').className = 'appopen';
+            $("#appsite").load('{%url 'app.loading_app'%}');
+            function loading(){
+                $("#appsite").load('{%url 'app.friends_view'%}');
+                }
+            setTimeout(loading, 3000);
+        };
 </script>
 
 <style type="text/css">

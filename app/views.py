@@ -1106,6 +1106,10 @@ def addfriend_view(request, slug):
     friends = Friends.objects.all().order_by('-create_at')
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
+def friends_view(request):
+    template = 'app/_friends.html'
+    friends = Friends.objects.all().order_by('-create_at')
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
 
 # STORE VIEWS
 
