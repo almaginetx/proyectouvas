@@ -1,12 +1,43 @@
+<style type="text/css">
+.product-list{background:#1d2328;padding:10px;}
+.product-list h1{background:#42aeef url(/static/img/icons/121.png)no-repeat left 5px center;background-size:20px;padding-left:30px;color:white;padding:10px;padding-left:30px;margin:20px 0;font-size:18px;border-radius:5px;}
+.product-list article{border:4px solid rgba(0,0,0,0.1);border-radius:2px;overflow:hidden;width:300px;}
+.product-list div{padding:10px;background:white;}
+.product-list figure{width:100%;height:200px;overflow:hidden;background:rgba(0,0,0,0.5);}
+.product-list article h3{padding:10px 0;font-size:14px;font-weight: normal;}
+.product-init{color:#7153dd;font-weight:bold;}
+.product-finish{color:orange;font-weight:bold;}
+.product-list p{padding:10px 0;color:#42aeef;font-size:12px;}
+.product-list img{width:100%;height:auto;}
+.boton-store{padding: 10px 20px;display: inline-block;text-align: center;background: #42aeef url(/static/img/icons/131.png)no-repeat left 10px center;background-size:30px;padding-left:50px;border-radius: 5px;margin: 10px;color: white;font-weight: bold;font-size:16px;}
+.product-list article ul a{padding:10px 20px;margin:10px 0;background:#42aeef;color:white;text-align:center;border-radius:12px;display:inline-block;}
+.p-img{display: inline-block;vertical-align: top;width: 120px;}
+.p-info{display: inline-block;vertical-align: top;width: 160px;}
+.p-container{background: #1d2328;
+padding: 10px;
+align-items: flex-start;
+margin: 0 auto;
+display: flex;
+flex-flow: column wrap;
+max-height: 300px;
+width: 100%;
+overflow-x: scroll;}
+</style>
+
+
 <div class="product-list">
 {%if product%}
 <h1>Adquiere productos y servicios en el mercado digital de Inkacoin</h1>
+<div class="p-container">
 {%for product in product%}
+
 <article id="product-article{{product.id}}">
+	<div class="p-img">
 	<a href="{% url 'app.addcart' product.slug%}">
 	<img src="/media/{{product.picture}}">
 	</a>
-	<div>
+	</div>
+	<div class="p-info">
 	<h3>{{product.title}}</h3>
 	<p><span id="inkc{{product.id}}"></span> IKC.</p>
 
@@ -24,26 +55,15 @@
 </article>
 
 <style type="text/css">
-#product-article{{product.id}}{background:#333;margin: 2px;margin-bottom:5px;}
+#product-article{{product.id}}{background:white;margin: 2px;margin-bottom:5px;}
 </style>
 {%endfor%}
+</div>
 {%else%}
 <h1>No hay productos en la tienda</h1>
 {%endif%}
+
 <br><br>
 <a class="boton-store" href="https://web.whatsapp.com/send?phone={{config.whatsapp}}&text=">Iniciar un chat</a>
-<style type="text/css">
-.product-list{background:#1d2328;padding:20px;}
-.product-list h1{background:#42aeef url(/static/img/icons/121.png)no-repeat left 5px center;background-size:20px;padding-left:30px;color:white;padding:10px;padding-left:30px;margin:20px 0;font-size:18px;border-radius:5px;}
-.product-list article{border:4px solid rgba(0,0,0,0.1);border-radius:2px;overflow:hidden;width:200px;display:inline-block;vertical-align:top;}
-.product-list div{padding:10px;background:white;}
-.product-list figure{width:100%;height:200px;overflow:hidden;background:rgba(0,0,0,0.5);}
-.product-list article h3{padding:10px 0;font-size:14px;font-weight: normal;}
-.product-init{color:#7153dd;font-weight:bold;}
-.product-finish{color:orange;font-weight:bold;}
-.product-list p{padding:10px 0;color:#42aeef;font-size:12px;}
-.product-list img{width:100%;height:auto;}
-.boton-store{padding: 10px 20px;display: inline-block;text-align: center;background: #42aeef url(/static/img/icons/131.png)no-repeat left 10px center;background-size:30px;padding-left:50px;border-radius: 5px;margin: 10px;color: white;font-weight: bold;font-size:16px;}
-.product-list article ul a{padding:10px 20px;margin:10px 0;background:#42aeef;color:white;text-align:center;border-radius:12px;display:inline-block;}
-</style>
+
 </div>
