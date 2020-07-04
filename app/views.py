@@ -1076,7 +1076,7 @@ def monto_app(request, userid, monto):
     wallet.total = bl
     wallet.save()
     message = "Recarga Exitosa"
-    return redirect(reverse('app.welcome'), {'message': message})
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
 
 def ikc_app(request, currency):
     template = 'app/_monto.html'
