@@ -37,6 +37,7 @@ def login_view(request):
     category = Category.objects.all().order_by('-create_at')[:3]
     categorys = Category.objects.all().order_by('-create_at')
     blog = Blog.objects.all().order_by('-create_at')
+    blogs = Blog.objects.all().order_by('-create_at')
     product = Product.objects.all().order_by('-create_at')
     payment = Payment.objects.all().order_by('-create_at')
     now = timezone.now()
@@ -162,6 +163,7 @@ def welcome_view(request):
     categorys = Category.objects.all().order_by('-create_at')
     product = Product.objects.all().order_by('-create_at')
     blog = Blog.objects.all().order_by('-create_at')
+    blogs = Blog.objects.all().order_by('-create_at')
     cart = Cart.objects.all().order_by('-create_at')
     date = Date.objects.get(active = 1)
     now = timezone.now()
