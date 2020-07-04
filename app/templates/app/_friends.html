@@ -27,7 +27,7 @@
 		<a  href="{% url 'app.userprofile' friends.friendof.slug%}">{{friends.friendof.nickname}}
 			<br>
 		{% if friends.friendof.phone %}
-		<a class="f-phone" href="https://api.whatsapp.com/send?phone={{friends.friendof.phone}}&text=%c2%a1Hola%21%20te%20contacte%20en%20www.proyectouvas.com%20y%20quisiera...%20%f0%9f%98%84&source=&data=&app_absent=">Contacto: {{friends.friendof.phone}}</a>
+		<a class="f-phone" target="_blank" href="https://api.whatsapp.com/send?phone=+57{{friends.friendof.phone}}&text=%c2%a1Hola%21%20te%20contacte%20en%20www.proyectouvas.com%20y%20quisiera...%20%f0%9f%98%84&source=&data=&app_absent=">Contacto: {{friends.friendof.phone}}</a>
 		{%else%}
 		{%endif%}
 	</div>
