@@ -6,7 +6,7 @@
 		<div>
 		<h3>Interactua con personas en la Red Inkacoin</h3>
 		{%for userprofiles in userprofiles%}
-        {%if userprofiles.verified == 1%}
+
 		<article>
 		<a href="{% url 'app.userprofile' userprofiles.slug%}">{%if userprofiles.avatar%}
 			<img src="/media/{{userprofiles.avatar}}" alt="User: {{userprofiles.nickname}}">
@@ -15,7 +15,7 @@
 			{%endif%}</a>
 		<h4>{{userprofiles.nickname}}</h4>
 		</article>
-        {%endif%}
+
 		{%endfor%}
 		</div>
 </section>
