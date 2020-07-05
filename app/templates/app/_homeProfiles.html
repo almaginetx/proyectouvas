@@ -4,23 +4,59 @@
 <!--	<h2>Crea tus propias presentaciones y compartelas con usuarios destacados.</h2>
 	<a href="{%url 'app.signup'%}">Crea una presentación</a> -->
 		<div>
-		<h3>Interactua con personas en la Red Inkacoin</h3>
-		{%for userprofiles in userprofiles%}
+			<h3>Interactua con personas en la Red Inkacoin</h3>
 
-		<article>
-		<a href="{% url 'app.userprofile' userprofiles.slug%}">{%if userprofiles.avatar%}
-			<img src="/media/{{userprofiles.avatar}}" alt="User: {{userprofiles.nickname}}">
-			{%else%}
-			<img src="/static/img/avatar.png" alt="User: {{userprofiles.nickname}}">
-			{%endif%}</a>
-		<h4>{{userprofiles.nickname}}</h4>
-		</article>
 
-		{%endfor%}
+			  <!-- Swiper -->
+  <div class="swiper-container1">
+    <div class="swiper-wrapper">
+    	{%for userprofiles in userprofiles%}
+    	<div class="swiper-slide swiper-slide1">
+			<article>
+			<a href="{% url 'app.userprofile' userprofiles.slug%}">{%if userprofiles.avatar%}
+				<img src="/media/{{userprofiles.avatar}}" alt="User: {{userprofiles.nickname}}">
+				{%else%}
+				<img src="/static/img/avatar.png" alt="User: {{userprofiles.nickname}}">
+				{%endif%}</a>
+			<h4>{{userprofiles.nickname}}</h4>
+			</article>
 		</div>
+			{%endfor%}
+
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination1"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next1"></div>
+    <div class="swiper-button-prev1"></div>
+  </div>
+
+		</div>
+
+		 <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container1', {
+      slidesPerView: 7,
+      spaceBetween: 0,
+      slidesPerGroup: 3,
+      loop: true,
+
+      pagination: {
+        el: '.swiper-pagination1',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next1',
+        prevEl: '.swiper-button-prev1',
+      },
+    });
+
+  </script>
 </section>
 
 <style type="text/css">
+	.swiper-slide1{width: 158px!important;margin-right: 30px!important;}
+	.swiper-container1{overflow: hidden;}
 	.app-homeForm{width:100%;}
 	.app-homeForm{background:#161f2d;padding:20px 30px 20px 0;}
 	.app-homeForm h2{font-size:20px;text-align:left;color:#fff;padding:10px;}
