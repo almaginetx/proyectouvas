@@ -2,7 +2,6 @@
 <div class="cart">
 <h2>Bienvenido a tu lista de compras {{user.userprofile.nickname}}</h2>
 <h3>{{message}}</h3>
-
 {%for cart in cart%}
 {%if cart.owner.id == user.userprofile.id%}
 <article>
@@ -10,16 +9,13 @@
 <p>Costo: <span id="inkc{{cart.id}}"></span> IKC Inkacoins.</p>
 <ul><a href="{% url 'app.deletecart' cart.slug%}">Eliminar</a></ul>
 </article>
-
 <script type="text/javascript">
 	var ikc{{cart.id}} = {{config.inkacoin}};
 	var inkc{{cart.id}} = {{cart.product.price}} / ikc{{cart.id}};
 	document.getElementById("inkc{{cart.id}}").innerHTML=inkc{{cart.id}};
 	</script>
-    
 {%endif%}
 {%endfor%}
-
 <h2>Total a pagar: <span id="total"></span> IKC Inkacoins</h2>
 <h4>Usted posee {{wallet.total}} IKC</h4>
 <div id="nones">
@@ -36,7 +32,6 @@
 var cant{{cart.id}} = {{cart.price}};
 {%endif%}
 {%endfor%}
-
 var sum = 
 {%for cart in cart%}
 {%if cart.owner.id == user.userprofile.id%}
@@ -50,12 +45,10 @@ wal = {{wallet.total}};
 sal = wal - suma;
 document.getElementById("total").innerHTML=suma;
 document.getElementById("saldo").innerHTML=sal;
-
 if (wal < suma){
     document.getElementById('nones').className = 'nones';
     document.getElementById('none').className = '';
     }
-
 function confirmar(){
     document.getElementById('loader').className = 'loader';
     {%for cart in cart%}
@@ -70,21 +63,15 @@ function confirmar(){
     function rer(){
     window.location.href = "{%url 'app.welcome'%}";
     }
-
     setTimeout(rer, 20000);
     }
 </script>
-
-
-
 {%for cart in cart%}
 {%if cart.owner.id == user.userprofile.id%}
 <div id="addowner{{cart.id}}"></div>
 {%endif%}
 {%endfor%}
 </div>
-
-
 <style type="text/css">
 .cart{background:white;padding:10px;}
 .cart article{margin:3px;padding:10px;border:1px solid black;}
@@ -92,5 +79,4 @@ function confirmar(){
 .loading{display:none;}
 .cesta{background:#06e969;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
 .cestas{background:#3a95e6;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
-
 </style>

@@ -1,7 +1,6 @@
 <div class="payments">
 <h2>Pagos y donaciones</h2>
 <p>Si usted desea hacer pagos nacionales o internacionales puede consignar a los siguientes números de cuentas bancarias y enviarnos un mensaje confirmando su número de recibo.</p>
-
 <article>
 <img src="/media/{{payment.picture}}">
 {%if payment.title%}<h3>{{payment.title}}</h3>{%endif%}
@@ -16,11 +15,9 @@
 {%if payment.address%}<strong>Dirección: {{payment.address}}</strong>{%endif%}
 {%if payment.description%}<p>Nota adicional: {{payment.description}}</p>{%endif%}
 </article>
-
 </br>
 <a class="confirmc" href="{% url 'app.paymentc'%}">Confirmar pago</a>
 </div>
-
 <style type="text/css">
 .payments{background: #fff;padding:10px;margin:5px;border-radius:5px;}
 .payments article{color:#fff;margin:3px;background: rgba(58, 149, 230, 0.89);padding:10px;border:1px solid rgba(58, 149, 230, 0.89); border-radius:3px;}

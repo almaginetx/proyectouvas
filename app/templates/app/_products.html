@@ -23,13 +23,10 @@
     text-align: center;
 }
 </style>
-
-
 <div class="product-list">
 {%if product%}
 <h1>Adquiere productos y servicios en el mercado digital de Inkacoin</h1>
 <div class="p-container">
-
 			  <!-- Swiper -->
   <div class="swiper-container2">
     <div class="swiper-wrapper">
@@ -44,7 +41,6 @@
 					<div class="p-info">
 					<h3>{{product.title}}</h3>
 					<p><span id="inkc{{product.id}}"></span> IKC.</p>
-
 					<script type="text/javascript">
 					var ikc = {{config.inkacoin}};
 					var inkc{{product.id}} = {{product.price}} / ikc;
@@ -62,7 +58,6 @@
 #product-article{{product.id}}{background:white;margin: 2px;margin-bottom:5px;}
 </style>
 		{%endfor%}
-
     </div>
     <!-- Add Pagination -->
     <div class="swiper-pagination2"></div>
@@ -70,9 +65,7 @@
     <div class="swiper-button-next2"></div>
     <div class="swiper-button-prev2"></div>
   </div>
-
 		</div>
-
 		 <!-- Initialize Swiper -->
   <script>
     var swiper = new Swiper('.swiper-container2', {
@@ -80,7 +73,6 @@
       spaceBetween: 0,
       slidesPerGroup: 3,
       loop: true,
-
       pagination: {
         el: '.swiper-pagination2',
         clickable: true,
@@ -90,17 +82,11 @@
         prevEl: '.swiper-button-prev2',
       },
     });
-
   </script>
-
-
 </div>
-
 {%else%}
 <h1>No hay productos en la tienda</h1>
 {%endif%}
-
 <br><br>
 <a class="boton-store" href="https://web.whatsapp.com/send?phone={{config.whatsapp}}&text=">Iniciar un chat</a>
-
 </div>

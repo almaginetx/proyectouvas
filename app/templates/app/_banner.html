@@ -1,8 +1,6 @@
 {% include 'app/_usersband.html'%}
-
 <div class="swiper-container">
 <div class="swiper-wrapper">
-
         <div class="swiper-slide">
         	{% include 'app/_bannerhome.html'%}
 		</div>
@@ -61,13 +59,11 @@
         	</section>
 		</div>
 		{%endfor%}
-
 </div>
 <div class="swiper-pagination"></div>
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
 </div>
-
 <script src="/static/swiper.js"></script>
  <!-- Initialize Swiper -->
   <script>
@@ -77,7 +73,6 @@
       loop: true,
       speed: 1000,
       autoplayDisableOnInteraction: true,
-
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -86,10 +81,8 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      
     });
   </script>
-
  <div class="notice">
  <h3>Precio del Inkacoin (IKC) {{now}} . 1 IKC = <span class="green"><span id="ikccost"></span> $ COP.</span> </h3>
  </div>
@@ -98,9 +91,7 @@
 <h3>Disponible en Google Play Store</h3>
 </div>
 </a>
-
 <script type="text/javascript">
 	ikccost = {{config.inkacoin}};
 	document.getElementById("ikccost").innerHTML=new Intl.NumberFormat().format(ikccost);
-	
 </script>

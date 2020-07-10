@@ -3,7 +3,6 @@
     <img class="none" src="/static/img/inkas.jpg">
     </section>
 <div class="pad">
-
     <p>COSTO ACTUAL INKACOIN:</p>
     <div id="down" class="green"></div>
     <p class="currency">1 IKC = <span id="currency">Costo de la crytomoneda</span> $ COP.</p>
@@ -16,7 +15,6 @@
     <div id="appikc"></div>
     <div id="appikcdown"></div>
     <div id="appikcup"></div>
-
     <section class="inkas">
         {%for wallet in wallet%}
             <article>
@@ -43,24 +41,18 @@
 .red{background: red;}
 .currency{display: inline-block;vertical-align: middle;}
 </style>
-
-
 <script type="text/javascript">
-
 /* VARIABLES ENTRADA*/
     currency = {{config.inkacoin}};
     subida = {{config.maximo}};
     bajada = {{config.minimo}};
     contador = 1;
     tiempo = 1000;
-
     document.getElementById("currency").innerHTML=new Intl.NumberFormat().format(currency);
     document.getElementById("subida").innerHTML=new Intl.NumberFormat().format(subida);
     document.getElementById("bajada").innerHTML=new Intl.NumberFormat().format(bajada);
-
     /* HILO*/   
         sube();
-
 /* FUNCION SUBIDA*/
         function sube(){
             newcurrency = currency;
@@ -70,7 +62,6 @@
             tiempo = tiempo;
             warning = "warning"
             desition = Math.floor((Math.random() * 2) + 1);
-
                 if (desition == 1) {
                     setTimeout(timer, 700)
                         function timer(){
@@ -106,7 +97,6 @@
             tiempo = tiempo;
             warning = "warning";
             desition = Math.floor((Math.random() * 2) + 1);
-
                 if (desition == 1 && currency >= 12200 ) {
                     setTimeout(timer, 700)
                         function timer(){
@@ -125,16 +115,12 @@
                         baja();
                         }
                 }else{
-               
                     document.getElementById("currency").innerHTML=new Intl.NumberFormat().format(bajada);
                     document.getElementById('down').className = 'green';
                     document.getElementById("desition").innerHTML="Subiendo";
                     desition == 2;
                     sube();
-          
                 }       
         }
-
 </script>
-
 </section>

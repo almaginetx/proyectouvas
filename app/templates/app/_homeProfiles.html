@@ -1,12 +1,9 @@
 <!-- ////////////////////////////////// app-homeForm-->
-
 <section class="app-homeForm">
 <!--	<h2>Crea tus propias presentaciones y compartelas con usuarios destacados.</h2>
 	<a href="{%url 'app.signup'%}">Crea una presentación</a> -->
 		<div>
 			<h3>Interactua con personas en la Red Inkacoin</h3>
-
-
 			  <!-- Swiper -->
   <div class="swiper-container1">
     <div class="swiper-wrapper">
@@ -22,7 +19,6 @@
 			</article>
 		</div>
 			{%endfor%}
-
     </div>
     <!-- Add Pagination -->
     <div class="swiper-pagination1"></div>
@@ -30,9 +26,7 @@
     <div class="swiper-button-next1"></div>
     <div class="swiper-button-prev1"></div>
   </div>
-
 		</div>
-
 		 <!-- Initialize Swiper -->
   <script>
     var swiper = new Swiper('.swiper-container1', {
@@ -40,7 +34,6 @@
       spaceBetween: 0,
       slidesPerGroup: 3,
       loop: true,
-
       pagination: {
         el: '.swiper-pagination1',
         clickable: true,
@@ -50,10 +43,8 @@
         prevEl: '.swiper-button-prev1',
       },
     });
-
   </script>
 </section>
-
 <style type="text/css">
 	.swiper-slide1{width: 158px!important;margin-right: 30px!important;}
 	.swiper-container1{overflow: hidden;}
@@ -73,7 +64,6 @@
 	.app-homeList span{font-size:10px;}
 	.app-homeForm article h4{margin-bottom:5px;color:#424242;display:block;height:28px;overflow:hidden;font-size:12px;text-align:center;}
 	.app-homeForm li{padding:20px;background:red;}
-
 </style>
 <style type="text/css">@media screen and (max-width:1000px){
 	input{width: 100%;}

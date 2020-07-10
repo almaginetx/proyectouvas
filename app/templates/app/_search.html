@@ -4,10 +4,8 @@
     <input class="buscadorapp" type="text" name="q" value="{{ query|escape }}">
     <button class="buscadorsearch" id="enviar" type="submit" value="Buscar">buscar</button>
 </form>
- 
   {% if query %}
     <h2>Resultados para "{{ query|escape }}":</h2>
-      
     {% if results %}
       <div class="product-list">
 {%if product%}
@@ -20,7 +18,6 @@
 	<div>
 	<h3>{{product.title}}</h3>
 	<p><span id="inkc{{product.id}}"></span> IKC.</p>
-
 	<script type="text/javascript">
 	var ikc = 10;
 	var inkc{{product.id}} = {{product.price}} / ikc;
@@ -32,7 +29,6 @@
 	<ul><a target="_blank" href="{% url 'app.addcart' product.slug%}">Adquirir</a></ul>
 	</div>
 </article>
-
 <style type="text/css">
 #product-article{{product.id}}{background:#333;margin: 2px;margin-bottom:5px;}
 </style>
@@ -61,14 +57,11 @@
       <p class="bigSearch">No se encontraron resultados</p>
     {% endif %}
     {%else%}
-    
     <section class="onboard">
     <h4>Tus aportes y donaciones son importantes y valiosas.</h4>
     <a href="{%url 'app.payments'%}" target="_blank">Quiero hacer un aporte</a>
     </section>
-    
   {% endif %}
-
     <style class="text/css">
         .onboard{text-align:center;background: #077486;padding:20px;}
         .onboard h4{color:white;font-size:20px;}
@@ -79,6 +72,5 @@
         .buscador h4{color:white;font-size:15px;font-family:true;}
         .buscador h2{color:white;font-size:15px;font-family:true;}
         .buscadorsearch {position: absolute;right: 0px;border-radius: 0 20px 20px 0px;height: 33px;width: 70px;border: none;background: blueviolet;color:white;}
-
   </style>
 </section>

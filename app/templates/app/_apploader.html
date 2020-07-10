@@ -38,7 +38,6 @@
             setTimeout(loading, 3000);
         };
 </script>
-
 <style type="text/css">
     #apploader{z-index:20;background:rgba(255,255,255,0.8);overflow:hidden;position:fixed;top:0;right:0;padding:10px;}
     .appclose{width:0;height:0;padding:0px!important}
@@ -49,15 +48,11 @@
 @media screen and (max-width:1000px){
     #appglass{width:100%;}
 }
-
 </style>
-
 <script type="text/javascript">
 function apploader(){
-       document.getElementById('apploader').className = 'appopen';                  
-    }
-
+       document.getElementById('apploader').className = 'appopen';                  }
 function appclose(){
-       document.getElementById('apploader').className = 'appclose';                  
-    }
+       document.getElementById('apploader').className = 'appclose';            
+   }
 </script>

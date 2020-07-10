@@ -59,7 +59,6 @@
 </br></br></br>
 	</ul>
 </div>
-
 <!-- BARRA DEL MENU -->
 <div class="app-loginNav" id="app-loginNav">
 	<ul>
@@ -92,7 +91,6 @@
     {%endif%}
 	<div class="appcall">
         {%if user.userprofile%}
-
         {%else%}
         {%if config.tlf%}
         <a class="wame" href="https://web.whatsapp.com/send?phone={{config.whatsapp}}&text=">{{config.tlf}}</a>
@@ -106,9 +104,7 @@
 {%endif%}
 	</ul>
 </div>
-
 <!-- FINAL DE LOS MENU. FUNCIONES Y ESTILOS -->
-
 <script type="text/javascript">
 	// Initial state
 //var scrollPos = 0;
@@ -160,7 +156,6 @@
 	#responsivemenu{display:none;}
     #rmenu{display:none;}
     .new-l{display:block;text-align:center;font-size:12px;color: white;padding:5px;margin-top:10px;}
-
     .icon-audio{padding-left:30px!important;background:url(/static/img/icons/109.png)no-repeat left 5px center;background-size:20px;}
     .icon-audio:hover{padding-left:30px!important;background:rgba(0,0,0,0.1) url(/static/img/icons/109.png)no-repeat left 5px center!important;background-size:20px!important;}
     .icon-blog{padding-left:30px!important;background:url(/static/img/icons/116.png)no-repeat left 5px center;background-size:20px;}
@@ -177,7 +172,6 @@
     .icon-admin:hover{padding-left:30px!important;background:rgba(0,0,0,0.1) url(/static/img/icons/1.png)no-repeat left 5px center!important;background-size:20px!important}
     .icon-us{padding-left:30px!important;background:url(/static/img/icons/119.png)no-repeat left 5px center;background-size:20px;}
     .icon-us:hover{padding-left:30px!important;background:rgba(0,0,0,0.1) url(/static/img/icons/119.png)no-repeat left 5px center!important;background-size:20px!important}
-
 @media screen and (max-width:1000px){
 	body{padding-top:60px;padding-right: 0;}
 	#app-loginNav{position:relative;height:auto;padding-left:5px;display:none;}
@@ -218,7 +212,6 @@
     background-size:30px;}
 }
 </style>
-
 <script type="text/javascript">
 	// Initial state
 //var scrollPos1 = 0;
@@ -232,9 +225,7 @@
 	// saves the new position for iteration.
 //	scrollPos1 = (document.body.getBoundingClientRect()).top;
 //});
-
 var carro = 0;
-
 {%for cart in cart%}
 {%if cart.owner.id == user.userprofile.id%}
 carro = carro + 1;
@@ -243,7 +234,6 @@ carro = carro + 1;
  document.getElementById("carro").innerHTML=carro;
  document.getElementById("carro2").innerHTML=carro;
 </script>
-
 <script type="text/javascript">
 function openlogin(){
      if(document.getElementById('appRnav').className == 'appRnav')
