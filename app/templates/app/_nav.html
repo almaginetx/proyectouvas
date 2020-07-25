@@ -35,7 +35,7 @@
     {%else%}
     <a href="{%url 'app.us'%}">Nosotros</a>
     {%if config.whatsapp%}
-    <a href="https://wa.me/{{config.whatsapp}}">Contacto</a>
+    <a href="https://api.whatsapp.com/send?phone={{config.whatsapp}}&text=Hola.%20quisiera%20preguntar...">
     {%else%}
     <a href="https://wa.me/+573192121193">Contacto</a>
     {%endif%}
@@ -50,11 +50,12 @@
         <a class="wame" href="{%url 'app.logout'%}">Salir</a>
         {%else%}
         {%if config.tlf%}
-        <a class="wame" href="https://web.whatsapp.com/send?phone={{config.whatsapp}}&text=">{{config.tlf}}</a>
+        <a class="wame" href="https://api.whatsapp.com/send?phone={{config.whatsapp}}&text=Hola.%20quisiera%20preguntar...">{{config.tlf}}</a>
         {%else%}
         <a class="wame" href="https://wa.me/+573192121193">Inscripciones: (+57) 319-212-1193</a>
         {%endif%}
         {%endif%}
+
     </div>
 </br></br></br>
 	</ul>
@@ -93,7 +94,7 @@
         {%if user.userprofile%}
         {%else%}
         {%if config.tlf%}
-        <a class="wame" href="https://web.whatsapp.com/send?phone={{config.whatsapp}}&text=">{{config.tlf}}</a>
+        <a class="wame" href="https://api.whatsapp.com/send?phone={{config.whatsapp}}&text=Hola.%20quisiera%20preguntar...">{{config.tlf}}</a>
         {%else%}
         <a class="wame" href="https://wa.me/+573192121193">Inscripciones: (+57) 319-212-1193</a>
         {%endif%}
