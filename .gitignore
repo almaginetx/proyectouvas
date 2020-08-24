@@ -8,7 +8,7 @@ cert/*
 more/
 more/*
 /app/templates/app/ignore/_paypalcode.html
-/app/migrations/
+#/app/migrations/
 *.pyc
 *.swp
 *initial.py
