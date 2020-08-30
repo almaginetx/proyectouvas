@@ -1,9 +1,9 @@
 <!--////////////////////// /banner -->
 <section class="app-banner">
-	<h2>Accede a nuevos audios para mejorar tu carrera profesional. </h2>
+	<h2>Escucha audios de usuarios en la Red Uvas. </h2>
 </section>
 <style type="text/css">
-	.app-banner{background: rgba(0,0,0,0.7);display: block;width: 100%;padding: 40px 20px; color: #fff;text-align: center;}
+	.app-banner{background: #407d71;display: block;width: 100%;padding: 40px 20px; color: #fff;text-align: center;}
 </style>
 <!--////////////////////// /banner -->
 <!-- ////////////////////////////////// app-homeList-->
@@ -15,7 +15,7 @@
 		<a href="{%url 'app.signup'%}"><button></button></a>
 	</article>
 -->
-<h3>Comienza a compartir con la comunidad online</h3>
+<h3>Comparte nuevos audios en tu perfil</h3>
 	{%for track in track%}
 	<article>
 		<a href="{% url 'app.userprofile' track.user.userprofile.slug%}">{%if track.user.userprofile.avatar%}

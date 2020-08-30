@@ -1,28 +1,11 @@
 <section id="home-face" class="home-face">
 					<style type="text/css">
-					.home-faces{
-						position: fixed;
-						top: 0px;
-						left: 0px;
-						background: white!important;
-						width: 100%;
-						z-index: 101;
-						padding: 3px!important;
-						height: 0px;
-						overflow: hidden;
-						opacity: 0;
-					}
 					.home-face{
-						position: fixed;
-						top: 0px;
-						left: 0px;
 						background: white!important;
 						width: 100%;
-						z-index: 101;
 						padding: 3px!important;
-						height: 52px;
-						overflow: hidden;
-						opacity: 1;
+						height: auto;
+						text-align: center!important;
 					}
 
 					#home-face article{
@@ -48,16 +31,10 @@
 					}
 					@media screen and (max-width:1000px){
 						.home-face{
-						position: fixed;
-						top: 0px;
-						left: 0px;
 						background: white!important;
 						width: 100%;
-						z-index: 101;
 						padding: 3px!important;
-						height: 60px;
-						overflow: hidden;
-						opacity: 1;
+						height: auto;
 					}
 					#home-face article{
 						width: 54px;
@@ -81,7 +58,8 @@
 					</article>
 			        {%endif%}
 					{%endfor%}
-					<script type="text/javascript">
+<!--					
+<script type="text/javascript">
 window.onscroll = function() {
 windowScroll();
 };
@@ -93,5 +71,6 @@ function windowScroll() {
     homeFace.className = "home-face";
   }
 }
-					</script>
+</script> 
+-->
 				</section>

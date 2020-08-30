@@ -1,0 +1,12 @@
+<style type="text/css">
+	.notice{background:white;padding:10px;}
+.notice h3{color:black;font-size:14px;text-align:center;}
+.green{color: green;}
+</style>
+<div class="notice">
+ <h3>Precio del Inkacoin (IKC) {{now}} . 1 IKC = <span class="green"><span id="ikccost"></span> $ COP.</span> </h3>
+ </div>
+ <script type="text/javascript">
+  ikccost = {{config.inkacoin}};
+  document.getElementById("ikccost").innerHTML=new Intl.NumberFormat().format(ikccost);
+</script>

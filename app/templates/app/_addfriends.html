@@ -1,4 +1,9 @@
+ {%if user.userprofile%}
  <a id="hidden" class="addfriend" href="javascript:addfriend();">Agregar a mis contactos</a>
+{%else%}
+ <a id="hidden" class="addfriend" href="{%url 'app.signup'%}">Crea una cuenta para contactar a este usuario</a>
+ {%endif%}
+
     {%for friends in friends%}
     {% if friends.friendof.id == userprofile.id%}
     <a class="addfriend" href="#">Este usuario ya esta entre sus contactos</a>
@@ -23,5 +28,5 @@
 
 <style type="text/css">
 	.hidden{display: none;}
-	.addfriend{display: block;padding: 10px 20px;margin: 5px;background: #61aaea;border-radius: 10px;color: white;font-size: 18px;text-align: center;}
+	.addfriend{display: inline-block;padding: 10px 20px;margin: 5px;background: #491b90;border-radius: 10px;color: white;font-size: 18px;text-align: center;}
 </style>

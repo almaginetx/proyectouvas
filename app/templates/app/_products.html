@@ -1,7 +1,7 @@
 <style type="text/css">
-.product-list{background:#1d2328;padding:10px;}
-.product-list h1{background:#42aeef url(/static/img/icons/121.png)no-repeat left 5px center;background-size:20px;padding-left:30px;color:white;padding:10px;padding-left:30px;margin:20px 0;font-size:18px;border-radius:5px;}
-.product-list article{border:4px solid rgba(0,0,0,0.1);border-radius:2px;overflow:hidden;width:300px;}
+.product-list{background:#e6e6e6;padding:10px;}
+.product-list h1{background:#eaba0c url(/static/img/inkas.png)no-repeat left 5px center;background-size:20px;padding-left:30px;color:white;padding:10px;padding-left:30px;margin:20px 0;font-size:18px;border-radius:5px;}
+.product-list article{border:4px solid rgba(0,0,0,0.1);border-radius:2px;overflow:hidden;width:300px;display: inline-block;vertical-align: top;}
 .product-list figure{width:100%;height:200px;overflow:hidden;background:rgba(0,0,0,0.5);}
 .product-list article h3{padding:10px 0;font-size:14px;font-weight: normal;}
 .product-init{color:#7153dd;font-weight:bold;}
@@ -9,7 +9,7 @@
 .product-list p{padding:10px 0;color:#42aeef;font-size:12px;}
 .product-list img{width:100%;height:auto;}
 .boton-store{padding: 10px 20px;display: inline-block;text-align: center;background: #42aeef url(/static/img/icons/131.png)no-repeat left 10px center;background-size:30px;padding-left:50px;border-radius: 5px;margin: 10px;color: white;font-weight: bold;font-size:16px;}
-.product-list article ul a{padding:10px 20px;margin:10px 0;background:#42aeef;color:white;text-align:center;border-radius:12px;display:inline-block;}
+.product-list article ul a{padding:10px 20px;margin:10px 0;background:#eaba0c;color:white;text-align:center;border-radius:12px;display:inline-block;}
 .p-img{display: inline-block;vertical-align: top;width: 120px;}
 .p-info{display: inline-block;vertical-align: top;width: 160px;}
 .swiper-slide2{width: 300px!important;margin-right: 30px!important;}
@@ -26,12 +26,9 @@
 <div class="product-list">
 {%if product%}
 <h1>Adquiere productos y servicios en el mercado digital de Inkacoin</h1>
-<div class="p-container">
-			  <!-- Swiper -->
-  <div class="swiper-container2">
-    <div class="swiper-wrapper">
+
     	{%for product in product%}
-			<div class="swiper-slide swiper-slide2">
+
 				<article id="product-article{{product.id}}">
 					<div class="p-img">
 					<a href="{% url 'app.addcart' product.slug%}">
@@ -40,7 +37,12 @@
 					</div>
 					<div class="p-info">
 					<h3>{{product.title}}</h3>
-					<p><span id="inkc{{product.id}}"></span> IKC.</p>
+          {%if product.price == 0 %}
+          <strong>GRATUITO</strong>
+          {%else%}
+					<p>Precio: <span id="inkc{{product.id}}"></span> Inkacoins.</p>
+          <strong>{{product.price}} $ COP.</strong>
+          {%endif%}
 					<script type="text/javascript">
 					var ikc = {{config.inkacoin}};
 					var inkc{{product.id}} = {{product.price}} / ikc;
@@ -50,43 +52,20 @@
 					<!--
 					<ul><a href="{{product.link}}" target="_blank">Comprar</a></ul>
 					-->
-					<ul><a href="{% url 'app.addcart' product.slug%}">Adquirir</a></ul>
+          {%if product.price == 0 %}
+					<ul><a target="_blank" href="/media/{{product.pdf}}">Descargar</a></ul>
+          {%else%}
+          <ul><a href="{% url 'app.addcart' product.slug%}">Comprar</a></ul>
+          {%endif%}
 					</div>
 				</article>
-			</div>
+
 			<style type="text/css">
 #product-article{{product.id}}{background:white;margin: 2px;margin-bottom:5px;}
 </style>
 		{%endfor%}
-    </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination2"></div>
-    <!-- Add Arrows -->
-    <div class="swiper-button-next2"></div>
-    <div class="swiper-button-prev2"></div>
-  </div>
-		</div>
-		 <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper('.swiper-container2', {
-      slidesPerView: 3,
-      spaceBetween: 0,
-      slidesPerGroup: 3,
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination2',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next2',
-        prevEl: '.swiper-button-prev2',
-      },
-    });
-  </script>
-</div>
 {%else%}
 <h1>No hay productos en la tienda</h1>
 {%endif%}
-<br><br>
-<a class="boton-store" href="https://web.whatsapp.com/send?phone={{config.whatsapp}}&text=">Iniciar un chat</a>
+<br>
 </div>

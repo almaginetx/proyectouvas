@@ -60,13 +60,7 @@
 </div>
 </div>
 
- <div class="notice">
- <h3>Precio del Inkacoin (IKC) {{now}} . 1 IKC = <span class="green"><span id="ikccost"></span> $ COP.</span> </h3>
- </div>
- <script type="text/javascript">
-    ikccost = {{config.inkacoin}};
-    document.getElementById("ikccost").innerHTML=new Intl.NumberFormat().format(ikccost);
-</script>
+ {% include 'app/_inkacoinprice.html'%}
  {% include 'app/_products.html'%}
  {% include 'app/_homeProfiles.html'%}
  {% include 'app/_welcomeAudios.html'%}
@@ -94,7 +88,7 @@
 .appleft{display:inline-block;vertical-align:top; width:70%;}
 .appright{display:inline-block;vertical-align:top; width:29%;}
 .appavatar{border-radius:50%;position:relative;display:inline-block;padding:16px;background:rgba(255,255,255,0.5);height:100%;}
-.appavatar img{width:160px;height:160px;border-radius:50%;opacity:1;}
+.appavatar img{width:100px;height:100px;border-radius:50%;opacity:1;}
 .appavatar img:hover{opacity:0.8;}
 .appleft h2{font-size:36px;color:white;padding:10px;dispĺay:block;}
 .float{z-index:2;border-radius:50%;position:absolute;background:rgba(0,0,0,0.8);padding:5px;display:inline-block;top:5px;left:5px;}
@@ -128,8 +122,5 @@
         alert("Actualización en el sistema, regrese más tarde");
         }
 </script>
-
-<!-- Include the PayPal JavaScript SDK -->
-{% include 'app/ignore/_paypalcode.html'%}
 
 {% include 'app/_footer.html'%}

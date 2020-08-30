@@ -1,6 +1,6 @@
 <!--////////////////////// app tags-->
 <section class="app-tags">
-	<h2 class="icon-trends">Explora tendencias internacionales y desarrolla tus habilidades comerciales</h2>
+	<h2 class="icon-trends">Explora más sobre Inkacoin y el Proyecto Uvas</h2>
     {%for category in category%}
 	<article>
         <a href="{% url 'app.category' category.slug%}">
@@ -16,16 +16,16 @@
 	</article>
     {%endfor%}
 	<br>
-	<a class="boton-blue" href="{% url 'app.categories' %}">Todas las tendencias</a>
+	<a class="boton-blue" href="{% url 'app.categories' %}">Todos los temas</a>
 </section>
 <style type="text/css">
 	.app-tags{text-align: center;display: block;width: 100%;background: #f3ece0;}
-	.app-tags h2{padding: 20px 20px;background:orange;color:white;}
-    .app-tags h3 a{color: orange;}
+	.app-tags h2{padding: 20px 20px;background:#165960;color:white;}
+    .app-tags h3 a{color: #165960;}
 	.app-tags article{display: inline-block;vertical-align: top;padding: 10px;border-radius: 5px;border:1px solid rgba(0,0,0,0.2);margin: 5px; width: 250px;height: 300px;background: white;color: #333;}
-	.app-tags article:hover{border: 1px solid orange;}
+	.app-tags article:hover{border: 1px solid #165960;}
 	.app-tags article figure{width: 200px;height: 200px;overflow: hidden;border-radius: 20px;border:5px solid rgba(255,255,255,0.5);margin: 10px auto;}
 	.app-tags article figure img{height: 100%;width: auto;}
-	.boton-blue{padding: 10px 20px;display: inline-block;text-align: center;background: orange;border-radius: 5px;margin: 10px;color: white;font-weight: bold;}
+	.boton-blue{padding: 10px 20px;display: inline-block;text-align: center;background: #165960;border-radius: 5px;margin: 10px;color: white;font-weight: bold;}
 </style>
 <!--////////////////////// /apptags -->
