@@ -9,4 +9,4 @@ This is the "AlmaginetxPlay for ProyectoUvas documentation", a django 1.8.2 proj
 7. Enjoy! You are free to use it and please share.
 
 Project in Prod: www.proyectouvas.com
-www.inkacoin.shop
+inkacoin www.inkacoin.shop
