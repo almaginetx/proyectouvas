@@ -4,19 +4,22 @@
 <!--PANTALLA PRINCIPAL DE BIENVENIDA -->
 <div class="appbanner">
 <div class="appcortain">
- <div class="appleft">
+ <div class="appcenter">
     <figure class="appavatar">
         {%if userprofile.avatar%}
         <img src="/media/{{userprofile.avatar}}">
         {%else%}
-        <img src="/static/img/icons/63.png">
+        <img src="/static/img/uva.png">
         {%endif%}
     </figure>
     <h2>{{userprofile.nickname}}</h2>
     {% include 'app/_addfriends.html'%}
- </div><div class="appright">
- <p class="miwallet">Registrado en {{userprofile.create_at|date:"M d-l Y"}}. Adquiera una cuenta para contactar a este usuario</p>
  </div>
+<!--
+ <div class="appright">
+ <p class="miwallet">Registrado en {{userprofile.create_at|date:"M d-l Y"}}. Adquiera una cuenta para contactar a este usuario</p> -
+ </div>
+ -->
 </div>
 </div>
 {% include 'app/_inkacoinprice.html'%}
@@ -27,31 +30,30 @@
 .notice h3{color:black;font-size:14px;text-align:center;}
 .miwallet{color:white;background:rgba(0,0,0,0.6);font-size: 13px;padding:6px;border-radius:6px;margin-bottom: 3px;}
 .message{height:44px;padding:10px;color:white;font-weight:normal;background:#2be2a6;text-align:left;}
-.appbanner{height:auto;background: url(/static/img/uvascity.jpg)no-repeat center center;background-size:cover;}
+.appbanner{height:auto;background: url(/static/img/back02.jpg)no-repeat center center;background-size:cover;background-attachment: fixed;}
 .appcortain{background:rgba(0,0,0,0.2);width:100%;height:auto;padding:20px;}
 .wallet{padding:10px;width:100%;height:auto;background:#5581a9;border-radius:10px;}
 .hidden{display: none;}
-.addfriend{display: inline-block;padding: 10px 20px;margin: 5px;background: #491b90;border-radius: 10px;color: white;font-size: 18px;text-align: center;}
 .wikclogo{width:80px;}
 .ikcw{color:#fff;font-size:11px;}
 .figure{padding:10px;}
 .datew{font-size:12px;color:#ece2e2;}
 .mailw{width:100%;text-align:right;}
-.mailw p{font-size.12px;color:white;font-size:10px;}
+.mailw p{font-size:12px;color:white;font-size:10px;}
 .chargew{background:#0cff1b;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
 .wright{text-align:right;width:150px;}
 .wallet table h3{font-size:24px;font-weight:bold;color:white;text-align:right;}
 .cesta{background:#06e969;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
-.appleft{display:inline-block;vertical-align:top; width:70%;}
+.appcenter{display:inline-block;vertical-align:top; width:100%;text-align: center;}
 .appright{display:inline-block;vertical-align:top; width:29%;}
-.appavatar{border-radius:50%;position:relative;display:inline-block;padding:16px;background:rgba(255,255,255,0.5);height:100%;}
+.appavatar{border-radius:50%;position:relative;display:inline-block;padding:6px;background:rgba(255,255,255,0.5);height:100%;}
 .appavatar img{width:100px;height:100px;border-radius:50%;opacity:1;}
 .appavatar img:hover{opacity:0.8;}
-.appleft h2{font-size:36px;color:white;padding:10px;dispĺay:block;}
+.appcenter h2{font-size:36px;color:white;padding:10px;dispĺay:block;}
 .float{z-index:2;border-radius:50%;position:absolute;background:rgba(0,0,0,0.8);padding:5px;display:inline-block;top:5px;left:5px;}
 .float img{width:26px;height:26px;}
 @media screen and (max-width:1000px){
-    .appleft{display:inline-block;vertical-align:top; width:100%;}
+    .appcenter{display:inline-block;vertical-align:top; width:100%;}
     .appright{display:inline-block;vertical-align:top; width:100%;}
 }
 </style>

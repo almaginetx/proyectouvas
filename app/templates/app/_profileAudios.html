@@ -1,34 +1,4 @@
 <!-- ////////////////////////////////// app-homeList-->
-<section class="app-homeList">
-<h3>Biblioteca de Audios de {{userprofile.nickname}}</h3>
-	{%for track in track%}
-    {%if userprofile.id == track.user.userprofile.id%}
-	<article>
-		<a href="{% url 'app.userprofile' track.user.userprofile.slug%}">{%if track.user.userprofile.avatar%}
-			<img src="/media/{{track.user.userprofile.avatar}}" alt="User: {{track.user.userprofile.nickname}}.">
-			{%else%}
-			<img src="/static/img/avatar.png" alt="User: {{track.user.userprofile.nickname}}.">
-			{%endif%}</a>
-		<p><strong>{{track.user.userprofile.nickname}}:</strong> "{{track.title|slice:":100"}}..." </br> <span> Hace 	{{track.create_at|timesince}}</span></p>
-		<a onclick="play{{track.id}}()"><button></button></a>
-		<div class="hiddenPlayer" id="player-{{track.id}}">
-		<iframe src="{% url 'app.track' track.slug%}"></iframe>	
-		</div>
-	</article>
-	<script type="text/javascript">
-	function play{{track.id}}()
-    {
-     if(document.getElementById('player-{{track.id}}').className == 'hiddenPlayer')
-      {
-       document.getElementById('player-{{track.id}}').className = 'showPlayer';
-            } else {
-            document.getElementById('player-{{track.id}}').className = 'hiddenPlayer';
-            }                     
-    } 
-</script>
-{%endif%}
-	{%endfor%}
-</section>
 <style type="text/css">
 	.hiddenPlayer{background: black;width:0px;height: 0px;position: absolute;right: 90px;top: 10px;border-radius: 5px;overflow: hidden;z-index: 1;}
 	.hiddenPlayer iframe{width: 0px;height: 0px;position: relative;border-radius: 5px;overflow: hidden;border: none;}
@@ -41,14 +11,50 @@
 <style type="text/css">
 .app-homeList {width: 100%;background:#e0e8f0;}
 	.app-homeList article{position:relative;background:white;padding:10px;margin:4px;border-radius: 5px;display: flex;}
+	.mess{background: #fff;border-radius: 10px;padding: 5px;margin: 5px;color: black;font-size: 14px;}
 		.app-homeList article img{position:absolute;left:5px;display:inline-block;width:60px;height:60px;border-radius:50%;background:#333;}
 		.app-homeList span{font-size:10px;}
 		.app-homeList p{padding-left:65px;padding-right:80px;display:inline-block;color:#333;height:60px;overflow:hidden;font-size:14px;}
 		.app-homeList button{display:inline-block;position:absolute;top:15px;right:20px;width:50px;height:50px;background:#bdbdc6 url(/static/img/play.png) no-repeat center center;background-size:30px;border:none;border-radius:50%;opacity:0.8;}
 		.app-homeList button:hover{opacity:1;cursor:pointer;}
-        .app-homeList h3{margin:20px 10px;background:#626262d6 url(/static/img/icons/109.png)no-repeat left 5px center;background-size:20px;font-size:18px;text-align:left;color:#fff;padding:10px;border-radius:5px;padding-left:30px;}
+        .app-homeList h3{margin:20px 10px;background:#407d71 url(/static/img/icons/109.png)no-repeat left 5px center;background-size:20px;font-size:18px;text-align:left;color:#fff;padding:10px;border-radius:5px;padding-left:30px;}
 </style>
 <style type="text/css">@media screen and (max-width:1000px){
 	section{display:block;width:100%!important;}
 	.app-homeList p{padding-left:65px;padding-right:80px;display:inline-block;color:#333;height:auto;overflow:hidden;font-size:14px;}
 }</style>
+
+<section class="app-homeList">
+<h3>Biblioteca de Audios de {{userprofile.nickname}}</h3>
+	{%if track%}
+		{%for track in track%}
+	    {%if userprofile.id == track.user.userprofile.id%}
+		<article>
+			<a href="{% url 'app.userprofile' track.user.userprofile.slug%}">{%if track.user.userprofile.avatar%}
+				<img src="/media/{{track.user.userprofile.avatar}}" alt="User: {{track.user.userprofile.nickname}}.">
+				{%else%}
+				<img src="/static/img/avatar.png" alt="User: {{track.user.userprofile.nickname}}.">
+				{%endif%}</a>
+			<p><strong>{{track.user.userprofile.nickname}}:</strong> "{{track.title|slice:":100"}}..." </br> <span> Hace 	{{track.create_at|timesince}}</span></p>
+			<a onclick="play{{track.id}}()"><button></button></a>
+			<div class="hiddenPlayer" id="player-{{track.id}}">
+			<iframe src="{% url 'app.track' track.slug%}"></iframe>	
+			</div>
+		</article>
+		<script type="text/javascript">
+		function play{{track.id}}()
+	    {
+	     if(document.getElementById('player-{{track.id}}').className == 'hiddenPlayer')
+	      {
+	       document.getElementById('player-{{track.id}}').className = 'showPlayer';
+	            } else {
+	            document.getElementById('player-{{track.id}}').className = 'hiddenPlayer';
+	            }                     
+	    } 
+		</script>
+		{%endif%}
+		{%endfor%}
+	{%else%}
+		<p class="mess">{{userprofile.nickname}} No ha compartido audios</p>
+	{%endif%}
+</section>

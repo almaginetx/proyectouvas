@@ -321,7 +321,11 @@ def updateavatar_view(request, slug):
     context['userprofile'] = UserProfile.objects.get(slug=slug)
     # Y mostramos los datos
     return render(request, 'app/updateavatar.html', context)
-    
+
+def updateavatarload(request):
+    template = 'app/_updateavatarload.html'
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+
 @login_required
 def updatenickname_view(request, slug):
     def get_context_data(self, **kwargs):

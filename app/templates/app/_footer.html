@@ -10,8 +10,10 @@
 .holding{text-align:center;width:100%;padding:30px;padding-top:50px;background:#407d71 url(/static/img/inkas.png)no-repeat center top 10px;background-size:40px;color:white;}
 </style>
 <footer>
+<!--
 <iframe src="{% url 'app.search' %}" ></iframe>
-	<p>Síguenos: @ProyectoUvas</p>
+-->
+	<p>@ProyectoUvas 2020</p>
 	<ul>
 	<a href="{%url 'app.login'%}">Inicio</a>
 	<a href="{%url 'app.us'%}">Quienes somos</a>
@@ -25,27 +27,24 @@
     <a href="{%url 'app.companies'%}">Holding empresarial</a>
     <a href="{%url 'app.products'%}">Mercado Inkacoin</a>
     <a href="{%url 'app.cart'%}">Mi lista de compras</a>
-    </ul>
-	<ul>
-    <a href="{%url 'app.academy'%}">Academia</a>
     <a href="https://biz.payulatam.com/L0ccfcfBD5BBEAA" target="_blank">Comprar Inkacoins</a>
     {%for categorys in categorys%}
 		<a href="{% url 'app.category' categorys.slug%}">{{categorys.title}}</a>
     {%endfor%}
-        {%for link in link%}
-		<a href="{{link.title}}" class="{{link.id}}main">{{link.create_at}}. {{link.link}}</a>
-        {%endfor%}
-    <a id="appl" href="javascript:applinks()">Mapsite</a>
-    </ul>
-    <ul>
     <a href="https://www.facebook.com/proyectouvas" target="_blank">Facebook</a>
     <a href="/static/proyectouvas.apk">Descarga el App para Android</a>
     <a href="https://github.com/almaginetx/proyectouvas" target="_blank">Código fuente</a>
     <a href="{%url 'app.tasks'%}">API Documentación</a>
     <a href="{%url 'app.payments'%}">Pagos y donaciones</a>
-    <a href="{% url 'app.paymentc'%}">Confirmar un pago</a>
     <a href="http://www.osoriomartinez.com">Desarrolladores</a>
+    {%if user.userprofile%}
+    <a href="{%url 'app.logout'%}">Cerrar sesión</a>
+    {%else%}
+    <a href="{%url 'app.logins'%}">Ingresar</a>
+    {%endif%}
     </ul>
+
+    <!--
 	<br>
     <img class="img200" src="/static/img/payu.png">
     <br> <br>
@@ -53,8 +52,9 @@
     <img src="/static/img/httpss.png">
 	<img src="/static/img/logo-h1.png">
     </br></br>
+
+    -->
     <p>Cl 18#4-85. Oficina 103. Bogotá, Colombia. (+57)3192121193</p>
-    </br>
 	<script type="text/javascript">
 	$.ajax({
 	url: '/api/tracks',
@@ -76,25 +76,22 @@
 </script>
 </footer>
 <style type="text/css">
-	footer{padding: 20px;background:#161f2d;background-color:
-#144c57;overflow:hidden;
-background-image: -webkit-linear-gradient(left,#144C57,#01422F);
-background-image: linear-gradient(to right,
-#144C57,#01422F);}
-	footer a{background: url(/static/img/icons/133.png)no-repeat left 5px center;background-size:20px;color:white;padding:10px;padding-left:30px;display:block;font-size:12px;}
-    footer a:hover{background:rgba(0,0,0,0.2) url(/static/img/icons/133.png)no-repeat left 5px center;background-size:20px;}
+	footer{padding: 10px;background:white;}
+	footer a{color:black;padding:10px;display:inline-block;font-size:12px;}
+    footer a:hover{color: #077486;}
 	footer img{margin:0;auto;width:100px;height:auto;background:rgba(255,255,255,0.2);padding:5px;border-radius:3px;display:inline-block;vertical-align:top;}
-	footer ul{display: inline-block;vertical-align: top;padding: 10px;margin:10px 0;background:rgba(255,255,255,0.2);border-radius:3px;}
+	footer ul{display: block;padding: 10px;margin:10px 0;background:rgba(255,255,255,0.2);border-radius:3px;text-align: center;}
 {%for link in link%}
 .{{link.id}}main{color:orange;} 
 {%endfor%}
-    footer p{font-weight:bold;color:white; text-align: center;padding: 10px;}
+    footer p{color:#333; text-align: center;padding: 10px;font-size: 10px;}
     .img200{width:260px;}
     footer iframe{width:100%;border:none;height:300px;}
 </style>
-<script src="/static/swiper.js"></script>
+
   <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0"></script>
+<!--
 <aside>
     <img src="/static/img/proyectouvascom.png">
     <style type="text/css">
@@ -107,6 +104,7 @@ background-image: linear-gradient(to right,
     html{height:100%;}
     </style>
 </aside>
+-->
 
 </div>
 </body>

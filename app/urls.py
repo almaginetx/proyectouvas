@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^publicar/$', views.createblog_view, name='app.createblog'),
     url(r'^@/(?P<slug>[^\.]+)/$', views.userprofile_view, name='app.userprofile'),
     url(r'^actualizar/foto-perfil/(?P<slug>[^\.]+)/$', views.updateavatar_view, name='app.updateavatar'),
+    url(r'^updateavatarload/$', views.updateavatarload, name='app.updateavatarload'),
     url(r'^actualizar/nombre-usuario/(?P<slug>[^\.]+)/$', views.updatenickname_view, name='app.updatenickname'),
     url(r'^actualizar/miembro-color-a/(?P<slug>[^\.]+)/$', views.updatecolora_view, name='app.colora'),
     url(r'^actualizar/miembro-color-b/(?P<slug>[^\.]+)/$', views.updatecolorb_view, name='app.colorb'),
