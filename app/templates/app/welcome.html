@@ -1,94 +1,31 @@
 {% include 'app/_header.html'%}
 {% include 'app/_nav.html'%}
 
-<div class="ish">
-    <style type="text/css">.ish{height: 100px;width: 100%;background-size: cover;background: white;padding: 5px;font-size: 10px;position: fixed;border: 1px solid #ddd;bottom: 200px;}</style>
-    <p>Privacidad & Cookies: este sitio usa cookies. Al continuar usando este sitio, estás de acuerdo con su uso. Para saber más, incluyendo como controlar las cookies, mira aquí: Política de Cookies.</p>
-</div>
-
-<div class="appcontainer">
-<!-- Swiper -->
-<div class="swiper-container">
-<div class="swiper-wrapper">
-<div id="slide1" class="swiper-slide" data-hash="slide1">
-<!--PANTALLA PRINCIPAL DE BIENVENIDA -->
-{% if message %}
-<h4 class="message">{{message}}</h4>
-{%else%}
-<h4 class="message">Bienvenido a tu cuenta {{user.userprofile.nickname}}</h4>
-{%endif%}
-<div class="appbanner">
-<div class="appcortain">
-
- <div class="appleft">
-    
-    <figure class="appavatar">
-    <a class="float" href="{%url 'app.updateavatar' user.userprofile.slug%}">
-    <img src="/static/img/icons/61.png">
-    </a>
-        {%if user.userprofile.avatar%}
-        <img src="/media/{{user.userprofile.avatar}}">
-        {%else%}
-        <img src="/static/img/icons/63.png">
-        {%endif%}
-    </figure>
-    <h2>{{user.userprofile}}</h2>
- </div><div class="appright">
- <p class="miwallet">Tarjeta de adquisición virtual Inkacoin</p>
-    <div class="wallet">
-    <table>
-    <td><figure><img class="wikclogo" src="/static/img/inkas.png"></figure></td>
-    <td class="wright">
-    <h3>{{wallet.total}} IKC</h3>
-    <a class="chargew" href="javascript:appcharge();">Recargar Inkacoins</a>
-    </td>
-    </table>
-    <table>
-        <td>
-        <p class="ikcw">{{wallet.slug}}</p>
-        <p class="datew">{{wallet.create_at}}</p>
-        <div class="mailw"><p>{{user.userprofile.user}}</p></div>
-        </td>
-    </table>
-    </div> 
-    <br>
-    <a class="cesta" href="{%url 'app.owners' %}">Mis compras realizadas</a>
- 
- </div>
-
-   
-</div>
-</div>
-
- {% include 'app/_inkacoinprice.html'%}
- {% include 'app/_products.html'%}
- {% include 'app/_homeProfiles.html'%}
- {% include 'app/_welcomeAudios.html'%}
- 
 <style type="text/css">
+.universal{padding-left: 51px;}
 .green{color: green;}
 .notice{background:white;padding:10px;}
 .notice h3{color:black;font-size:14px;text-align:center;}
 .miwallet{color:white;background:rgba(0,0,0,0.6);font-size: 13px;padding:6px;border-radius:6px;margin-bottom: 3px;}
-.message{height:44px;padding:10px;color:white;font-weight:normal;background:#2be2a6;text-align:left;}
-.appbanner{height:auto;background: url(/static/img/uvascity.jpg)no-repeat center center;background-size:cover;}
+.message{height:44px;padding:10px;color:white;font-weight:normal;background:#333;text-align:left;}
+.appbanner{height:auto;background: url(/static/img/back.jpg)no-repeat center center;background-size:cover;background-attachment: fixed;}
 .appcortain{background:rgba(0,0,0,0.2);width:100%;height:auto;padding:20px;}
-.wallet{padding:10px;width:100%;height:auto;background:#5581a9;border-radius:10px;}
+.wallet{padding:10px;width:100%;height:auto;background:#077486;border-radius:10px;}
 .wikclogo{width:80px;}
 .ikcw{color:#fff;font-size:11px;}
 .figure{padding:10px;}
 .datew{font-size:12px;color:#ece2e2;}
 .mailw{width:100%;text-align:right;}
 .mailw p{font-size.12px;color:white;font-size:10px;}
-.chargew{background:#0cff1b;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
+.chargew{background:#eaba0c;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;font-size: 14px;}
 .wright{text-align:right;width:150px;}
 .wallet table h3{font-size:24px;font-weight:bold;color:white;text-align:right;}
-.cesta{background:#06e969;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
+.cesta{background:#eaba0c;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;border: 2px solid #077486}
 
 .appleft{display:inline-block;vertical-align:top; width:70%;}
 .appright{display:inline-block;vertical-align:top; width:29%;}
 .appavatar{border-radius:50%;position:relative;display:inline-block;padding:16px;background:rgba(255,255,255,0.5);height:100%;}
-.appavatar img{width:100px;height:100px;border-radius:50%;opacity:1;}
+.appavatar img{width:120px;height:120px;border-radius:50%;opacity:1;}
 .appavatar img:hover{opacity:0.8;}
 .appleft h2{font-size:36px;color:white;padding:10px;dispĺay:block;}
 .float{z-index:2;border-radius:50%;position:absolute;background:rgba(0,0,0,0.8);padding:5px;display:inline-block;top:5px;left:5px;}
@@ -99,28 +36,72 @@
     .appright{display:inline-block;vertical-align:top; width:100%;}
 }
 </style>
-    
-</div>
-<!--MENÚ DE CONFIGURACIONES-->
-<div id="slide2" class="swiper-slide" data-hash="slide2">      
+
+
+<div class="universal">
+    <!--PANTALLA PRINCIPAL DE BIENVENIDA -->
+    {% if message %}
+    <h4 class="message">{{message}}</h4>
+    {%else%}
+    <h4 class="message">Bienvenido a tu cuenta {{user.userprofile.nickname}}</h4>
+    {%endif%}
+    <div class="appbanner">
+    <div class="appcortain">
+
+     <div class="appleft">
+        
+        <figure class="appavatar">
+        <a class="float" href="javascript:appUpdateAvatar()">
+        <img src="/static/img/icons/61.png">
+        </a>
+            {%if user.userprofile.avatar%}
+            <img src="/media/{{user.userprofile.avatar}}">
+            {%else%}
+            <img src="/static/img/uva.png">
+            {%endif%}
+        </figure>
+        <h2>{{user.userprofile}}</h2>
+        <a class="cesta" href="{%url 'app.owners' %}">Mis compras realizadas</a>
+     </div><div class="appright">
+     <p class="miwallet">Tarjeta de adquisición virtual Inkacoin</p>
+        <div class="wallet">
+        <table>
+        <td><figure><img class="wikclogo" src="/static/img/inkas.png"></figure></td>
+        <td class="wright">
+        <h3>{{wallet.total}} IKC</h3>
+        <a class="chargew" href="javascript:appcharge();">Comprar Inkacoins</a>
+        </td>
+        </table>
+        <table>
+            <td>
+            <p class="ikcw">Wallet:</p>
+            <p class="ikcw">{{wallet.slug}}</p>
+            <p class="datew">{{wallet.create_at}}</p>
+            <div class="mailw"><p>{{user.userprofile.user}}</p></div>
+            </td>
+        </table>
+        </div> 
+        <br>
+        
+     </div>
+
+    </div>
+    </div>
+
+     {% include 'app/_inkacoinprice.html'%}
+     {% include 'app/_products.html'%}
+     {% include 'app/_homeProfiles.html'%}
+     {% include 'app/_welcomeAudios.html'%}
     {% include 'app/_useroptions.html'%}
+    <br><br>
+
+    </div>
+    {% include 'app/_menuapps.html'%}
 </div>
-</div>
-</div>
-
-
-
-{% include 'app/_usermenuapp.html'%}
-
-</div>
-
-{% include 'app/_menuapps.html'%}
 
 <script type="text/javascript">
-    function comprar()
-    {
-        alert("Actualización en el sistema, regrese más tarde");
-        }
-</script>
-
-{% include 'app/_footer.html'%}
+        function comprar()
+        {
+            alert("Actualización en el sistema, regrese más tarde");
+            }
+    </script>

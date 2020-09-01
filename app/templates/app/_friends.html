@@ -1,15 +1,16 @@
 <style type="text/css">
-	.friendlist{background: rgba(0,0,0,0.3);}
+	.friendlist{background: #9854ff;}
 	.friendlist ul img{width: 60px;height: 60px;margin: 2px;border-radius: 50%;}
-	.friendlist ul{background: white;margin: 3px;border-radius: 3px;opacity: 0.7;}
+	.friendlist ul{background: white;margin: 3px;border-radius: 3px;opacity: 0.9;}
 	.friendlist ul:hover{opacity: 1;}
-	.friendlist ul div a{color: #077486;margin: 10px 0;font-size: 13px;}
-	.f-img{width: 80px;display: inline-block;vertical-align: top;}
+	.friendlist ul div a{color: #077486;margin: 10px 0;font-size: 13px;display: block;}
+	.f-img{width: 70px;display: inline-block;vertical-align: top;}
 	.f-inf{width: 200px;display: inline-block;vertical-align: top;}
-	.f-phone{display: inline-block; background: #077486;padding: 5px 10px;vertical-align: top;color: white!important;font-size: 11px;border-radius: 20px;}
+	.f-phone{display: inline-block; background: #077486 url(/static/img/icons/97.png)no-repeat left 3px center;padding: 5px 10px;vertical-align: top;color: white!important;font-size: 11px;border-radius: 20px;padding-left: 24px;background-size: 18px;}
+	.friendlist p{padding: 5px;color: white;text-align: center;}
 </style>
 <div class="friendlist">
-<p>Comunidad Inkacoin</p>
+<p>Mi lista de Amigos</p>
 {%for friends in friends%}
 {% if friends.friend.id == user.userprofile.id%}
 <ul>
@@ -18,7 +19,7 @@
 		{% if friends.friendof.avatar%}
 	    <img src="/media/{{friends.friendof.avatar}}">
 	    {%else%}
-	    <img src="/static/img/icons/67.png">
+	    <img src="/static/img/uva.png">
 		{%endif%}
 		</a>
 	</div>

@@ -1,16 +1,10 @@
 {% include 'app/_colors.html'%}
 <div class="opciones">
-<a href="{%url 'app.updateavatar' user.userprofile.slug%}">Cambiar foto</a>
-    <a href="{%url 'app.updatenickname' user.userprofile.slug%}">Cambiar nombre</a>
-    <p>Las siguientes opciones se encuentran en desarrollo y pronto estarán disponibles, agradecemos por tu paciencia:</p>
-    <a href="javascript:alertas()">Cambiar correo</a>
-    <a href="javascript:alertas()">Cambiar telefono</a>
-    <a href="javascript:alertas()">Cambiar contraseña</a>
-    <a href="javascript:alertas()">Recargar Wallet</a>
+    <a href="javascript:appUpdatenickname()">Cambiar mi nombre de usuario</a>
 </div>
 <style type="text/css">
 .opciones{background:white;}
-.opciones a{color:#333;display:block;font-size:18px;padding:10px;border-left:4px solid #3f9758;border-bottom:1px solid rgba(0,0,0,0.2);}
+.opciones a{color:#9854ff;display:block;font-size:18px;padding:10px;border-left:4px solid #9854ff;border-bottom:1px solid rgba(0,0,0,0.2);}
 .opciones a:hover{background:rgba(0,0,0,0.2);}
 </style>
 <script type="text/javascript">

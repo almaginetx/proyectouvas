@@ -31,6 +31,8 @@ import json
 from django.views.generic.list import ListView
 
 def login_view(request):
+    if request.user.is_authenticated():
+        return redirect(reverse('app.welcome'))
     message = ''
     userprofiles = UserProfile.objects.all().order_by('-create_at')
     track = Track.objects.all().order_by('-create_at')
@@ -52,7 +54,7 @@ def login_view(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return redirect(reverse('app.login'))
+                return redirect(reverse('app.welcome'))
             else:
                 # Redireccionar informando que la cuenta esta inactiva
                 # Lo dejo como ejercicio al lector :)

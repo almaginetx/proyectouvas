@@ -3,7 +3,7 @@
 {%if message%}
 <p><strong>{{message}}</strong></p>
 {%else%}
-<p><strong>Gracias por ingresar {{user.userprofile.nickname}}. Para una experiencia personalizada comienza seleccionando un color de perfil.</strong></p>
+<p><strong>{{user.userprofile.nickname}} Personaliza tu experiencia seleccionando un color de perfil.</strong></p>
 {%endif%}
 <div class="card-colors">
 <a href="{% url 'app.colora' user.userprofile.slug%}" class="colora">Color A</a>
@@ -36,7 +36,7 @@
         text-align:center;
         border:1px solid #e8e8f0;
         border-radius:12px;
-        background: #454584;
+        background: #165960;
         }
 .colors-palette a{
     padding:20px;
@@ -44,6 +44,7 @@
     vertical-align:top;
     border-radius:50%;
     font-size:0px;
+    border: 3px solid white;
     }
 .colora{
     background: #512218; 

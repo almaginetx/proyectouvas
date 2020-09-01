@@ -37,6 +37,31 @@
                 }
             setTimeout(loading, 3000);
         };
+        function appAddTrack(){
+            document.getElementById('apploader').className = 'appopen';
+            $("#appsite").load('{%url 'app.loading_app'%}');
+            function loading(){
+                $("#appsite").load('{%url 'app.uploadtrack'%}');
+                }
+            setTimeout(loading, 3000);
+        };
+        function appUpdateAvatar(){
+            document.getElementById('apploader').className = 'appopen';
+            $("#appsite").load('{%url 'app.loading_app'%}');
+            function loading(){
+                $("#appsite").load('{%url 'app.updateavatar' user.userprofile.slug%}');
+                }
+            setTimeout(loading, 3000);
+        };
+        function appUpdatenickname(){
+            document.getElementById('apploader').className = 'appopen';
+            $("#appsite").load('{%url 'app.loading_app'%}');
+            function loading(){
+                $("#appsite").load('{%url 'app.updatenickname' user.userprofile.slug%}');
+                }
+            setTimeout(loading, 3000);
+        };
+        
 </script>
 <style type="text/css">
     #apploader{z-index:20;background:rgba(255,255,255,0.8);overflow:hidden;position:fixed;top:0;right:0;padding:10px;}

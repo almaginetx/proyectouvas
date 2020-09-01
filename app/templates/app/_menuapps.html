@@ -1,9 +1,27 @@
+<style type="text/css">
+.appcontainer{margin-left:50px;}
+.appbar{z-index:100;position:fixed;width:50px;height:100%;top:52px;left:0px;background:#9854ff;overflow: auto;}
+.appbar a{display:block;text-align:center;padding:5px;font-size:11px;color:white;box-shadow: 1px 2px rgba(0, 0, 0, 0.1);}
+.appbar a strong{display: inline-block;vertical-align: middle;font-size: 20px;font-weight: normal;padding-right: 3px;line-height: 0;}
+.appbar a span{display: inline-block;vertical-align: middle;font-size: 11px;font-weight: normal;}
+.appbar a:hover{background:rgba(0,0,0,0.2);}
+.appbar img{width:24px;display: block;margin: 0 auto;}
+.appbaravatar{width:36px!important;display: block;margin: 0 auto;}
+.avatarlis img{border-radius:10px;}
+.avatarlis{background: #333;height: 44px;}
+.foot{margin-left:50px;}
+#apploader{padding-left:60px!important}
+@media screen and (max-width:1000px){
+    .appbar{top:60px}
+    }
+</style>
+
 <!-- MENU DE APLICACIONES-->
 <div id="appbar" class="appbar">
 {%if user.userprofile.slug%}
 <a class="avatarlis" href="{% url 'app.welcome'%}">
 {%if user.userprofile.avatar%}
-<img src="/media/{{user.userprofile.avatar}}">
+<img class="appbaravatar" src="/media/{{user.userprofile.avatar}}">
 {%else%}
 <img src="/static/img/icons/63.png">
 {%endif%}
@@ -15,10 +33,7 @@
 Mensajes
 </a>
 -->
-<a href="javascript:appeventos()">
-<img src="/static/img/icons/84.png">
-Eventos
-</a>
+
 <!--
 <a>
 <img src="/static/img/icons/33.png">
@@ -26,32 +41,31 @@ Videos
 </a>
 -->
 {%if user.userprofile%}
+<a href="javascript:appcharge()">
+<img src="/static/img/inkas.png">
+Comprar Inkacoins
+</a>
+<a href="javascript:appAddTrack()">
+<img src="/static/img/icons/41.png">
+<strong>+</strong><span>Audio</span>
+</a>
 <a href="javascript:appfriends()">
-<img src="/static/img/icons/102.png">
+<img src="/static/img/icons/112.png">
 Amigos
 </a>
-<a href="javascript:appcharge()">
-<img src="/static/img/icons/126.png">
-Recargar Inkacoins
+{%endif%}
+<a href="javascript:appeventos()">
+<img src="/static/img/icons/84.png">
+Eventos
 </a>
+{%if user.userprofile%}
 <a  href="{%url 'app.logout'%}">
 <img src="/static/img/icons/logout.png">
 Salir
 </a>
 {%endif%}
+
 </div>
-<style type="text/css">
-.appcontainer{margin-left:50px;}
-.appbar{z-index:100;position:fixed;width:50px;height:100%;top:52px;left:0px;background:#9854ff;}
-.appbar a{display:block;text-align:center;padding:5px;font-size:11px;color:white;}
-.appbar a:hover{background:rgba(0,0,0,0.2);}
-.appbar img{width:33px;}
-.avatarlis img{border-radius:50%;}
-.avatarlis{background: #2be2a6;height: 44px;}
-.foot{margin-left:50px;}
-#apploader{padding-left:60px!important}
-@media screen and (max-width:1000px){
-    .appbar{top:60px}
-    }
-</style>
 <!--////////////////////// -->
+
+{% include 'app/_apploader.html'%}
