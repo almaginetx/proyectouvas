@@ -10,3 +10,5 @@ This is the "AlmaginetxPlay for ProyectoUvas documentation", a django 1.8.2 proj
 
 Project in Prod: www.proyectouvas.com
 inkacoin www.inkacoin.shop
+
+facebook.com/proyectouvas
