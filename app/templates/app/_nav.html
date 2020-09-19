@@ -109,9 +109,9 @@
     {%if user.userprofile%}
     <a class="appgreen" href="{%url 'app.welcome'%}">MI CUENTA</a>
     <a href="{%url 'app.uploadtrack'%}">Compartir Audio</a>
-    {%if user.userprofile.admin == 1%}
+
     <a href="{%url 'app.createblog'%}">Crear Blog</a>
-    {%endif%}
+
     {%endif%}
     {%if user.userprofile%}
     <a href="{%url 'app.categories'%}">Temas</a>
@@ -161,9 +161,7 @@
     {%if user.userprofile%}
     <a class="appgreen" href="{%url 'app.welcome'%}">MI CUENTA</a>
     <a class="icon-audio" href="{%url 'app.uploadtrack'%}">Compartir Audio</a>
-    {%if user.userprofile.admin == 1%}
     <a class="icon-blog" href="{%url 'app.createblog'%}">Crear Blog</a>
-    {%endif%}
     {%endif%}
     <a class="icon-inka" href="{%url 'app.inka'%}">Inkacoin</a>
     {%if user.userprofile%}
