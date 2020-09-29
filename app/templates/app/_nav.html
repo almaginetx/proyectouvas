@@ -1,16 +1,16 @@
 <style type="text/css">
-    body{padding-top: 52px;padding-right: 0px;}
+    body{padding-top: 44px;padding-right: 0px;}
     *{margin: 0;padding: 0;text-decoration: none;list-style: none;font-family: 'Roboto', sans-serif;-webkit-transition: All 0.2s ease;-moz-transition: All 0.2s ease;-o-transition: All 0.2s ease;-ms-transition: All 0.2s ease;transition: All 0.2s ease;box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
     body{background:#42566b;}
     section{background:#42566b;display:inline-block;vertical-align:top;width:70%;}
     .app-loginNav-0{top: -100px!important;}
     {%if config.color%}
-    #app-loginNav{background:{{config.color}};position: fixed;top:0;left:0;z-index:9;width:100%;height:52px;padding:0px;text-align:left;}
+    #app-loginNav{background:{{config.color}};position: fixed;top:0;left:0;z-index:9;width:100%;height:44px;padding:0px;text-align:left;}
     {%else%}
     #app-loginNav{background:#077486;position: fixed;top:0;left:0;z-index:9;width:100%;height:52px;padding:0px;text-align:left;}
     {%endif%}
     {%if user.userprofile.color%}
-    #app-loginNav{background:{{user.userprofile.color}}!important;position: fixed;top:0;left:0;z-index:9;width:100%;height:52px;padding:0px;text-align:left;}
+    #app-loginNav{background:{{user.userprofile.color}}!important;position: fixed;top:0;left:0;z-index:9;width:100%;height:44px;padding:0px;text-align:left;}
     {%endif%}
     .menu-ul-k{padding:0 10px;padding-left:30px!important;background: rgba(0,0,0,0.4) url(/static/img/user.png)no-repeat left 8px center;background-size:18px;}
     .menu-ul-k:hover{padding:0 10px;padding-left:20px;background: rgba(0,0,0,0.2) url(/static/img/user.png)no-repeat left 8px center!important;background-size:18px!important;}
@@ -24,7 +24,7 @@
     #app-loginNav a:hover{background: rgba(0,0,0,0.3);}
     #app-loginNav ul{display: flex;width: 100%;height: 100%;text-align: left;}
     .appgreen{background: #eaba0c!important;color: white!important;font-weight: bold;font-size: 16px;}
-    .appcall{position: absolute;right: 0;height: 52px;}
+    .appcall{position: absolute;right: 0;height: 44px;}
     {%if user.userprofile%}
     .wame{padding-left: 40px!important;background: url(/static/img/logo.png)no-repeat left 5px center;background-size: 30px;}
     .wame:hover{padding-left: 40px!important;background: rgba(0,0,0,0.5)url(/static/img/logo.png)no-repeat left 5px center!important;background-size: 30px!important;}
@@ -108,16 +108,12 @@
 	<h1><a href="{%url 'app.login'%}">INICIO</a></h1>
     {%if user.userprofile%}
     <a class="appgreen" href="{%url 'app.welcome'%}">MI CUENTA</a>
-    <a href="{%url 'app.uploadtrack'%}">Compartir Audio</a>
-
-    <a href="{%url 'app.createblog'%}">Crear Blog</a>
 
     {%endif%}
     {%if user.userprofile%}
     <a href="{%url 'app.categories'%}">Temas</a>
     <a href="{%url 'app.companies'%}">Empresas</a>
     {%else%}
-    <a href="{%url 'app.categories'%}">Tendencias</a>
     {%endif%}
     <a href="{%url 'app.inka'%}">Inkacoin</a>
     <a href="{%url 'app.dates'%}">Eventos</a>
@@ -157,17 +153,15 @@
 <!-- BARRA DEL MENU -->
 <div class="app-loginNav" id="app-loginNav">
 	<ul>
-	<h1><a href="{%url 'app.login'%}">CEANV</a></h1>
+	<h1><a href="{%url 'app.login'%}">UVAS</a></h1>
     {%if user.userprofile%}
     <a class="appgreen" href="{%url 'app.welcome'%}">MI CUENTA</a>
-    <a class="icon-audio" href="{%url 'app.uploadtrack'%}">Compartir Audio</a>
-    <a class="icon-blog" href="{%url 'app.createblog'%}">Crear Blog</a>
     {%endif%}
+    <a class="icon-us" href="{%url 'app.us'%}">Nosotros</a>
     <a class="icon-inka" href="{%url 'app.inka'%}">Inkacoin</a>
     {%if user.userprofile%}
     <a class="icon-company" href="{%url 'app.companies'%}">Empresas</a>
     {%else%}
-    <a class="icon-trends" href="{%url 'app.categories'%}">Tendencias</a>
     <a class="icon-company" href="{%url 'app.companies'%}">Empresas</a>
     {%endif%}
     {%if user.userprofile%}
@@ -176,11 +170,13 @@
     <a class="icon-admin" href="/admin/app/">Administración</a>
     {%endif%}
     {%else%}
-    <a class="icon-us" href="{%url 'app.us'%}">Nosotros</a>
     {%endif%}
+    {%if not user.userprofile%}
+<a href="{%url 'app.logins'%}" class="menu-ul-k" id="menu-ul-k">Inicie sesion</a>
+{%endif%}
     {%if user.userprofile%}
     {%else%}
-    <a class="appgreen" href="{%url 'app.signup'%}">Crear cuenta</a>
+    <a class="appgreen" href="{%url 'app.signup'%}">Registre una nueva cuenta</a>
     {%endif%}
 	<div class="appcall">
         {%if user.userprofile%}
@@ -192,9 +188,7 @@
         {%endif%}
         {%endif%}
     </div>
-        {%if not user.userprofile%}
-<a href="{%url 'app.logins'%}" class="menu-ul-k" id="menu-ul-k">Ingresar</a>
-{%endif%}
+
 	</ul>
 </div>
 <!-- FINAL DE LOS MENU. FUNCIONES Y ESTILOS -->

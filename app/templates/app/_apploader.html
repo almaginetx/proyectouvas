@@ -11,7 +11,7 @@
             function loading(){
                 $("#appsite").load('{%url 'app.app'%}');
                 }
-            setTimeout(loading, 3000);
+            setTimeout(loading, 1000);
 		};
         function appeventos(){
             document.getElementById('apploader').className = 'appopen';
@@ -19,7 +19,7 @@
             function loading(){
                 $("#appsite").load('{%url 'app.dates_app'%}');
                 }
-            setTimeout(loading, 3000);
+            setTimeout(loading, 1000);
 		};
         function appcharge(){
             document.getElementById('apploader').className = 'appopen';
@@ -27,7 +27,7 @@
             function loading(){
                 $("#appsite").load('{%url 'app.charge_app'%}');
                 }
-            setTimeout(loading, 3000);
+            setTimeout(loading, 1000);
 		};
         function appfriends(){
             document.getElementById('apploader').className = 'appopen';
@@ -35,23 +35,23 @@
             function loading(){
                 $("#appsite").load('{%url 'app.friends_view'%}');
                 }
-            setTimeout(loading, 3000);
+            setTimeout(loading, 1000);
         };
         function appAddTrack(){
             document.getElementById('apploader').className = 'appopen';
             $("#appsite").load('{%url 'app.loading_app'%}');
             function loading(){
-                $("#appsite").load('{%url 'app.uploadtrack'%}');
+                $("#appsite").load('{%url 'app.f_uploadtrack'%}');
                 }
-            setTimeout(loading, 3000);
+            setTimeout(loading, 1000);
         };
         function appUpdateAvatar(){
             document.getElementById('apploader').className = 'appopen';
             $("#appsite").load('{%url 'app.loading_app'%}');
             function loading(){
-                $("#appsite").load('{%url 'app.updateavatar' user.userprofile.slug%}');
+                $("#appsite").load('{%url 'app.f_updateavatar'%}');
                 }
-            setTimeout(loading, 3000);
+            setTimeout(loading, 1000);
         };
         function appUpdatenickname(){
             document.getElementById('apploader').className = 'appopen';
@@ -59,7 +59,7 @@
             function loading(){
                 $("#appsite").load('{%url 'app.updatenickname' user.userprofile.slug%}');
                 }
-            setTimeout(loading, 3000);
+            setTimeout(loading, 1000);
         };
         
 </script>

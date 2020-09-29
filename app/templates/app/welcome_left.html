@@ -1,0 +1,12 @@
+	{% if message %}
+    <h4 class="message">{{message}}</h4>
+    {%else%}
+    <h4 class="message">Bienvenido a tu cuenta {{user.userprofile.nickname}}</h4>
+    {%endif%}
+     {% include 'app/_inkacoinprice.html'%}
+     {% include 'app/_welcomeAudios.html'%}
+     {% include 'app/_homeProfiles.html'%}
+     {% include 'app/_products.html'%}
+    {% include 'app/_useroptions.html'%}
+    
+

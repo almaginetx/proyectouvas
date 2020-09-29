@@ -322,8 +322,12 @@ def updateavatar_view(request, slug):
     # Y mostramos los datos
     return render(request, 'app/updateavatar.html', context)
 
-def updateavatarload(request):
-    template = 'app/_updateavatarload.html'
+def f_updateavatar(request):
+    template = 'app/-frame_updateavatar.html'
+    return render_to_response(template,locals(),context_instance=RequestContext(request))
+
+def f_uploadtrack(request):
+    template = 'app/-frame_uploadtrack.html'
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
 @login_required

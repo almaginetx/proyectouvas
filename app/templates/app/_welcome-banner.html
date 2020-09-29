@@ -1,0 +1,87 @@
+<div class="appbanner">
+    <div class="appcortain">
+        <div class="appleft">
+        
+            <figure class="appavatar">
+            <a class="float" href="javascript:appUpdateAvatar()">
+            <img src="/static/img/icons/61.png">
+            </a>
+                {%if user.userprofile.avatar%}
+                <img src="/media/{{user.userprofile.avatar}}">
+                {%else%}
+                <img src="/static/img/uva.png">
+                {%endif%}
+            </figure>
+            <h2>{{user.userprofile}}</h2>
+        
+        </div><div class="appright">
+         <p class="miwallet">Tarjeta de adquisición virtual Inkacoin</p>
+            <div class="wallet">
+            <table>
+            <td><figure><img class="wikclogo" src="/static/img/inkas.png"></figure></td>
+            <td class="wright">
+            <h3>{{wallet.total}} INKACOINS</h3>
+            <a class="chargew" href="javascript:appcharge();">Comprar Inkacoins</a>
+            </td>
+            </table>
+            <table>
+                <td>
+                <p class="ikcw">{{user.userprofile}}</p>
+                <p class="ikcw">Wallet ID: {{wallet.slug}}</p>
+                <p class="datew">Apertura de cuenta: {{wallet.create_at}}</p>
+                <div class="mailw"><p>Email: {{user.userprofile.user}}</p></div>
+                </td>
+            </table>
+            </div> 
+            <br>
+        </div>
+    </div>
+    <div class="welcome-navs">
+    <a class="cesta" href="{%url 'app.cart'%}">Lista de compras ( <span id="carro"></span> )</a>
+    <a class="cesta" href="{%url 'app.products'%}">Mercado Inkacoin</a>
+    <a class="cesta" href="{%url 'app.owners' %}">Mis compras realizadas</a>
+    <a class="cesta" href="{%url 'app.createblog'%}">Crea un tema</a>
+    <a class="cesta" href="{%url 'app.uploadtrack'%}">Crea un audio</a>
+    {%if user.userprofile.admin == 1%}
+    <a class="cesta" href="/admin/app/">Administración</a>
+    {%endif%}
+    <a class="cesta" href="{%url 'app.logout'%}">Cerrar sesion</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+var carro = 0;
+{%for cart in cart%}
+{%if cart.owner.id == user.userprofile.id%}
+carro = carro + 1;
+{%endif%}
+{%endfor%}
+ document.getElementById("carro").innerHTML=carro;
+ document.getElementById("carro2").innerHTML=carro;
+</script>
+<script type="text/javascript">
+function openlogin(){
+     if(document.getElementById('appRnav').className == 'appRnav')
+      {
+       document.getElementById('appRnav').className = 'appRnavOpen';
+       document.getElementById('menu-ul-r').className = 'menu-ul-r-c';
+       document.getElementById('rmenu').className = 'rmenu-c';
+       document.getElementById('menu-ul-l').className = 'menu-ul-l';
+            } else {
+            document.getElementById('appRnav').className = 'appRnav';
+            document.getElementById('menu-ul-r').className = 'menu-ul-r';
+            }                     
+    } 
+function openmenu(){
+     if(document.getElementById('rmenu').className == 'rmenu')
+      {
+       document.getElementById('rmenu').className = 'rmenu-c';
+       document.getElementById('menu-ul-l').className = 'menu-ul-l';
+            } else {
+            document.getElementById('rmenu').className = 'rmenu';
+            document.getElementById('menu-ul-l').className = 'menu-ul-l-c';
+            document.getElementById('appRnav').className = 'appRnav';
+            document.getElementById('menu-ul-r').className = 'menu-ul-r';
+            }                     
+    } 
+</script>

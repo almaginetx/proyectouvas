@@ -1,106 +1,22 @@
 {% include 'app/_header.html'%}
-{% include 'app/_nav.html'%}
-
-<style type="text/css">
-.universal{padding-left: 51px;}
-.green{color: green;}
-.notice{background:white;padding:10px;}
-.notice h3{color:black;font-size:14px;text-align:center;}
-.miwallet{color:white;background:rgba(0,0,0,0.6);font-size: 13px;padding:6px;border-radius:6px;margin-bottom: 3px;}
-.message{height:44px;padding:10px;color:white;font-weight:normal;background:#333;text-align:left;}
-.appbanner{height:auto;background: url(/static/img/back03.jpg)no-repeat center center;background-size:cover;background-attachment: fixed;}
-.appcortain{background:rgba(0,0,0,0.2);width:100%;height:auto;padding:20px;}
-.wallet{padding:10px;width:100%;height:auto;background:#077486;border-radius:10px;}
-.wikclogo{width:80px;}
-.ikcw{color:#fff;font-size:11px;}
-.figure{padding:10px;}
-.datew{font-size:12px;color:#ece2e2;}
-.mailw{width:100%;text-align:right;}
-.mailw p{font-size.12px;color:white;font-size:10px;}
-.chargew{background:#eaba0c;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;font-size: 14px;}
-.wright{text-align:right;width:150px;}
-.wallet table h3{font-size:24px;font-weight:bold;color:white;text-align:right;}
-.cesta{background:#eaba0c;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;border: 2px solid #077486}
-
-.appleft{display:inline-block;vertical-align:top; width:70%;}
-.appright{display:inline-block;vertical-align:top; width:29%;}
-.appavatar{border-radius:50%;position:relative;display:inline-block;padding:16px;background:rgba(255,255,255,0.5);height:100%;}
-.appavatar img{width:120px;height:120px;border-radius:50%;opacity:1;}
-.appavatar img:hover{opacity:0.8;}
-.appleft h2{font-size:36px;color:white;padding:10px;dispĺay:block;}
-.float{z-index:2;border-radius:50%;position:absolute;background:rgba(0,0,0,0.8);padding:5px;display:inline-block;top:5px;left:5px;}
-.float img{width:26px;height:26px;}
-
-@media screen and (max-width:1000px){
-    .appleft{display:inline-block;vertical-align:top; width:100%;}
-    .appright{display:inline-block;vertical-align:top; width:100%;}
-}
-</style>
-
+{% include 'app/-css_welcome.html'%}
 
 <div class="universal">
-    <!--PANTALLA PRINCIPAL DE BIENVENIDA -->
-    {% if message %}
-    <h4 class="message">{{message}}</h4>
-    {%else%}
-    <h4 class="message">Bienvenido a tu cuenta {{user.userprofile.nickname}}</h4>
-    {%endif%}
-    <div class="appbanner">
-    <div class="appcortain">
+<!--WELCOME APP -->
+    <div class="welcome-container">
 
-     <div class="appleft">
-        
-        <figure class="appavatar">
-        <a class="float" href="javascript:appUpdateAvatar()">
-        <img src="/static/img/icons/61.png">
-        </a>
-            {%if user.userprofile.avatar%}
-            <img src="/media/{{user.userprofile.avatar}}">
-            {%else%}
-            <img src="/static/img/uva.png">
-            {%endif%}
-        </figure>
-        <h2>{{user.userprofile}}</h2>
-        <a class="cesta" href="{%url 'app.owners' %}">Mis compras realizadas</a>
-     </div><div class="appright">
-     <p class="miwallet">Tarjeta de adquisición virtual Inkacoin</p>
-        <div class="wallet">
-        <table>
-        <td><figure><img class="wikclogo" src="/static/img/inkas.png"></figure></td>
-        <td class="wright">
-        <h3>{{wallet.total}} IKC</h3>
-        <a class="chargew" href="javascript:appcharge();">Comprar Inkacoins</a>
-        </td>
-        </table>
-        <table>
-            <td>
-            <p class="ikcw">Wallet:</p>
-            <p class="ikcw">{{wallet.slug}}</p>
-            <p class="datew">{{wallet.create_at}}</p>
-            <div class="mailw"><p>{{user.userprofile.user}}</p></div>
-            </td>
-        </table>
-        </div> 
-        <br>
-        
-     </div>
+        {% include 'app/_welcome-banner.html'%}
 
-    </div>
+        <div class="welcome-left" id="welcome-left">
+            {% include 'app/welcome_left.html'%}
+        </div><div class="welcome-right" id="welcome-right">
+            <h4 class="message">Comienza explorando temas</h4>
+            {% include 'app/_homeblogs.html'%}
+        </div>
     </div>
 
-     {% include 'app/_inkacoinprice.html'%}
-     {% include 'app/_welcomeAudios.html'%}
-     {% include 'app/_homeProfiles.html'%}
-     {% include 'app/_products.html'%}
-    {% include 'app/_useroptions.html'%}
-    </div>
-    {% include 'app/_menuapps.html'%}
-</div>
+<!--END WELCOME APP -->
+{% include 'app/_menuapps.html'%}
 {% include 'app/_footer.html'%}
 
-<script type="text/javascript">
-        function comprar()
-        {
-            alert("Actualización en el sistema, regrese más tarde");
-            }
-    </script>
+</div>

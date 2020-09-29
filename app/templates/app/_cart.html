@@ -2,29 +2,36 @@
 <div class="cart">
 <h2>Bienvenido a tu lista de compras {{user.userprofile.nickname}}</h2>
 <h3>{{message}}</h3>
+<br>
 {%for cart in cart%}
 {%if cart.owner.id == user.userprofile.id%}
 <article>
 <p>Producto: {{cart.product.title}}</p>
+<img src="/media/{{cart.product.picture}}">
 <p>Costo: <span id="inkc{{cart.id}}"></span> IKC Inkacoins.</p>
 <ul><a href="{% url 'app.deletecart' cart.slug%}">Eliminar</a></ul>
 </article>
 <script type="text/javascript">
 	var ikc{{cart.id}} = {{config.inkacoin}};
 	var inkc{{cart.id}} = {{cart.product.price}} / ikc{{cart.id}};
+    inkc{{cart.id}} = new Intl.NumberFormat().format(inkc{{cart.id}});
 	document.getElementById("inkc{{cart.id}}").innerHTML=inkc{{cart.id}};
 	</script>
 {%endif%}
 {%endfor%}
+<br>
 <h2>Total a pagar: <span id="total"></span> IKC Inkacoins</h2>
-<h4>Usted posee {{wallet.total}} IKC</h4>
+<br>
+<h4>Usted posee {{wallet.total}} Inkacoins</h4>
 <div id="nones">
 <h4>Si realiza esta compra su saldo será: <span id="saldo"></span> IKC</h4>
  <div id="loader" class="loading"></div>
+ <br>
  <ul><a class="cesta" href="javascript:confirmar();">Confirmar compra</a></ul>
  </div>
  <div id="none" class="nones">
- <ul><a class="cestas" href="{%url 'app.welcome'%}">Recargue su tarjeta virtual IKC</a></ul>
+ <br>
+ <ul><a class="cestas" href="{%url 'app.welcome'%}">Recargue su tarjeta virtual comprando Inkacoins</a></ul>
 </div>
 <script type="text/javascript">
 {%for cart in cart%}
@@ -41,8 +48,11 @@ cant{{cart.id}} +
 0;
 var ikc = {{config.inkacoin}};
 var suma = sum / ikc;
+suma = new Intl.NumberFormat().format(suma);
 wal = {{wallet.total}};
+wal = new Intl.NumberFormat().format(wal);
 sal = wal - suma;
+sal = new Intl.NumberFormat().format(sal);
 document.getElementById("total").innerHTML=suma;
 document.getElementById("saldo").innerHTML=sal;
 if (wal < suma){
@@ -73,10 +83,15 @@ function confirmar(){
 {%endfor%}
 </div>
 <style type="text/css">
-.cart{background:white;padding:10px;}
-.cart article{margin:3px;padding:10px;border:1px solid black;}
+.cart{background:#9854ff;padding:10px;}
+.cart article{margin:3px;padding:10px;color:black;background:white;width: 300px;}
+.cart img{width: 100%;}
+.cart h2{color:white;background: #9854ff;}
 .loader{position:fixed;top:0;left:0;z-index:100;width:100%;height:100%;background: white url(/static/img/loading.gif) no-repeat center center;background-size:200px;}
 .loading{display:none;}
 .cesta{background:#06e969;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
-.cestas{background:#3a95e6;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
+.cestas{background:#eaba0c;color:#fff;padding:10px 20px;border-radius:10px;display:inline-block;}
+@media screen and (max-width:1000px){
+.cart article{margin:3px;padding:10px;color:black;background:white;width: 100%;}
+    }
 </style>
