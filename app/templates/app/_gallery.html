@@ -1,0 +1,9 @@
+<p class="imglist" style="max-width: 1000px;">
+{%for product in product%}
+  <a href="/media/{{product.picture}}" data-fancybox="images">
+    <img src="/media/{{product.picture}}" />
+  </a>
+{%endfor%}
+</p>
+
+  <script src="/static/jquery.fancybox.min.js"></script>

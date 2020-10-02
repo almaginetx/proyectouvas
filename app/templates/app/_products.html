@@ -31,7 +31,7 @@
 
 				<article id="product-article{{product.id}}">
 					<div class="p-img">
-					<a href="{% url 'app.addcart' product.slug%}">
+					<a data-fancybox="images" href="/media/{{product.picture}}" data-caption="{{product.title}}">
 					<img src="/media/{{product.picture}}">
 					</a>
 					</div>
@@ -69,3 +69,5 @@
 {%endif%}
 <br>
 </div>
+
+<script src="/static/jquery.fancybox.min.js"></script>
