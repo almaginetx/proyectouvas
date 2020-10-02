@@ -31,7 +31,7 @@
 
 				<article id="product-article{{product.id}}">
 					<div class="p-img">
-					<a data-fancybox="images" href="/media/{{product.picture}}" data-caption="{{product.title}}">
+					<a data-fancybox="watermark" href="/media/{{product.picture}}" data-caption="{{product.title}}">
 					<img src="/media/{{product.picture}}">
 					</a>
 					</div>
@@ -71,3 +71,32 @@
 </div>
 
 <script src="/static/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript">
+		$('[data-fancybox="watermark"]').fancybox({
+  protect    : true,
+  slideClass : 'watermark',
+  toolbar    : true,
+  smallBtn   : true,
+  loop: true,
+  slideShow: {
+    autoStart: true,
+    speed: 5000
+  },
+});
+
+// Preload watermark image
+// Please, use your own image
+(new Image()).src = "/static/img/uva.png";
+</script>
+
+<style type="text/css">
+	.fancybox-slide.watermark .fancybox-spaceball {
+  background-image: url('/static/img/uva.png');
+  background-size: 50px;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  margin: 5px;
+}
+
+</style>
