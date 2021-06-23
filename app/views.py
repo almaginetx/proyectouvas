@@ -1094,7 +1094,6 @@ def ikc_app(request, currency):
     template = 'app/_monto.html'
     currency = currency
     currency = float(currency)
-    persona = request.user.userprofile
     config = Config.objects.get(active = 1)
     config.inkacoin = currency
     config.save()
@@ -1146,7 +1145,6 @@ def ikcdown_app(request, bajada):
     template = 'app/_monto.html'
     bajada = bajada
     bajada = float(bajada)
-    persona = request.user.userprofile
     config = Config.objects.get(active = 1)
     config.minimo = bajada
     config.save()
@@ -1157,7 +1155,6 @@ def ikcup_app(request, subida):
     template = 'app/_monto.html'
     subida = subida
     subida = float(subida)
-    persona = request.user.userprofile
     config = Config.objects.get(active = 1)
     config.maximo = subida
     config.save()
