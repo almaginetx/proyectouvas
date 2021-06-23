@@ -1,7 +1,9 @@
-*media/
-media/
-media/*
+#*media/
+static/uvas2021.sql
+#media/
+#media/*
 *cert/
+certs/
 cert/
 cert/*
 *more/
