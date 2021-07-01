@@ -13,7 +13,7 @@ more/*
 #/app/migrations/
 *.pyc
 *.swp
-*initial.py
+initial.py
 #AlmaginetxPlay/settings.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
