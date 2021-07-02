@@ -14,7 +14,7 @@ more/*
 *.pyc
 *.swp
 initial.py
-#AlmaginetxPlay/settings.py
+AlmaginetxPlay/settings.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
