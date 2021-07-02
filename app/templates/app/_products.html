@@ -27,7 +27,7 @@
 {%if product%}
 <h1>Adquiere productos y servicios en el mercado digital de Inkacoin</h1>
 
-    	{%for product in product%}
+    	{%for product in product|slice:":8"%}
 
 				<article id="product-article{{product.id}}">
 					<div class="p-img">
